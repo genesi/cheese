@@ -586,22 +586,18 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
   {
     cheese_camera_set_error_element_not_found (error, "audioconvert");
   }
-  if ((audio_enc = gst_element_factory_make ("vorbisenc", "audio_enc")) == NULL)
+  /*if ((audio_enc = gst_element_factory_make ("vorbisenc", "audio_enc")) == NULL)
   {
     cheese_camera_set_error_element_not_found (error, "vorbisenc");
-  }
+  }*/
 
   if ((video_save_csp = gst_element_factory_make ("ffmpegcolorspace", "video_save_csp")) == NULL)
   {
     cheese_camera_set_error_element_not_found (error, "ffmpegcolorspace");
   }
-  if ((video_enc = gst_element_factory_make ("theoraenc", "video_enc")) == NULL)
+  if ((video_enc = gst_element_factory_make ("mfw_vpuencoder", "video_enc")) == NULL)
   {
-    cheese_camera_set_error_element_not_found (error, "theoraenc");
-  }
-  else
-  {
-    g_object_set (video_enc, "keyframe-force", 1, NULL);
+    cheese_camera_set_error_element_not_found (error, "mfw_vpuencoder");
   }
 
   if ((video_save_rate = gst_element_factory_make ("videorate", "video_save_rate")) == NULL)
@@ -618,15 +614,9 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
     g_object_set (video_save_scale, "method", 1, NULL);
   }
 
-  if ((mux = gst_element_factory_make ("oggmux", "mux")) == NULL)
+  if ((mux = gst_element_factory_make ("avimux", "mux")) == NULL)
   {
-    cheese_camera_set_error_element_not_found (error, "oggmux");
-  }
-  else
-  {
-    g_object_set (G_OBJECT (mux),
-                  "max-delay", (guint64) 10000000,
-                  "max-page-delay", (guint64) 10000000, NULL);
+    cheese_camera_set_error_element_not_found (error, "avimux");
   }
 
   if ((priv->video_file_sink = gst_element_factory_make ("filesink", "video_file_sink")) == NULL)
@@ -638,7 +628,7 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
     return FALSE;
 
   gst_bin_add_many (GST_BIN (priv->video_save_bin), priv->audio_source, audio_queue,
-                    audio_convert, audio_enc, video_save_csp, video_save_rate, video_save_scale, video_enc,
+                    audio_convert, video_save_csp, video_save_rate, video_enc,
                     mux, priv->video_file_sink, NULL);
 
   /* add ghostpad */
@@ -648,9 +638,9 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
 
 
   ok = gst_element_link_many (priv->audio_source, audio_queue, audio_convert,
-                              audio_enc, mux, priv->video_file_sink, NULL);
+                              mux, priv->video_file_sink, NULL);
 
-  ok &= gst_element_link_many (video_save_csp, video_save_rate, video_save_scale, video_enc,
+  ok &= gst_element_link_many (video_save_csp, video_save_rate, video_enc,
                                NULL);
   ok &= gst_element_link (video_enc, mux);
 
