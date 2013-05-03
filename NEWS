@@ -1,0 +1,1262 @@
+ChangeLog for Cheese
+--------------------
+
+version 2.32.0
+  - Added/Updated Translations
+    - ca, courtesy of Gil Forcada
+    - cs, courtesy of Marek Černocký
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - nl, courtesy of Reinout van Schouwen
+    - pt_BR, courtesy of Daniel S. Koda
+    - ru, courtesy of Yuri Myasoedov
+    - ug, courtesy of Gheyret Kenji
+
+version 2.31.92
+  - Added/Updated Translations
+    - da, courtesy of Anders Jenbo
+    - de, courtesy of Christian Kirbach
+    - id, courtesy of Andika Triwidada
+    - ja, courtesy of Takayuki KUSANO
+    - kk, courtesy of Baurzhan Muftakhidinov
+    - pl, courtesy of Tomasz Dominikowski
+    - pt, courtesy of Duarte Loreto
+    - zh_CN, courtesy of YunQiang Su
+
+version 2.31.91
+  - camera: emit video-saved signal by name in gst threads
+    Static camera_signals array is not initizialized in the gstreamer thread
+    so we get a critical assertion failed (signal_id > 0) if we emit by id.
+    This should workaround the issue.
+
+    https://bugzilla.gnome.org/show_bug.cgi?id=620637
+  - Added/Updated Translations
+    - ar, courtesy of Khaled Hosny
+    - bg, courtesy of Krasimir Chonov
+    - el, courtesy of Michael Kotsarinis
+    - en_GB, courtesy of Philip Withnall
+    - et, courtesy of Mattias Põldaru
+    - fr, courtesy of Pablo Martin-Gomez
+    - he, courtesy of Yaron Shahrabani
+    - hu, courtesy of Gabor Kelemen
+    - it, courtesy of Alessandro Falappa
+    - nb, courtesy of Kjartan Maraas
+    - sr, courtesy of Милош Поповић
+    - sr@latin, courtesy of Miloš Popović
+    - sv, courtesy of Daniel Nylander
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+  - Added/Updated Documentation
+
+version 2.31.90
+  - Added menu option to toggle flash when taking a picture.
+  - Made escape key always hide the Effects pane if it is visible.
+  - Print correct product id in device monitor debugging
+  - Do not create a device if gst initializazion fails
+  - Added/Updated Translations
+    - en@shaw, courtesy of Thomas Thurman
+    - es, courtesy of Jorge González
+    - gl, courtesy of Fran Dieguez
+    - ka, courtesy of Vladimer Sichinava
+    - kn, courtesy of Shankar Prasad
+    - or, courtesy of Manoj Kumar Giri
+    - pa, courtesy of A S Alam
+    - sl, courtesy of Matej Urbančič
+    - te, courtesy of Krishna Babu K
+    - zh_CN, courtesy of Yinghua Wang
+  - Added/Updated Documentation
+    - sl, courtesy of Andrej Žnidaršič
+
+version 2.30.1
+  - menu: disable Take Photo when there is no camera.
+    Fixes bug 615002, courtesy of Yuvaraj Pandian
+  - effects: fix a text rendering problem.
+    Fixes bug 613287, courtesy of Mathias Clasen
+  - build: enable GSEAL
+  - all: use accessor functions instead direct access.
+    Fixes bug 585210, courtesy of Javier Jardon.
+  - Added/Updated Translations
+    - ast, courtesy of Xandru Armesto
+    - bn_IN, courtesy of Runa Bhattacharjee
+    - ca@valencia, courtesy of Gil Forcada
+    - id, courtesy of Andika Triwidada
+    - ja, courtesy of Hideki Yamane (Debian-JP)
+    - kn, courtesy of Shankar Prasad
+    - ms, courtesy of Umarzuki Bin Mochlis Moktar
+    - th, courtesy of Theppitak Karoonboonyanan
+  - Added/Updated Documentation
+
+version 2.30.0
+  - countdown: move rsvg_init and rsvg_term into main
+    Initialize rsvg at startup and clean it up at exit.
+    Fixes a long standing bug that made cheese crash when going fullscreen
+    with button and window sounds enabled. Fixes bug #592100.
+  - window: set the main button label to "Stop recording" while recording.
+    Little regression introduced in 2.29.90. Fixes bug #613421
+  - widget: use dialog-error icon
+    The "error" icon used before doesn't exist in gnome-icon-theme 2.29 and
+    causes crashes. Use "dialog-error" instead. Fixes #613067
+  - Added/Updated Translations
+    - bn, courtesy of Sadia Afroz
+    - cs, courtesy of Petr Kovar
+    - da, courtesy of Anders Jenbo
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - gu, courtesy of Sweta Kothari
+    - it, courtesy of Alessandro Falappa
+    - ko, courtesy of Changwoo Ryu
+    - lt, courtesy of Žygimantas Beručka
+    - lv, courtesy of Peteris Krisjanis
+    - nn, courtesy of Torstein Adolf Winterseth
+    - pa, courtesy of A S Alam
+    - sr, courtesy of Бранко Кокановић
+    - sr@latin, courtesy of Branko Kokanović
+    - uk, courtesy of Maxim V. Dziumanenko
+  - Added/Updated Documentation
+    - cs, courtesy of Lucas Lommer
+    - el, courtesy of Marios Zindilis
+
+version 2.29.92
+  - widget: restore saved balance settings at startup
+    Restore balance (brightness, saturation, hue) settings, saved in gconf,
+    when the camera is initialized. Fixes bug 610823.
+  - camera: fix a shameful pointless g_return_if_fail that prevented
+    resolution changin from preferences.
+  - docs: complete api docs for CheeseCameraDeviceMonitor
+  - Added/Updated Translations
+    - ca, courtesy of Gil Forcada
+    - el, courtesy of Kostas Papadimas
+    - en_GB, courtesy of Bruce Cowan
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - fi, courtesy of Tommi Vainikainen
+    - hu, courtesy of Gabor Kelemen
+    - nb, courtesy of Kjartan Maraas
+    - pt, courtesy of Duarte Loreto
+
+version 2.29.91
+  * cheese:
+    - Restore the infobar temporarily disabled in the previous version
+    - Make the infobar display generic errors about camera
+      initialization instead of just the "no-device" one.
+
+  * libcheese-gtk:
+    - Remove "ready" and "error" signals in CheeseWidget and use a
+      "state" property to track current widget state (none, ready,
+      error).
+    - Add cheese_widget_get_error() api to retrieve a GError (propagated
+      from CheeseCamera) if something failed (widget in error state).
+    - Update CheeseAvatarChooser to reflect the new api.
+
+  * Fixed bugs:
+      #592663 — Update sensitivity of "move all to trash", Mathias Clasen
+
+  * Added/Updated Translations
+    - de, courtesy of Wolfgang Stoeggl
+    - gl, courtesy of Fran Diéguez
+    - ja, courtesy of Hideki Yamane (Debian-JP)
+    - pl, courtesy of Piotr Drąg
+    - ro, courtesy of Adi Roiban
+    - ru, courtesy of Alexander Saprykin
+    - sv, courtesy of Daniel Nylander
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+version 2.29.90
+
+  * Export libcheese-gtk library
+  * Rework Cheese itself to use libcheese-gtk
+  * Add cropping ability to the chooser widget
+  * Fix a possible crasher and a hang in CheeseCamera
+  * Require libgudev on Linux systems
+  * Limit framerate to 30 frames per second
+
+  * Updated German documentation
+
+version 2.29.5
+
+  A slightly different format for these release notes.
+  We missed a couple of releases in the 2.29 cycle and the big changes
+  cheese went through meanwhile deserves something better than a cold
+  list of commit messages.
+  Big thanks go to Bastien Nocera who took up most longstanding items
+  in our TODO list and implemented them right away.
+  So let's see what happened since 2.28. Note that most of the following
+  stuff is still a work in progress so don't expect everything listed to
+  be completed.
+
+  * Completely dropped HAL dependency
+    Port most HAL code for v4l capability probing into udev and use
+    gudev in cheese to take advantage of it.
+    Add infrastructure (CheeseCameraDeviceMonitor) for dynamic
+    device hotplugging (UI yet to come).
+    Add optional udev dependency and provide a simple entry point
+    for non linux platforms that will want to use their custom
+    detection code (still waiting for patches).
+
+  * First steps in splitting cheese code into two libraries
+    - libcheese-common
+      Will provide basic non UI related cheese functions: basically,
+      device detection, device monitoring, video format handling.
+    - libcheese-gtk
+      A set of widgets that will allow third party application to
+      include parts of cheese functionality (e.g. the avatar chooser
+      will soon embed a viewfinder for quickly shooting a nice
+      buddy icon). Ideally cheese will be soon based on this set of
+      widgets being the first user of our own library.
+
+  * Rework most of device capability handling code
+    Rewrite caps detection code trying to use gstreamer api instead of
+    our own custom stuff whenever possible.
+    Remove framerate retrieving code since we didn't use it since a
+    couple of releases.
+
+  * Make startup slightly faster
+    Probe device capabilities in PAUSED state instead of PLAYING.
+    This was actually a workaround for a now fixed gstreamer bug (See
+    #587082).
+    Just a two line change but cheese is notably faster now!
+
+  * Cosmetic changes
+    Remove all the fake webcam code and use a still error image when
+    no webcam is available.
+    Drop EphySpinner in favor of the new GtkSpinner. Invert colors to
+    make it sexier.
+    Remove actions (SendTo stuff) from the contextual menu. It wasn't
+    exactly the best way to interoperate with the desktop. And most of
+    them worked suboptimally anyway.
+
+  * Move to GST_DEBUG (first steps, probably needs work)
+    We use gstreamer anyway, why not to take full advantage of it?
+    Gstreamer debug infrastructure is really cool and surely a lot
+    better than our previous g_prints.
+
+  * Fixed bugs
+    #598902 — Make flash window a popup
+    #594966 — Drop HAL
+    #603595 — Add a photo-taken signal, which passes a pixbuf
+    #522199 — First pass at webcam widget for use in other applications
+    #598445 — Use GtkSpinner instead of our own
+    #603152 — Use libcanberra instead of GStreamer for shutter
+    #603161 — Make CheeseGConf a singleton object
+    #603162 — Make CheeseFileUtil a singleton
+    #603167 — Avoid warnings on exit when playback hasn't started
+    #595005 — Use a custom filename to group burst mode pictures
+    #596535 — String fixes
+
+  * Added/Updated Translations
+    - en_GB, courtesy of Philip Withnall
+    - en@shaw, courtesy of Thomas Thurman
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - gl, courtesy of a
+    - he, courtesy of Yaron Shahrabani
+    - lt, courtesy of Gintautas Miliauskas
+    - lv, courtesy of Rūdolfs Mazurs
+    - nb, courtesy of Kjartan Maraas
+    - nds, courtesy of Nils-Christoph Fiedler
+    - pa, courtesy of A S Alam
+    - ru, courtesy of Alexandre Prokoudine
+    - sl, courtesy of Matej Urbančič
+    - sv, courtesy of Daniel Nylander
+    - ta, courtesy of Dr.T.Vasudevan
+    - th, courtesy of อาคม โชติพันธวานนท์
+    - uk, courtesy of Maxim V. Dziumanenko
+    - zh_CN, courtesy of Tao Wei
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+  - Added/Updated Documentation
+    - es, courtesy of Jorge González
+    - zh_CN, courtesy of arccos (L.Q)
+
+version 2.28.0
+
+  - use _X-GNOME-FullName inside the .desktop file, fixes bug #590182
+  - fix the abortion of burst mode with the escape key, fixes bug #595073
+    burst mode can now be aborted with the Escape key, no matter if
+    the countdown is active or not.
+    when burst mode is running you could start it again with spacebar,
+    this has been disabled during the burst session.
+  - updated the dependencies
+  - Added/Updated Translations
+    - as, courtesy of Amitakhya Phukan
+    - ca, courtesy of Gil Forcada
+    - cs, courtesy of Lucas Lommer
+    - da, courtesy of Kenneth Nielsen
+    - de, courtesy of Mario Blättermann
+    - el, courtesy of Kostas Papadimas
+    - en_GB, courtesy of Bruce Cowan
+    - es, courtesy of Jorge González
+    - fr, courtesy of Claude Paroz
+    - gl, courtesy of Antón Méixome
+    - hi, courtesy of Rajesh Ranjan
+    - it, courtesy of Alessandro Falappa
+    - ja, courtesy of Takeshi AIHANA
+    - lt, courtesy of Gintautas Miliauskas
+    - mai, courtesy of Sangeeta Kumari
+    - mr, courtesy of Sandeep Shedmake
+    - oc, courtesy of Yannig Marchegay (Kokoyaya)
+    - pa, courtesy of A S Alam
+    - ro, courtesy of Adi Roiban
+    - sl, courtesy of Matej Urbančič
+    - te, courtesy of Krishna Babu K
+    - uk, courtesy of Maxim V. Dziumanenko
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+  - Added/Updated Documentation
+    - ca, courtesy of Joan Duran
+    - de, courtesy of Christian Kirbach
+    - el, courtesy of Μάριος Ζηντίλης
+    - en_GB, courtesy of Philip Withnall
+    - es, courtesy of Jorge Gonzalez
+    - fr, courtesy of Laurent Coudeur
+    - it, courtesy of RITA BANDIERA
+    - nl, courtesy of Sander Pientka
+    - oc, courtesy of Yannig Marchegay (Kokoyaya)
+    - pt_BR, courtesy of Leonardo Ferreira Fontenelle
+    - ru, courtesy of Vasiliy Faronov
+    - sv, courtesy of Daniel Nylander
+    - th, courtesy of Theppitak Karoonboonyanan
+    - zh_CN, courtesy of ccrecall
+
+version 2.27.92
+  - Added/Updated Translations
+    - ar, courtesy of Khaled Hosny
+    - bn, courtesy of Loba Yeasmeen
+    - bn_IN, courtesy of Runa Bhattacharjee
+    - fr, courtesy of Claude Paroz
+    - gu, courtesy of Sweta Kothari
+    - hu, courtesy of Gabor Kelemen
+    - kn, courtesy of Shankar Prasad
+    - ko, courtesy of Changwoo Ryu
+    - ml, courtesy of "Last-Translator: \n"
+    - or, courtesy of Manoj Kumar Giri
+    - pt, courtesy of Duarte Loreto
+    - pt_BR, courtesy of Djavan Fagundes
+    - sr, courtesy of Бранко Кокановић
+    - sr@latin, courtesy of Branko Kokanović
+    - ta, courtesy of I. Felix
+    - tr, courtesy of Baris Cicek
+  - Added/Updated Documentation
+    - el, courtesy of Μάριος Ζηντίλης
+
+version 2.27.91
+  - Restore default window size that was changed with the netbook-mode
+    merge.
+  - Prevent the thumbview to shrink down to nothing when there are no
+    items. Keep track of current items number and set a size request when
+    it reaches zero.
+  - Remove a bunch of hacks used in wide-mode switching to keep the video
+    area size constant. Do everything in a more proper, non hackish, way.
+    Fixes window "flickering" when switching to Wide Mode.
+  - Restore a <schema> keyword that got lost in the gconf schema, fixes
+    bug #591389, courtesy of Koop Mast
+  - Added/Updated Translations
+    - af, courtesy of F Wolff
+    - bg, courtesy of Alexander Shopov
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - fi, courtesy of Tommi Vainikainen
+    - ga, courtesy of Seán de Búrca
+    - gl, courtesy of Antón Méixome
+    - he, courtesy of Yaron Shahrabani
+    - hi, courtesy of Rajesh Ranjan
+    - nb, courtesy of Kjartan Maraas
+    - or, courtesy of Manoj Kumar Giri
+    - pl, courtesy of Piotr Drąg
+    - sv, courtesy of Daniel Nylander
+    - th, courtesy of Akom C.
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+version 2.27.90
+  - Drop HILDON mode. We used to have HILDON support once but it has
+    been broken for several major releases now. Better no support than
+    a partial and broken one.
+
+  - Merge netbook-mode branch. Introduces a new horizontal mode that
+    fits nicely in small screens where the vertical real estate is
+    limited (like netbooks). Commits summary follows.
+  - Enable wide mode at startup if enabled in gconf or if forced
+    through -w/--wide command line option. Save wide mode
+    state in a gconf key.
+  - Prevent icon view to shrink down when empty.
+  - Let the thumbview pick up its optimal size. Remove hard coded size
+    constraints for the icon view so that it picks up the best size
+    for the current children (i.e. centered items, even with no
+    selection, with every thumbnail size). Remove also extra
+    spacing between and around thumbnails.
+  - Correctly update thumbnav button sensitiveness. Force an update on
+    up and down button sensitiveness while switching mode.
+  - Keep size of the video preview area while switching mode. This way
+    the icon view moves from the bottom to the right side while the
+    rest of the window remains still.
+  - Add UI for dynamically switching to and from wide mode.
+    Add a WideMode action that triggers widget reparenting and changes
+    spacing the vertical mode.
+  - Add a function that sets the ThumbNav in vertical mode reparenting
+    widgets on the fly.
+  - Add a vertical mode for the ThumbNav. Add up and down buttons and
+    implement vertical scrolling logic.
+  - Reparent the icon view into the right aligment. First experiment
+    of an horizontal mode suited for netbooks.
+  - Make room for a vertical icon view in the right side. Add an hbox
+    and an alignment to contain the icon view in the yet to come
+    netbook mode.
+
+  - Set WARNING MessageType for the InfoBar.
+    Warning is certainly more suited since the missing webcam is not a fatal
+    error. Also, the red color for the error type is really ugly. This
+    lovely orange is much better.
+  - Remove *.glade files.
+    It is not recommended to use gtk-builder-convert anymore but to use
+    glade-3 directly on the .ui files
+  - Insensitize buttons and actions while "bursting".
+  - Take the first photo of a burst right after button press. Rework a
+    little bit burst mode to allow this.
+  - Add 256x256 Cheese icons, courtesy of Ulisse Perusin.
+  - Add tooltips to the buttons. Now that toolbar buttons have no
+    labels tooltips can be helpful to identify each button role.
+  - Add burst mode settings to preferences dialog. Allow to configure
+    amount of photos to take in a burst and delay between each one.
+  - Remove icon-size attribute of button icons. All icons have now the
+    same size and honour gtk theme settings.
+  - Add the scalable version of the take photo and burst icons.
+  - Add --version command line flag.
+
+  - post release version bump
+  - Added/Updated Translations
+    - ast, courtesy of astur
+    - ca@valencia, courtesy of Gil Forcada
+    - de, courtesy of Michael Kanis
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - fr, courtesy of Nicolas Repentin
+    - ga, courtesy of Seán de Búrca
+    - gl, courtesy of Antón Méixome
+    - nb, courtesy of Kjartan Maraas
+    - pl, courtesy of Tomasz Dominikowski
+    - sv, courtesy of Daniel Nylander
+    - ta, courtesy of Dr.T.Vasudevan
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+  - Added/Updated Documentation
+    - de, courtesy of Mario Blättermann
+    - fr, courtesy of Laurent Coudeur
+
+version 2.27.5
+  - add new photo and burst icons, courtesy of Ulisse Perusin
+  - remove the label of the photo and video modes
+  - support taking a series of photos, fixes bug #581997
+    this introduces the burst mode in cheese.
+    the burst mode allows to take a series of photos
+    with a configurable delay and number of photos
+  - Make webcam and resolution settings not sensitive if just 1 option
+    is available. If there are no options to choose, make the webcam and
+    resolution combo box insensitive, fixes bug #588353
+  - Added/Updated Translations
+    - it, courtesy of Alessandro Falappa
+    - ku, courtesy of Erdal Ronahi
+    - pt_BR, courtesy of Djavan Fagundes
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+  - Added/Updated Documentation
+    - es, courtesy of Jorge González
+
+version 2.27.4
+  - bump gtk+ requirement to 2.17.3
+  - ensure the drawing area has a native X11 window
+    With the new client-side-window gtk+ widgets do not always have a
+    native window anymore. We need an XID to give to GstXOverlay and embed
+    video into the application. This temporarily works around the issue
+    forcing a native window. Works around bug 588357
+  - use the camera-web icon instead of camera-video
+    we are using camera-web in the project logo/icon but camera-video for the
+    UI. it is more appropriate to use the camera-web icon as it's a) less
+    likely people will use camcorders with cheese b) there is bigger visual
+    distinction between camera-photo and camera-web than camera-photo and
+    camera-video.
+  - manually expose the window if not PLAYING
+    Draw a black background if the pipeline is starting up and the overlay
+    is still not ready to expose the drawing area.
+  - fix broken xoverlay management
+    For some reason this went unnoticed for a long time. We were calling
+    set_x_overlay right after setting PLAYING state (with no warranty that
+    the state change succeeded nor that an overlay was really there). The
+    only right way to do this is to wait for prepare-xwindow-id message. It
+    worked until now just because we've been extremely lucky.
+  - drop url and email handlers
+    Drop url and email handlers used in the about dialog since gtk+ 2.17.2
+    already provides that functionality built in.
+  - drop GEditMessageArea in favor of GtkInfoBar
+    Drop GEditMessageArea since it recently entered gtk+. Fixes bug #586545
+  - use AM_SILENT_RULES if available, fixes bug #587581
+  - Use accessor functions instead direct access, fixes bug #585210
+  - remove markup from translatable strings
+  - keybindings: add configure checks for needed X11 stuff
+    Check for XF86keysym.h availability and add a configure option to
+    disable Webcam Button listening. Copied from rhythmbox.
+  - add little program to emit fake webcam button events
+  - capture webcam buttons
+    Listen to XF86Webcam keypresses to capture webcam buttons. Should
+    work with every driver that correctly binds the input device to
+    KEY_CAMERA events. Fixes bug #521551
+  - remove padding from the take_picture button
+    Use alignment xscale property instead of padding in the take_picture
+    button. Doesn't fix but at least partly works around bug #573301 (the
+    button can now grow up and fill the whole free space with no padding
+    constraint).
+  - sanitize main toolbar structure
+    No real change, just some little restructuring of the glade toolbar
+    definition to make it easier to hack on.
+  - Added/Updated Translations
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - fr, courtesy of Jonathan Ernst
+    - he, courtesy of Yaron Shahrabani
+    - uk, courtesy of Maxim V. Dziumanenko
+  - Added/Updated Documentation
+    - it, courtesy of Rita Bandiera
+
+version 2.27.3
+  - Set default resolution to the highest one with a non jerky (higher than
+    15fps) framerate, fixes bug #585857
+  - Lower max-delay and max-page-delay oggmux properties from 5 to 0.5
+    seconds. Should prevent out of sync audio in recorded videos and
+    hopefully fix bug #585761
+  - Don't access effects string after free. This was causing the first effect
+    stored in gconf to not be restored at startup, fixes bug 584186
+  - Get rid of GtkAspectFrame, it doesn't really suit our needs, it hardcodes
+    an aspect ratio that obviously cannot be valid for every format webcams
+    support. Render the video directly to the drawing area with no external
+    aspect ratio restriction. Eventually fixes bug #559188 since the
+    aspectframe was adding some extra padding between the video and the window
+    border.
+  - Almost every available gstreamer videosink can display black bars around
+    the video keeping its aspect ratio. Enable it if available.
+    Black bars look a lot nicer than the grey color of the underlying
+    gtkwindow displayed with the aspectframe.
+  - Properly forward expose events to GstXOverlay.
+  - Avoid ugly flickering on window resize. Let gstxoverlay take full control
+    of the drawing area window. Prevent gtk from drawing the background and
+    remove the flickering caused by its internal double buffering.
+  - Remove initial black bars (at least for 4:3 webcams). Set a default window
+    size that fits nicely the video aspect ratio so that black bars are not
+    drawn until a manual resize.
+  - Added/Updated Translations
+    - ca, courtesy of Gil Forcada
+    - nb, courtesy of Kjartan Maraas
+    - sv, courtesy of Daniel Nylander
+    - ta, courtesy of Dr.T.Vasudevan
+  - Added/Updated Documentation
+    - el, courtesy of Simos Xenitellis
+
+version 2.27.2
+  - Ignore new photo requests if we are still waiting for an "handoff" signal
+    for the previous one, fixes bug #582902
+  - Fix a couple of trivial memory leaks in the thumbnail generator code, fixes
+    bug #578289
+  - Don't return if "image-loading" icon is not found, we will have an empty
+    pixbuf while the thumbnail thread is running but it is surely better than
+    no thumbnail at all, fixes bug #582240
+  - Added/Updated Translations
+    - de, courtesy of Nathan-J. Hirschauer
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - or, courtesy of Manoj Kumar Giri
+    - pa, courtesy of A S Alam
+    - th, courtesy of Akom C.
+  - Added/Updated Documentation
+    - el, courtesy of Simos Xenitellis
+
+version 2.27.1
+  - Improve preferences dialog making it more consistent with other GNOME
+    applications.
+  - Add support for brightness, contrast, saturation and hue adjustments,
+    fixes bug #558970.
+  - Replace deprecated gtk_action_connect_proxy calls with
+    gtk_activatable_set_related_action, fixes bug #571383.
+  - Bump gtk+ dependency to 2.16 (needed for gtk_scale_add_mark and
+    gtk_activatable_set_related_action).
+  - Archive old ChangeLog and autogenerate it on distribution from git log.
+  - Added cheese.doap file
+  - Added Filippo Argiolas to MAINTAINERS
+  - added/updated translations
+    - ar, courtesy of Khaled Hosny
+    - be, courtesy of Ягор Кур'яновіч
+    - es, courtesy of Jorge González
+    - kn, courtesy of Shankar Prasad
+
+version 2.26.0
+  - Lock gdk mutex in photo-saved and video-saved callbacks Those signals are emitted
+    within a gstreamer callback so outside the mainloop, hence the need for locking.
+    This fixes the flash locking issue and also the one about the grey thumbview
+    right after the flash, fixes bug #566098
+  - added/updated translations
+    - as, courtesy of Amitakhya Phukan
+    - bn_IN, courtesy of Runa Bhattacharjee
+    - ca, courtesy of Joan Duran
+    - cs, courtesy of Lucas Lommer
+    - de, courtesy of Mario Blättermann
+    - el, courtesy of Jennie Petoumenou
+    - fr, courtesy of Robert-André Mauchin
+    - gl, courtesy of Suso Baleato
+    - lt, courtesy of Vytautas Rėkus
+    - or, courtesy of Manoj Kumar Giri
+    - te, courtesy of Krishna Babu K
+    - th, courtesy of Theppitak Karoonboonyanan
+
+version 2.25.92
+  - Remove g_error calls where the error is not supposed to abort execution.
+    Replace them with more suited g_warnings, fixes bug #562179
+  - Print cheese verbose messages even if log dir doesn't exist, fixes bug #573573
+  - added/updated translations
+    - ro, courtesy of Adi Roiban
+    - sv, courtesy of Daniel Nylander
+
+version 2.25.91
+  - replace deprecated gtk symbols inside hildon code, fixes bug #571383, courtesy of Thomas Andersen
+  - added/updated translations
+    - es, courtesy of Jorge González
+    - et, courtesy of Mattias Põldaru
+    - ro, courtesy of Adi Roiban
+    - vi, courtesy of Clytie Siddall
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+version 2.25.90
+  - fixed lack of period at the end of a few paragraphs in the documentation,
+    adopted "screenshot" instead of "screen shot", fixes bug #566718, courtesy of Leonardo Ferreira Fontenelle
+  - reverse icon view scroll buttons scroll direction for RTL locales, fixes bug #566197, courtesy of Yair Hershkovitz
+  - added/updated translations
+    - de, courtesy of Hendrik Richter
+    - el, courtesy of Fotis Tsamis
+    - es, courtesy of Jorge González
+    - fr, courtesy of Claude Paroz
+    - ko, courtesy of Changwoo Ryu
+    - zh_CN, courtesy of 甘露(Gan Lu)
+
+version 2.25.4
+  - added/updated translations
+    - be@latin, courtesy of Ihar Hrachyshka
+    - lv, courtesy of Raivis Dejus
+    - pt_BR, courtesy of Leonardo Ferreira Fontenelle
+
+version 2.25.3
+  - single includes fix, fixes bug #563537, courtesy of Pedro Fragoso
+  - added/updated translations
+    - pa, courtesy of Amanpreet Singh Alam
+
+version 2.25.2
+  - print vendor and product id while probing devices. provide some more device informations for easier bug triaging.
+  - remove unnecesary include files, to meet GnomeGoal http://live.gnome.org/GnomeGoals/CleanupGTKIncludes
+  - don't use random access glist methods when accessing a list sequentially
+    and properly free list elements after use, fixes bug #560514 and #560347, courtesy of Giuseppe Fuggiano
+  - Use gtk_show_uri to open files and xdg-open i.s.o. gnome-open
+  - Use gtk_message_dialog_format_secondary_markup correctly
+  - print the cheese version if the -v flag is set
+  - add support for cams which support only one resolution, fixes bug #560032, courtesy of Hans de Goede
+  - added/updated translations
+    - es, courtesy of Jorge González
+    - ku, courtesy of Erdal Ronahi
+
+version 2.25.1
+  - change the default font of the countdown widget to bitstream vera sans bold
+  - drop libgnome/libgnome-vfs dependencies, fixes bug #556580, courtesy of Cosimo Cecchi
+  - exit correctly with unknown command line arguments, fixes bug #556084.
+  - change the ui behaviour of the fullscreen toolbar, to show always when in
+    effects chooser mode, fixes bug #548546
+  - added/updated translations
+    - ca, courtesy of Gil Forcada
+    - de, courtesy of Hendrik Richter
+    - es, courtesy of Jorge González
+    - fr, courtesy of Robert-André Mauchin
+    - he, courtesy of Mark Krapivner
+    - nb, courtesy of Kjartan Maraas
+    - nl, courtesy of Wouter Bolsterlee
+    - pt_BR, courtesy of Vladimir Melo
+    - sr, courtesy of Горан Ракић
+    - sr@latin, courtesy of Goran Rakić
+    - th, courtesy of Theppitak Karoonboonyanan
+    - uk, courtesy of Maxim V. Dziumanenko
+
+version 2.24.0
+  - correct an error in the help file, which prevented the document to be valid
+  - update the cheese dependencies, fixes bug #547203
+  - use the correct translated plural form when deleting more than one item from
+    the thumbnail bar, fixes bug #552290, courtesy of Yuriy Penkin
+  - do not add a new item to the thumbnail bar, if its already there, fixes bug #549804
+  - update documentation, courtesy of Joshua Henderson
+  - include gio header in cheese.c
+  - added/updated translations
+    - ar, courtesy of Usama Akkad
+    - bg, courtesy of Alexander Shopov
+    - ca, courtesy of Gil Forcada
+    - cs, courtesy of Petr Kovar
+    - da, courtesy of Kenneth Nielsen
+    - de, courtesy of Hendrik Richter
+    - en_GB, courtesy of Philip Withnall
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - fi, courtesy of Ilkka Tuohela
+    - fr, courtesy of Robert-André Mauchin
+    - gl, courtesy of Ignacio Casal Quinteiro
+    - gu, courtesy of Sweta Kothari
+    - hu, courtesy of Gabor Kelemen
+    - it, courtesy of Alessandro Falappa
+    - ja, courtesy of Takeshi AIHANA
+    - ko, courtesy of Changwoo Ryu
+    - lt, courtesy of Gintautas Miliauskas
+    - ml, courtesy of പ്രവീണ്‍ അരിമ്പ്രത്തൊടിയില്‍
+    - mr, courtesy of Sandeep Shedmake
+    - nb, courtesy of Kjartan Maraas
+    - nl, courtesy of Wouter Bolsterlee
+    - pl, courtesy of Tomasz Dominikowski
+    - pt_BR, courtesy of Og Maciel
+    - pt, courtesy of Duarte Loreto
+    - ru, courtesy of Alexandre Prokoudine
+    - sl, courtesy of Matej Urbančič
+    - sq, courtesy of Laurent Dhima
+    - sr, courtesy of Горан Ракић
+    - sr@latin, courtesy of Goran Rakić
+    - sv, courtesy of Daniel Nylander
+    - ta, courtesy of I. Felix
+    - th, courtesy of Theppitak Karoonboonyanan
+    - tr, courtesy of Baris Cicek
+
+version 2.23.92
+  - documentation update (not yet finished), courtesy of joshua henderson
+  - old photos and videos (before 2.24) are now available in cheese 2.24, fixes bug #547290
+  - sort videoformat array and resolution hashtable, courtesy of Hans de Goede
+  - dont save duplicated videoformats abut only keep the one with the maximum
+    framerate if it provides the same resolution. add correspondent entry only
+    once to the resolution hashtable so that we have no more duplicated
+    resolutions on preferences dialog. fixes bugs #547144 and #547140,
+    courtesy of Hans de Goede
+  - remove the old log file if it exists
+  - send eos event only if the pipeline was playing, otherwise force
+    shutdown. Start a timeout to force unclean shutdown if eos takes
+    to much to propagate or doesnt propagate at all, probably fixes bug #547422
+  - set take_picture sensitiveness before webcam_stop_video_recording since this
+    emits a signal that would lead to another sensitiveness change. see comments on bug #547422
+  - set the utility hint for the fullscreen toolbar, partially fixes #548546
+  - rename the log file to "log.txt" and prepend it with the running cheese version
+  - cheese crashes no more when no device is set in gconf, partially fixes bug #546868, courtesy of Hans de Goede
+  - display toolbar when entering into fullscreen mode, fixes bug #548546, courtesy of Felix Kaser
+  - added/updated translations
+    - bg, courtesy of Alexander Shopov
+    - de, courtesy of Wolfgang Stoeggl
+    - el, courtesy of Athanasios Lefteris
+    - en_GB, courtesy of Philip Withnall
+    - gu, courtesy of Sweta Kothari
+    - hi, courtesy of Rajesh Ranjan
+    - hr, courtesy of "Last-Translator: \n"
+    - it, courtesy of Alessandro Falappa
+    - ko, courtesy of Changwoo Ryu
+    - nl, courtesy of Wouter Bolsterlee
+    - pt, courtesy of Duarte Loreto
+    - sl, courtesy of Matej Urbančič
+    - zh_CN, courtesy of 甘露 (Lu Gan)
+
+version 2.23.91
+  - cheese.desktop file now respects freedesktop SPEC, fixes bug #550195, courtesy of Pacho Ramos
+  - a small syntax cleanup made with uncrustify
+  - waf did not install the files properly, now it does
+  - add the dynamic bindir to the dbus file
+  - update waf to 1.4.3 and make it working again
+  - added/updated translations
+    - ar, courtesy of Youssef Chahibi
+    - dz, courtesy of Dawa pemo
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - ga, courtesy of Seán de Búrca
+    - he, courtesy of Mark Krapivner
+    - ja, courtesy of Takeshi AIHANA
+    - mk, courtesy of Arangel Angov
+    - or, courtesy of Manoj Kumar Giri
+    - pa, courtesy of Amanpreet Singh Alam
+    - pl, courtesy of Tomasz Dominikowski
+    - pt_BR, courtesy of Rodrigo Flores
+    - sq, courtesy of Laurent Dhima
+    - sv, courtesy of Daniel Nylander
+    - te, courtesy of Krishna Babu K
+    - vi, courtesy of Clytie Siddall
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+version 2.23.90
+  - call gdk_x11_window_set_user_time to raise the cheese window if its called twice
+  - don't start cheese twice if another instance is running, fixes bug #527736, courtesy of Felix Kaser
+  - remove gtk_init and gst_init, according to the docs these are not needed if we use gtk_get_option_group and gst_init_get_option_group
+  - align the buttons with the thumbnail bar
+  - improve the fullscreen mode, fixes bug #547405, courtesy of Felix Kaser
+  - select the last thumbnail item, if the last one was deleted 
+  - hitting space when the countdown has already begun, distorts no more the countdown, fixes bug #547403
+  - remove a thumbnail item immidiately from the thumbnail row if it was deleted
+  - use the eog scrollbar for cheese media, fixes bug #511916, courtesy of Patryk Zawadzki
+  - disable action_effects while setup_camera is running, fixes bug #547313
+  - add people who contributed to cheese to the cheese about window 
+  - give a detailed error message if some gstreamer element is missing, fixes bug #522009, courtesy of Todd Eisenberger
+  - add some gconf translation improvements, fixes bug #547168 
+  - connect button_photo and button_video as proxy widgets for relative RadioActions
+  - change action_files sensitiveness on "selection-changed" event, fixes bug 546918
+  - don't try to find highest framerate if format is NULL, courtesy of Todd Eisenberger
+  - selected effects gconf key values are now standardized, fixes bug #513776
+  - add a better hig compliant alert for missing gstreamer elements, fixes bug #522009
+  - added a delete action to immediately delete files and a gconf key to show/hide it
+  - use "Cheese Webcam Booth" instead of "Cheese" as the desktop entry name, fixes bug #543976
+  - add multiple selection in the picture listing pane, fixes bug #481405
+  - correct critical warnings, if some gstreamer plugins arent available, fixes bug #522009, courtesy of Todd Eisenberger
+  - add several g_free functions to prevent memory leaks 
+  - use g_random_int instead of g_rand_int
+  - add the multiplex thumbnail generator algorithm
+  - disable "Start recording" button until the recording pipeline properly shuts down
+  - save generated thumbnails, it seems to have vanished some time ago
+  - resolve wrong sorting issue of the thumbnails, fixes bug #546390
+  - added/updated translations
+    - ar, courtesy of Youssef Chahibi 
+    - bn_IN, courtesy of Runa Bhattacharjee 
+    - ca, courtesy of Gil Forcada 
+    - es, courtesy of Jorge González 
+    - et, courtesy of Ivar Smolin 
+    - eu, courtesy of Iñaki Larrañaga Murgoitio 
+    - fi, courtesy of Ilkka Tuohela 
+    - fr, courtesy of Robert-André Mauchin 
+    - gl, courtesy of Ignacio Casal Quinteiro 
+    - he, courtesy of Mark Krapivner 
+    - ja, courtesy of Takeshi AIHANA 
+    - kn, courtesy of Shankar Prasad 
+    - mk, courtesy of Arangel Angov 
+    - ml, courtesy of Manu S Madhav
+    - nb, courtesy of Kjartan Maraas 
+    - pt_BR, courtesy of Fábio Nogueira 
+    - sv, courtesy of Daniel Nylander 
+    - th, courtesy of Akom C. 
+    - zh_HK, courtesy of Chao-Hsiung Liao 
+    - zh_TW, courtesy of Chao-Hsiung Liao 
+
+version 2.23.6
+  - add a fullscreen mode for kiosks, fixes #478852, courtesy of Felix Kaser
+  - wait until the video has been recorded, to add it to the thumbnail bar, partially fixes #545212
+  - move thumbnail generation to its own thread, displaying a loading icon while
+  	generating thumbnail and a fallback icon if thumbnail fails, fixes bug #545151, courtesy of Filippo Argiolas
+  - toggle effects button if effects is enabled using menu, fixes bug #539195, courtesy of Filippo Argiolas
+  - make cheese have a fullscreen mode for kiosks, fixes bug #478852
+  - resolve sluggish video and out-of-sync audio, fixes bug #542014, courtesy of Filippo Argiolas
+  - do not crash on preferences with no camera attached, fixes bug #544062, courtesy of Filippo Argiolas
+  - cheese should ask to delete files if moving to trash fails, fixes bug #545950, courtesy of Filippo Argiolas
+  - cheese crashed with move all to trash if no trash can be accessed, fixes bug #545997, courtesy of Filippo Argiolas
+  - added/updated translations
+    - ar, courtesy of Khaled Hosny
+    - ca, courtesy of Gil Forcada
+    - el, courtesy of Simos Xenitellis
+    - es, courtesy of Jorge González
+    - fr, courtesy of Bruno Brouard
+    - gl, courtesy of Ignacio Casal Quinteiro
+    - ja, courtesy of Takeshi Aihana
+    - mk, courtesy of Arangel Angov
+    - nl, courtesy of Wouter Bolsterlee
+    - oc, courtesy of Yannig Marchegay
+    - pl, courtesy of Tomasz Dominikowski
+    - pt, courtesy of Duarte Loreto
+    - th, courtesy of Akom C.
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+
+version 2.23.5
+  - make recording of videos work again, fixes bug #523475, courtesy of Filippo Argiolas
+  - bump gstreamer requirements to 0.10.16
+  - fixes cheese_print_handler, which resulted in empty cheese logs, courtesy of Filippo Argiolas
+  - allow to choose the webcam using the preference dialog, fixes bug #522200, courtesy of Ryan Zeigler
+  - remove some gcc warnings, fixes bug #537490, courtesy of Cosimo Cecchi
+  - fixed typo, which prevented hildon mode to compile cleanly
+  - removed included <X11/extensions/xf86vmode.h>, fixes bug #539631, courtesy of Marc-Andre Lureau
+  - make hal-device-id command line option work, fixes bug #498023, courtesy of Ryan Zeigler
+  - use ogv as default video extension, fixes bug #524021
+  - added/updated translations
+    - es, courtesy of Jorge González
+    - sv, courtesy of Daniel Nylander
+    - nb, courtesy of Kjartan Maraas
+    - ko, courtesy of Changwoo Ryu
+    - bg, courtesy of Alexander Shopov
+    - oc, courtesy of Yannig Marchegay
+    - et, courtesy of Ivar Smolin
+    - pt_BR, courtesy of Fabrício Godoy and Ferreira Fontenelle
+    - ps, courtesy of Zabeeh Khan
+    - gl, courtesy of Ignacio Casal Quinteiro
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+version 2.23.4
+  - fix a crash, when using about/quit menu items in hildon mode, fixes bug #535582, courtesy of Michael Terry
+  - Instead of crashing report when certain gstreamer are not found, fixes bug #522009, courtesy of Todd Eisenberger
+  - use intltools 0.40 for building with autotools
+  - added/updated translations
+    - ar, courtesy of Khaled Hosny. 
+    - fi, courtesy of Tommi Vainikainen
+    - nn, courtesy of Eirik U. Birkeland
+    - vi, courtesy of Clytie Siddall
+    - zh_CN, courtesy of 甘露 (Lu Gan)
+
+version 2.23.3
+  - add new flash and remove changing gamma for simulating flash. the 
+    new flash works best if you run a composited desktop, fixes bug #526214,
+    courtesy of Alex Jones 
+  - fix segfault on startup if video or photo directory gconf setting is missing,
+  	fixes bug #534480, courtesy of Alexander Jones
+  - add support to set the video and photo path in gconf, courtesy of Felix Kaser
+  - added/updated translations
+    - ar, courtesy of Djihed Afifi. 
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - gl, courtesy of Ignacio Casal Quinteiro
+    - he, courtesy of Mark Krapivner
+    - hu, courtesy of Máté Őry.
+    - nb, courtesy of Kjartan Maraas
+
+version 2.23.2
+  - use a better icon for the effects button, fixes bug #511369
+  - store photos and videos in xdg directories, fixes bug #509475, courtesy of Felix Kaser
+  - use a toggle button for the effects button, fixes bug #527870
+  - add support for nautilus send to. this replaces "send by email" where available, fixes bug #528249, courtesy of Jose Dapena Paz
+  - name the files to the date, when they were created, fixes bug #525739
+  - add a preferences dialog with basic resolution changing, partially fixes #522200, courtesy of James Liggett
+  - use gtk theme colors for the countdown widget
+  - align the numbers and the camera on the countdown widget, courtesy of Andrea Cimitan
+  - add a border, color shading and highlight to the countdown widget, to make it even more sexy, courtesy of Andrea Cimitan
+  - make the countdown numbers translatable the right way
+  - fix invalid free in cheese, fixes bug #529467, courtesy of Matthias Clasen
+  - take picture button is enabled outside gtk thread lock, fixes bug #529789, courtesy of Gary Lasker
+  - don't display the toplevel window by default, fixes bug #529276, courtesy of Loïc Minier
+  - added/updated translations
+    - en_GB, courtesy of Philip Withnall
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - gl, courtesy of Ignacio Casal Quinteiro
+    - he, courtesy of Mark Krapivner
+    - nb, courtesy of Kjartan Maraas
+    - nl, courtesy of Tino Meinen
+    - pt_BR, courtesy of Luis Motta.
+    - sl, courtesy of Matej Urbančič
+    - th, courtesy of Pornpimon Pradabsri 
+
+version 2.23.1
+  - add cheese to sound & video in the application menu, fixes bug #519846
+  - add hildon support to cheese, fixes bug #519548, courtesy of Matthew Garret
+  - add menu entry for the countdown, fixes bug #511160
+  - add the gedit warning box when no camera is found, fixes bug #511945, courtesy of sebastian keller
+  - buttons and menu items should use Title Case
+  - change the theora file extension to .gov, fixes bug #524021
+  - cheese crashes if getting information from a webcam fails, courtesy of Sjoerd Simons, fixes bug #522197
+  - cheese did not choose the right thumbnails for already taken pictures, fixes bug #524814
+  - cheese does not list its gnome-vfs dependency, fixes bug #522152, courtesy of Alex Rostovtsev
+  - cheese doesn't open the webcam device set in gconf, courtesy of Sjoerd Simons, fixes bug #522198
+  - do not allow to take pictures, while the webcam is initializing, fixes bug #523121
+  - fix a crash while initializing webcam, fixes bug #522143, courtesy of Alex Rostovtsev
+  - fix a crash, when a file was deleted twice
+  - fix regression of gio, Dnd works again, courtesy of Cosimo Cecchi, fixes bug #526398
+  - set the max waiting time for detecting a camera to 10 seconds, fixes bug #520394
+  - show the pretty countdown widget by default
+  - use a better effects icon, partially fixes bug #511369, courtesy of baptiste mille-mathias
+  - use new cheese description, fixes bug #512091
+  - added/updated translations
+    - el, courtesy of Nick Paraschou
+    - en_GB, courtesy of Philip Withnall
+    - es, courtesy of Jorge González
+    - et, courtesy of Mattias Põldaru
+    - he, courtesy of Mark Krapivner
+    - nb, courtesy of Kjartan Maraas
+    - nn, courtesy of Eskild Hustvedt
+    - ru, courtesy of Vasiliy Faronov
+    - sl, courtesy of Matej Urbančič
+
+version 2.22.0
+  - typo in the documentaton: ximageskink instead of ximagesink
+  - menu entries for take a photo and recording never switched, fixes bug #516745
+  - select a thumb near the deleted item, fixes bug #505442
+  - make sure we have the right prototype definition, fixes bug #519030
+  - Rephrased hard-to-understand sentence in docs, fixes bug #518838, courtesy of Claude Paroz
+  - added/updated translations
+    - be@latin, courtesy of Ihar Hrachyshka
+    - da, courtesy of Kenneth Nielsen
+    - el, courtesy of Athanasios Lefteris
+    - en_GB, courtesy of Philip Withnall
+    - es, courtesy of Jorge González
+    - fr, courtesy of Claude Paroz and Stéphane Raimbault
+    - gu, courtesy of Ankit Patel
+    - he, courtesy of Yair Hershkovitz
+    - hu, courtesy of Gabor Kelemen
+    - it, courtesy of Alessandro Falappa
+    - lt, courtesy of Gintautas Miliauskas
+    - ml, courtesy of Ani Peter
+    - mr, courtesy of Sandeep Shedmake
+    - uk, courtesy of Maxim Dziumanenko
+    - zh_CN, courtesy of YangZhang
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+version 2.21.92:
+  - drop libglade and use GtkBuilder instead.
+  - putted gtk calls in critical section in threads, fixes bug #516697, courtesy of Mathias Clasen
+  - make use of the gconf countdown setting and show or hide the countdown depending on that
+  - added/updated translations
+    - ko, courtesy of Changwoo Ryu
+    - th, courtesy of Theppitak Karoonboonyanan
+    - sl, courtesy of Matej Urbančič
+    - bn_IN, courtesy of Runa Bhattacharjee
+    - pa, courtesy of Amanpreet Singh Brar
+    - nl, courtesy of Wouter Bolsterlee.
+    - nb, courtesy of Kjartan Maraas
+    - ar, courtesy of Djihed Afifi
+    - tr, courtesy of Baris Cicek
+    - ja, courtesy of Takeshi Aihana
+    - ca, courtesy of Gil Forcada
+    - cs, courtesy of Vitezslav Kotrla.
+    - pt, courtesy of Duarte Loreto
+    - oc, courtesy of Yannig Marchegay
+    - mk, courtesy of Arangel Angov
+    - zh_CN, courtesy of YangZhang
+    - hu, courtesy of Adam Pongracz
+
+version 2.21.91:
+  - replaced all gnome-vfs calls by gio
+  - install bugreport script in libexec instead of lib, fixes bug #514833
+  - translate effect names too, courtesy of Tommi Vainikainen
+  - pressing 'esc' cancels countdown/stop video recording, courtesy of Tommi Vainikainen
+  - added/updated translations
+    - ar, courtesy of Khaled Hosny
+    - de, courtesy of Hendrik Brandt
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - fi, courtesy of Tommi Vainikainen
+    - fr, courtesy of Robert-André Mauchin and Stéphane Raimbault
+    - it, courtesy of Alessandro Falappa
+    - nb, courtesy of Kjartan Maraas
+    - oc, courtesy of Yannig Marchegay
+    - pl, courtesy of GNOME PL Team
+    - pt_BR, courtesy of Pedro de Medeiro and Og Maciel
+    - sv, courtesy of Daniel Nylander 
+    - zh_HK, courtesy of Chao-Hsiung Liao
+    - zh_TW, courtesy of Chao-Hsiung Liao
+
+version 2.21.90.1:
+  - new effect images by Lapo Calamandrei and Or Dvory (again)
+  - the bugreport script didnt get copied on make dist
+
+version 2.21.90:
+  - new effect images by Lapo Calamandrei and gidesa
+  - fix bug #510610 - Typo at the documentation
+  - Remove gnome-vfs completely from cheese-window.c
+  - Use gio instead of gnome-vfs for file copy
+  - Make Save dialog title localizable
+  - Don't use gnome-vfs for opening links in about dialog
+  - Write logging to file ~/.gnome2/cheese/log and send this along in bug-buddy
+    reports. Patch by <ruledbyfaith@gmail.com>. fixes bug #510270
+  - Plug some leaks. Apply patches of Mauro <mukadr@gmail.com> of GHOP project. fixes bug #505441
+  - Run webcam detection in background thread. Fixes bug #505553. Patch by Steve Magoun <steve.magoun@canonical.com>
+  - Uso GIO g_file_trash() to trash files, patch by Luca Ferretti
+  - Update to new manual provided by Joshua Henderson as part of GHOP
+  - remove the queue-size=2, this should fix bug #507416 - iSight camera does not work in gstreamer
+  - added/updated translations
+    - ar, courtesy of Khaled Hosny
+    - es, courtesy of Jorge González
+    - et, courtesy of Ivar Smolin
+    - eu, courtesy of Iñaki Larrañaga Murgoitio
+    - ga, courtesy of Seán de Búrca
+    - gl, courtesy of Ignacio Casal Quinteiro
+    - he, courtesy of Yair Hershkovitz
+    - mk, courtesy of Jovan Naumovski
+    - mr, courtesy of Sandeep Shedmake
+    - nb, courtesy of Kjartan Maraas
+    - oc, courtesy of Yannig Marchegay
+    - ru, courtesy of Vasiliy Faronov
+    - sv, courtesy of Daniel Nylander
+    - uk, courtesy of Maxim Dziumanenko
+    - zh_CN, courtesy of YangZhang
+
+version 2.21.5:
+  - version bump to follow the gnome release cycle
+  - add a stylish countdown widget by Mirco "MacSlow" Müller, courtesy of Patryk Zawadzki
+  - add X-GNOME-Bugzilla-* keys and validate .desktop file. fixes bug #508910, courtesy of Luca Ferretti
+  -  vertical and horizontal flip options were switched (again). fixes bug #479238, courtesy of Steve Magoun
+  - use the gst-player by Mathias Hasselman for playing the shutter sound
+  - removed color forcing. This has been fixed in gstreamer
+  - do not crash when trash directory is not present. fixes bug #507071
+  - make cheese build against uninstalled gstreamer. fixes bug #479259, courtesy of Tim Philip Müller
+  - added/updated translations
+    - et, courtesy of Ivar Smolin
+    - ja, courtesy of Takeshi Aihana
+    - ca, courtesy of Gil Forcada
+    - oc, courtesy of Yannig Marchegay    
+    - sv, courtesy of Daniel Nylander
+    - fr, courtesy of Robert-André Mauchin
+    - pt_BR, courtesy of Rodrigo Flores
+
+version 0.3.0:
+  - add a shutter sound, when taking a photo
+  - sort the thumbnail chronologically
+  - make the effect chooser look a bit nicer
+  - give thumbnails a frame like in nautilus and eog. fixes bug #500819
+  - enable shortcuts if the mouse pointer is over the xoverlay. fixes bug #493196
+  - add new shortcuts
+    - space for take a photo/start-stop recording
+    - <ctrl q> for exiting
+    - f1 for help
+    - delete for removing a photo or video
+  - add a gconf backend
+  - chosen effects are stored in gconf. fixes bug #488834
+  - store the used webcam device in gconf. partially fixes bug #473038
+  - use a throbber, when the camera is loading
+  - add drag and drop support to the iconview
+  - vertical and horizontal flip were switched. fixes bug #479238
+  - many usability improvements. partially fixes bug #501337
+  - point to the right homepage in the about dialog
+  - add a boilerplate for a manual in cheese. partially fixes #480628
+  - make video and photo button a toggle button. fixes bug #498022
+  - make links on about dialog clickable. fixes bug #499425
+  - translate menu items created by gtkuimanager, fixes bug #500821
+  - change the first item in menu to "Cheese"
+  - add a "Move all to trash" option
+  - use gtkuimanager for the menu
+  - give the ability to record videos from the menu
+  - provide access to the effect chooser using the menu
+  - use radio buttons in the menu to change between photo and video mode
+  - use HAL to detect webcams
+  - make ximagesink an xvimagesink work for all cameras
+  - only use raw video formats. fixes bug #502174
+  - use the highest resolution for each camera
+  - add --verbose command line option, fixes bug #499399
+  - cheese was refactored and uses now a webcam class
+  - removed some memory leaks
+  - fixed many, many bugs
+  - added/updated translations
+    - ar, courtesy of Djihed Afifi
+    - ca, courtesy of Carlos Garcia Porcel
+    - cs, courtesy of Vitezslav Kotrla
+    - de, courtesy of Andre Klapper
+    - el, courtesy of Athanasios Lefteris
+    - es, courtesy of Jorge González
+    - fr, courtesy of Pierre Slamich
+    - gl, courtesy of Ignacio Casal Quinteiro
+    - it, courtesy of Alessandro Falappa
+    - nb, courtesy of Kjartan Maraas
+    - oc, courtesy of Yannig Marchegay
+    - pt, courtesy of Miguel Rosa
+    - ro, courtesy of Anastase Valentin
+    - sl, courtesy of Deni Bačić
+    - sv, courtesy of Daniel Nylander
+
+version 0.2.4:
+  - fix #472576 - cheese takes longer to start as more pictures are stored
+  - fix #473560 - v4l-recorded videos are zero byte big, courtesy of Patryk Zawadzki
+  - translation error in de
+
+version 0.2.3:
+  - add keystrokes:
+    - t, T, Space for taking photos and videos
+    - Enter for opening an item
+    - Delete for deleting an item
+    - Left and Right for scrolling through the view
+  - add a flash, when taking photos, courtesy of Patryk Zawadzki
+  - use 25fps for video recording
+  - video recording did not work. fixed
+  - make ximagesink work with the photo pipeline
+  - added/updated translations
+    - da, courtesy of Anders K. Madsen
+    - es, courtesy of Ricardo González Castro
+    - gl, courtesy of Ricardo González Castro
+    - it, courtesy of Alessandro Falappa
+    - ja, courtesy of Takeshi Aihana
+    - pl, courtesy of Tomasz Dominikowski
+
+version 0.2.2:
+  - workaround on a gstreamer-bug, which made the colors look wrong with
+    v4l-devices, courtesy of Patryk Zawadzki
+  - activate countdown by default
+  - the countdown is not available in video and segfaultet. fixed
+  - use g_timeout_add instead of g_timeout_add_seconds
+
+version 0.2.1:
+  - improvement the video pipline. and i mean a LOT of improvement
+  - add a countdown, when taking a photo
+  - add a time counter to the video recording
+  - added the following export methods/capabilities:
+    - open the file with gnome-open
+    - save as dialog
+    - delete
+    - send by mail
+    - export to flickr
+    - export to f-spot
+    - set as account photo
+  - we found the bug! v4l works now, courtesy of Patryk Zawadzki
+  - added a popupmenu to the iconview
+  - added some parts of the lucas(R)-eye of gnome iconview
+  - if the same effects were chosen in photo and video, they wont apply. fixed
+  - the first item in the iconbar wasnt deleted. fixed
+  - updated translations:
+    - cs, courtesy Vítězslav Kotrla
+    - de
+    - fr, courtesy of Pierre Slamich
+    - it, courtesy of Alessandro Falappa
+    - nl, courtesy of Wouter Bolsterlee
+    - pt, courtesy of Miguel Rosa
+
+version 0.2.0:
+  - store video thumbnails in the right thumbnail directory
+  - video support. we can record a video with audio taken from any source
+  - add mnemonics for the buttons in the ui
+  - probably the dumbest change ever: the fsf has changed its address
+  - updated translations:
+    - de
+    - fr, courtesy of Pierre Slamich
+    - it, courtesy of Alessandro Falappa
+    - pl, courtesy of Tomasz Dominikowski
+    - pt, courtesy of Miguel Rosa
+
+version 0.1.4:
+  - remove photos automatically from the thumbnail row
+  - check automatically for webcams and their  resolution
+  - notification if cheese isn't able to get the webcam working
+  - V4L support, courtesy of Diego Escalante Urrelo
+  - store photos under ~/.gnome2/cheese/images
+  - add only valid jpeg photos to the thumbnail row
+  - sort thumbnails aplhabetically before adding them
+  - let the window resizable
+  - icons were installed with permissions 0755. fixed
+  - added gtk-update-icon-cache on installation
+  - lot of refactoring
+  - new about-window, courtesy of Jaap Haitsma
+  - use g18n for i18n
+  - updated dutch translation, courtesy of Wouter Bolsterlee
+  - updated french translation, courtesy of Pierre Slamich
+  - added polish translation, courtesy of Tomasz Dominikowski
+  - several fixes
+
+version 0.1.3:
+  - let the glade file also translatable
+  - added the icon to the .desktop-file
+  - Cheese didn't use the various translations. fixed
+  - Cheese was hiding from the taskbar. fixed
+  - added dutch translation, courtesy of Max Beauchez
+  - added french translation, courtesy of Pierre Slamich
+  - several fixes
+
+version 0.1.2:
+  - the buildsystem is now toc2, big thanks to Stephan Beal for helping out
+  - added the new cheese icon, courtesy of Andreas Nilsson and Josef Vybíral
+  - added czech translation, courtesy of Vítězslav Kotrla
+  - added portuguese translation, courtesy of Miguel Rosa
+  - added spanish translation, courtesy of Ricardo González Castro
+  - added galician translation, courtesy of Ricardo González Castro
+  - added italian translation, courtesy of Alessandro Falappa
+  - several fixes
+
+version 0.1.1:
+  - added new effect-chooser
+  - allowing to chose more than one effect at the same time
+  - added german translation
+  - several fixes
+
+version 0.1.0:
+  - initial version

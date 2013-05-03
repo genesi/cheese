@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="cheese Reference Manual" link="index.html" author="" name="cheese" version="2" language="c">
+  <chapters>
+    <sub name="[Insert title here]" link="ch01.html">
+      <sub name="CheeseAvatarChooser" link="CheeseAvatarChooser.html"/>
+      <sub name="CheeseCameraDeviceMonitor" link="CheeseCameraDeviceMonitor.html"/>
+      <sub name="CheeseWidget" link="CheeseWidget.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+  </chapters>
+  <functions>
+    <keyword type="struct" name="CheeseAvatarChooserClass" link="CheeseAvatarChooser.html#CheeseAvatarChooserClass"/>
+    <keyword type="struct" name="CheeseAvatarChooser" link="CheeseAvatarChooser.html#CheeseAvatarChooser-struct"/>
+    <keyword type="function" name="cheese_avatar_chooser_new ()" link="CheeseAvatarChooser.html#cheese-avatar-chooser-new"/>
+    <keyword type="function" name="cheese_avatar_chooser_get_picture ()" link="CheeseAvatarChooser.html#cheese-avatar-chooser-get-picture"/>
+    <keyword type="property" name="The &quot;pixbuf&quot; property" link="CheeseAvatarChooser.html#CheeseAvatarChooser--pixbuf"/>
+    <keyword type="struct" name="CheeseCameraDeviceMonitorClass" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitorClass"/>
+    <keyword type="struct" name="CheeseCameraDeviceMonitor" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitor-struct"/>
+    <keyword type="function" name="cheese_camera_device_monitor_new ()" link="CheeseCameraDeviceMonitor.html#cheese-camera-device-monitor-new"/>
+    <keyword type="function" name="cheese_camera_device_monitor_coldplug ()" link="CheeseCameraDeviceMonitor.html#cheese-camera-device-monitor-coldplug"/>
+    <keyword type="signal" name="The &quot;added&quot; signal" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitor-added"/>
+    <keyword type="signal" name="The &quot;removed&quot; signal" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitor-removed"/>
+    <keyword type="struct" name="CheeseWidgetClass" link="CheeseWidget.html#CheeseWidgetClass"/>
+    <keyword type="struct" name="CheeseWidget" link="CheeseWidget.html#CheeseWidget-struct"/>
+    <keyword type="function" name="cheese_widget_new ()" link="CheeseWidget.html#cheese-widget-new"/>
+    <keyword type="function" name="cheese_widget_get_error ()" link="CheeseWidget.html#cheese-widget-get-error"/>
+    <keyword type="enum" name="enum CheeseWidgetState" link="CheeseWidget.html#CheeseWidgetState"/>
+    <keyword type="property" name="The &quot;state&quot; property" link="CheeseWidget.html#CheeseWidget--state"/>
+    <keyword type="constant" name="CHEESE_WIDGET_STATE_NONE" link="CheeseWidget.html#CHEESE-WIDGET-STATE-NONE:CAPS"/>
+    <keyword type="constant" name="CHEESE_WIDGET_STATE_READY" link="CheeseWidget.html#CHEESE-WIDGET-STATE-READY:CAPS"/>
+    <keyword type="constant" name="CHEESE_WIDGET_STATE_ERROR" link="CheeseWidget.html#CHEESE-WIDGET-STATE-ERROR:CAPS"/>
+  </functions>
+</book>

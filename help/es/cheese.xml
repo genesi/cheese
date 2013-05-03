@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "Cheese">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.28">
+<!ENTITY manrevision "2.28">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="es">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Manual de <application>Cheese</application></title>
+    <abstract role="description">
+      <para><application>Cheese</application> usa su cámara web para tomar fotos y vídeos, aplica efectos especiales y le permite compartir la diversión con otros.</para>
+    </abstract>
+    <copyright>
+      <year>2007-2009</year>
+      <holder>daniel g. siegel (dgsiegel@gnome.org)</holder>
+      <holder>Jaap A. Haitsma (jaap@haitsma.org)</holder>
+      <holder>Filippo Argiolas (fargiolas@gnome.org)</holder>
+    </copyright><copyright><year>2007-2009</year><holder>Jorge González (jorgegonz@svn.gnome.org)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Felix Kaser (f.kaser@gmx.net)</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Se concede permiso para copiar, distribuir o modificar este documento según las condiciones de la GNU Free Documentation License (GFDL), Versión 1.1 o cualquier versión posterior publicada por la Free Software Foundation sin Secciones invariantes, Textos de portada y Textos de contraportada. Encontrará una copia de la GFDL en este <ulink type="help" url="ghelp:fdl">enlace</ulink> o en el archivo COPYING-DOCS distribuido con este manual.</para>
+         <para>Este manual forma parte de una colección de documentos de GNOME distribuidos según la GFDL. Si desea distribuir este manual de forma independiente de la colección, puede hacerlo agregando una copia de la licencia al documento, según se describe en la sección 6 de la misma.</para>
+
+	<para>Muchos de los nombres utilizados por las empresas para distinguir sus productos y servicios se consideran marcas comerciales. Cuando estos nombres aparezcan en la documentación de GNOME, y siempre que se haya informado a los miembros del Proyecto de documentación de GNOME de dichas marcas comerciales, los nombres aparecerán en mayúsculas o con las iniciales en mayúsculas.</para>
+
+	<para>ESTE DOCUMENTO Y LAS VERSIONES MODIFICADAS DEL MISMO SE PROPORCIONAN SEGÚN LAS CONDICIONES ESTABLECIDAS EN LA LICENCIA DE DOCUMENTACIÓN LIBRE DE GNU (GFDL) Y TENIENDO EN CUENTA QUE: <orderedlist>
+		<listitem>
+		  <para>EL DOCUMENTO SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, NI EXPLÍCITA NI IMPLÍCITA INCLUYENDO, SIN LIMITACIÓN, GARANTÍA DE QUE EL DOCUMENTO O VERSIÓN MODIFICADA DE ÉSTE CAREZCA DE DEFECTOS COMERCIALES, SEA ADECUADO A UN FIN CONCRETO O INCUMPLA ALGUNA NORMATIVA. TODO EL RIESGO RELATIVO A LA CALIDAD, PRECISIÓN Y UTILIDAD DEL DOCUMENTO O SU VERSIÓN MODIFICADA RECAE EN USTED. SI CUALQUIER DOCUMENTO O VERSIÓN MODIFICADA DE AQUÉL RESULTARA DEFECTUOSO EN CUALQUIER ASPECTO, USTED (Y NO EL REDACTOR INICIAL, AUTOR O CONTRIBUYENTE) ASUMIRÁ LOS COSTES DE TODA REPARACIÓN, MANTENIMIENTO O CORRECCIÓN NECESARIOS. ESTA RENUNCIA DE GARANTÍA ES UNA PARTE ESENCIAL DE ESTA LICENCIA. NO SE AUTORIZA EL USO DE NINGÚN DOCUMENTO NI VERSIÓN MODIFICADA DE ÉSTE POR EL PRESENTE, SALVO DENTRO DEL CUMPLIMIENTO DE LA RENUNCIA;Y</para>
+		</listitem>
+		<listitem>
+		  <para>EN NINGUNA CIRCUNSTANCIA NI BAJO NINGUNA TEORÍA LEGAL, SEA POR ERROR (INCLUYENDO NEGLIGENCIA) CONTRATO O DOCUMENTO DE OTRO TIPO, EL AUTOR, EL ESCRITOR INICIAL, EL AUTOR DE APORTACIONES NI NINGÚN DISTRIBUIDOR DEL DOCUMENTO O VERSIÓN MODIFICADA DEL DOCUMENTO, NI NINGÚN PROVEEDOR DE NINGUNA DE ESAS PARTES, SERÁ RESPONSABLE ANTE NINGUNA PERSONA POR NINGÚN DAÑO DIRECTO, INDIRECTO, ESPECIAL, INCIDENTAL O DERIVADO DE NINGÚN TIPO, INCLUYENDO, SIN LIMITACIÓN DAÑOS POR PÉRDIDA DE FONDO DE COMERCIO, PARO TÉCNICO, FALLO INFORMÁTICO O AVERÍA O CUALQUIER OTRO POSIBLE DAÑO O AVERÍA DERIVADO O RELACIONADO CON EL USO DEL DOCUMENTO O SUS VERSIONES MODIFICADAS, AUNQUE DICHA PARTE HAYA SIDO INFORMADA DE LA POSIBILIDAD DE QUE SE PRODUJESEN ESOS DAÑOS.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author>
+        <firstname>Joshua</firstname>
+        <surname>Henderson</surname>
+	<email>joshhendo@gmail.com</email>
+      </author>
+      <author>
+        <firstname>Jaap</firstname>
+        <surname>Haitsma</surname>
+	<email>jaap@haitsma.org</email>
+      </author>
+      <author>
+        <firstname>Felix</firstname>
+        <surname>Kaser</surname>
+	<email>f.kaser@gmx.net</email>
+      </author>
+
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+
+      <revision>
+        <revnumber>0.1</revnumber>
+        <date>2007-12-04</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.2</revnumber>
+        <date>2008-01-12</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.3</revnumber>
+        <date>2008-08-20</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+      
+      <revision>
+        <revnumber>0.4</revnumber>
+        <date>2009-07-15</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+			
+			<revision>
+        <revnumber>0.5</revnumber>
+        <date>2009-09-14</date>
+        <revdescription>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Felix Kaser</para>
+        </revdescription>
+      </revision>
+
+    </revhistory>
+
+    <legalnotice>
+      <title>Comentarios</title>
+      <para>Para informar de un fallo, o hacer alguna sugerencia concerniente a Cheese o este manual, siga las indicaciones en la <ulink url="http://projects.gnome.org/cheese/" type="http">página de contacto de <application>Cheese</application></ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Cheese</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>cheese</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Introducción</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Cheese</application></primary>
+    <secondary>Manual</secondary>
+    <tertiary>cheese</tertiary>
+  </indexterm>
+
+  <para>Cheese usa su cámara web para tomar fotos y vídeos, aplica efectos especiales y le permite compartir la diversión con otros.</para>
+
+</section>
+
+<section id="using">
+  <title>Uso</title>
+  <para>La pantalla principal de Cheese soporta dos distribuciones diferentes por el momento. La predeterminada es como la mostrada en la captura de abajo y tiene la imagen previsaulizada centrada y la vista de miniaturas debajo.</para>
+
+  <figure>
+  <title>Captura de pantalla de Cheese</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-main.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+	
+	<para>Se ha diseñado otra vista especial para los usuarios de Cheese con pantallas pequeñas, como las de los «netbooks». Está más alineada horizontalmente para que se ajuste mejor a las pantallas anchas y pequeñas. La vista ancha se muestra en la captura inferior.</para>
+	
+	<figure>
+  <title>Captura de pantalla de Cheese en modo ancho</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-wide.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  <para>Cheese usa el modo de fotografía como predeterminado pero puede cambiar al modo vídeo o ráfaga si así lo desea.</para>
+
+  <section id="using-effects">
+    <title>Efectos</title>
+    <para>Para aplicar efectos a la entrada de su cámara web pulse el botón <guibutton>Efectos</guibutton>. Cuando vaya a la ventana de efectos, verá una ventana similar a la imagen de abajo <figure>
+        <title>Captura de pantalla de los efectos de Cheese</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/cheese-effects.jpg" format="JPG"/>
+            </imageobject>
+          </mediaobject>
+       </screenshot>
+      </figure>.</para>
+
+    <para>También puede aplicar algunos efectos a sus fotos. Simplemente elija de los diferentes efectos disponibles y pulse el botón correspondiente para aplicarlo a su foto. Si selecciona múltiples efectos entonces todos se aplicarán a su imagen. Por ejemplo, si aplica <guibutton>Hulk</guibutton> y <guibutton>Giro horizontal</guibutton>, la entrada de la cámara web se alterará para tener una sombra verde y estará boca arriba. Para desactivar todos los efectos simplemente pulse el botón <guibutton>Sin efectos</guibutton>.</para>
+		
+		<para>Para volver a la vista previa de su cámara web simplemente pulse el botón <guibutton>Efectos</guibutton>. Esto cambiará el menú Efectos y volverá a mostrar la vista normal.</para>
+  </section>
+
+  <section id="using-photomode">
+    <title>Modo foto</title>
+    <para>El modo foto es el predeterminado al abrir Cheese. Cuando no se esté en modo foto, pulse el botón <guibutton>Foto</guibutton> o pulse <keycombo><keycap>Alt</keycap><keycap>P</keycap></keycombo> o menú: <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Foto</guimenuitem></menuchoice>para cambiar al modo de fotografía. El modo de fotografía tomará una sola foto cada vez que se pulse el botón <guibutton>Tomar una foto</guibutton> o se pulse la <keycap>barra espaciadora</keycap>, además las fotos se guardarán al disco.</para>
+  </section>
+
+  <section id="using-videomode">
+    <title>Modo vídeo</title>
+    <para>El modo de vídeo le permite grabar vídeos cortos usando la cámara web. Cuando no esté en el modo de vídeo, pulse el botón <guibutton>Vídeo</guibutton> o pulse <keycombo><keycap>Alt</keycap><keycap>V</keycap></keycombo> o menú: <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Vídeo</guimenuitem></menuchoice> para cambiar al modo de vídeo. El modo de vídeo comenzará a grabar vídeo cada vez que pulse el botón <guibutton>Comenzar a grabar</guibutton> o pulse la <keycap>barra espaciadora</keycap>. El vídeo dejará de grabar y se guardará al disco cuando pulse el botón <guibutton>Parar de grabar</guibutton> o la <keycap>barra espaciadora</keycap>.</para>
+
+    <para>El modo de vídeo es igual que la del modo fotografía, excepto por el botón <guibutton>Tomar una foto</guibutton> que será <guibutton>Comenzar a grabar</guibutton> o <guibutton>Parar de grabar</guibutton> (depende de si está grabando o no), además el botón con el icono del carrete está pulsado, mientras que los otros botones de modo (Foto y Ráfaga) no lo están.</para>
+	</section>
+	
+	<section id="using-burstmode">
+    <title>Modo ráfaga</title>
+    <para>En el modo ráfaga puede tomar varias fotos seguidas. Funciona exactamente igual que el modo foto, excepto que toma una serie de fotografías. Para cambiar al modo ráfaga cuando no esté en él pulse el botón que muestra el icono de varias imágenes o selecciónelo del menú: <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Ráfaga</guimenuitem></menuchoice>. El modo ráfaga comenzará a tomar fotos cuando se pulse el botón <guibutton>Tomar múltiples fotos</guibutton> o se pulse la <keycap>barra espaciadora</keycap>. El retardo y la cantidad de imágenes que tomar se pueden establecer en el diálogo de preferencias. Para obtener más información consulte la <xref linkend="preferences"/>.</para>
+
+    <note>
+      <para>Todos los modos se pueden usar a pantalla completa. Para ello, simplemente pulse <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Pantalla completa</guimenuitem></menuchoice> para entrar al modo a pantalla completa, o pulse <keycap>F11</keycap>. Para salir del modo a pantalla completa pulse la tecla <keycap>Esc</keycap> o <keycap>F11</keycap>.</para>
+    </note>
+		
+		<figure>
+    <title>Captura de pantalla de Cheese a pantalla completa</title>
+    	<screenshot>
+      	<mediaobject>
+        	<imageobject>
+          	<imagedata fileref="figures/cheese-fullscreen.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+     	</screenshot>
+    </figure>
+	</section>
+  
+</section>
+
+<section id="working-with">
+  <title>Trabajar con fotos y vídeos</title>
+  <section id="takingaphoto">
+    <title>Tomar una foto</title>
+    <para>Para tomar una fotografía en Cheese, asegúrese de estar en el modo «Foto».</para>
+
+    <para>Es fácil tomar fotos con efectos especiales. Simplemente pulse el botón <guibutton>Efectos</guibutton>, y pulse sobre los efectos que quiera tal y como se describe en <xref linkend="using-effects"/>. Ahora debería tener aplicados en la entrada de la cámara web los efectos que eligió. Pulse de nuevo el botón de Efectos para volver a la vista normal.</para>
+
+    <para>Para tomar una foto pulse el botón <guibutton>Tomar una foto</guibutton> o pulse la <keycap>barra espaciadora</keycap>. Alternativamente también puede usar el botón de captura de la cámara web, si su cámara tiene uno. Entonces verá en <application>Cheese</application> una cuenta atrás desde 3 o bien tomará la foto instantáneamente, dependiendo de sus ajustes. Cuando se toma la foto la pantalla entera se quedará unos momentos en blanco, como un flash, y la foto que se tomó aparecerá en la galería de fotos en la parte inferior de la ventana del programa. Para abortar la cuenta atrás puede usar la tecla <keycap>Esc</keycap>.</para>
+  </section>
+
+  <section id="recordingavideo">
+    <title>Grabar un vídeo</title>
+    <para>Para grabar un vídeo en Cheese, asegúrese de que el botón <guibutton>Vídeo</guibutton> está pulsado.</para>
+
+    <para>Para comenzar a grabar un vídeo pulse el botón <guibutton>Comenzar a grabar</guibutton> o pulse la <keycap>barra espaciadora</keycap>. Alternativamente también puede usar el botón de captura de su cámara web, si su cámara web tiene uno. Para detener la grabación simplemente pulse el mismo botón, ahora llamado <guibutton>Parar de grabar</guibutton>, detendrá la grabación y guardará el vídeo.</para>
+
+    <note>
+      <para>Si parece que su vídeo funciona a saltos o tiene una tasa de fotogramas baja (sólo actualiza la imagen cada unos pocos segundos), no significa que la grabación original también sea de baja calidad. En muchos casos la tasa de fotogramas grabada es mayor y más constante.</para>
+    </note>
+  </section>
+	
+	<section id="takingburst">
+    <title>Toma una serie de imágenes en modo ráfaga</title>
+    <para>Para tomar más de una fotografía en un lapso de tiempo puede usar el modo ráfaga. El modo ráfaga se puede establecer en el diálogo de preferencias, donde también puede ajustar el número de imágenes que quiere tomar y el retardo en segundos entre ellas. Puede encontrar más información acerca de esto en <xref linkend="preferences"/>.</para>
+
+    <para>Para comenzar a grabar un vídeo pulse el botón <guibutton>Comenzar a grabar</guibutton> o pulse la <keycap>barra espaciadora</keycap>. Alternativamente, también puede usar el botón de captura de la cámara web, si su cámara tiene uno. Para parar el modo ráfaga puede usar la tecla <keycap>Esc</keycap>.</para>
+  </section>
+</section>
+
+<section id="setting-up">
+  <title>Configurar Cheese</title>
+	
+	<section id="preferences">
+    <title>El diálogo de preferencias</title>
+    <para>El diálogo de preferencias le permite configurar algunos parámetros específicos de la cámara web y parámetros específicos del modo ráfaga. Si tiene más de una cámara web o dispositivo conectado en su sistema, el diálogo de preferencias le permitirá elegir cuál quiere usar con Cheese y qué resolución de imagen debe tener. Use los deslizadores para jugar con los valores de brillo, contraste, saturación y tono, y encontrar los mejores para su cámara web.</para>
+		
+		<figure>
+			<title>Captura de pantalla de las preferencias de Cheese</title>
+			<screenshot>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="figures/cheese-preferences.jpg" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+		 </screenshot>
+		</figure>
+
+    <para>Los parámetros para el modo ráfaga también se pueden establecer en el diálogo de preferencias. Sólo tiene que ajustar los valores para el número de fotos que quiere tomar y el retardo entre cada foto.</para>
+  </section>
+	
+	<section id="gconf">
+		<title>Ajustes de GConf</title>
+		<para>También puede establecer manualmente la ubicación donde Cheese almacena los archivos multimedia capturados (fotos y vídeos). Estos ajustes están guardados en GConf. Para cambiar los ajustes use la aplicación <command>gconf-editor</command>. En la aplicación seleccione /apps/cheese en el árbol de la izquierda. Ahora puede establecer las claves <guilabel>video_path</guilabel> y <guilabel>photo_path</guilabel> a la ubicación que quiera. En él también puede ajustar otros parámetros para Cheese, pero deberá usar el diálogo de preferencias para un acceso controlado.</para>
+		
+		<warning>
+      <para>Atención: Sea cuidadoso con los ajustes de GConf, si no está completamente seguro de lo que está haciendo debería preguntar a alguien que sí lo sepa.</para>
+    </warning>
+	</section>
+</section>
+
+<section id="sharing">
+  <title>Compartir fotos y vídeos</title>
+
+  <section id="view">
+    <title>Ver una foto o un vídeo</title>
+    <para>Para ver un vídeo o una foto, seleccione el vídeo o la foto en la galería y pulse dos veces sobre sobre su miniatura. Alternativamente puede pulsar con el botón derecho y seleccionar <guimenuitem>Abrir</guimenuitem>. Esto abrirá el archivo en la aplicación predeterminada para ese tipo de archivo.</para>
+  </section>
+
+  <section id="saving">
+    <title>Guardar las fotos y vídeos en una ubicación alternativa</title>
+    <para>Para guardar una foto en un lugar alternativo de su disco duro, donde pueda encontrarla más fácilmente, seleccione la foto o vídeo que quiere guardar desde la galería, pulse con el botón derecho y seleccione <guimenuitem>Guardar como</guimenuitem> del menú emergente. Esto mostrará un diálogo estándar <guilabel>Guardar archivo</guilabel> que le permitirá renombrar la foto y elegir una ubicación.</para>
+  </section>
+
+  <section id="delete">
+    <title>Borrar una foto</title>
+    <para>Para borrar una foto de la galería, localice la foto que quiere borrar en la galería, pulse con el botón izquierdo del ratón y pulse el botón <keycap>Suprimir</keycap> de su teclado. Alternativamente puede pulsar con el botón derecho del ratón y seleccionar <guimenuitem>Borrar</guimenuitem> en el menú emergente.</para>
+
+    <para>Se le preguntará si quiere borrar la foto de la galería. Para confirmarlo, pulse el botón <guibutton>Mover a la papelera</guibutton>.</para>
+
+    <note>
+      <para>Esto sólo moverá la imagen a la «papelera de reciclaje», además de quitar la foto de la galería. Esto no borra la foto de su equipo. Para eliminarla de la papelera deberá vaciar la papelera.</para>
+    </note>
+  </section>
+
+  <section id="email">
+    <title>Enviar una foto por correo-e</title>
+    <para>Las fotos se pueden enviar por correo-e directamente desde Cheese. Deberá tener configurado el cliente de correo-e predeterminado con una cuenta. Para enviar una foto por correo-e, seleccione en la galería la foto que quiere enviar, pulse con el botón derecho del ratón sobre ella y seleccione <guimenuitem>Enviar por correo-e</guimenuitem>.</para>
+
+    <para>Esto abrirá el cliente de correo predeterminado (Evolution, por ejemplo) con un nuevo mensaje de correo-e y la foto seleccionada como un adjunto.</para>
+  </section>
+
+  <section id="account-photo">
+    <title>Establecer como foto de la cuenta</title>
+    <para>Para establecer una foto como la foto de su cuenta (que se pueden ver desde <menuchoice><guimenu>Sistema</guimenu><guimenuitem>Preferencias</guimenuitem><guimenuitem>Acerca de mi</guimenuitem></menuchoice>, y también aparecerá en la ventana de entrada si se muestra una lista de nombres con fotos), seleccione la foto que quiere usar, pulse con el botón derecho del ratón y seleccione <guimenuitem>Establecer como foto de la cuenta</guimenuitem>.</para>
+  </section>
+
+  <section id="fspot">
+    <title>Exportar una foto a F-Spot</title>
+    <para>Para exportar una foto a F-Spot, seleccione la foto de su álbum que quiere exportar, pulse con el botón derecho sobre ella y seleccione <guimenuitem>Exportar a F-Spot</guimenuitem>. Entonces F-Spot le preguntará si quiere importar todas las fotos que se le envían.</para>
+
+    <note>
+      <para>Dependiendo de la versión de Cheese que esté usando actualmente, F-Spot puede preguntarle si quiere importar el conjunto de fotos completo.</para>
+    </note>
+	
+	<figure>
+		<title>Cheese compartiendo una captura</title>
+		<screenshot>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="figures/cheese-share.jpg" format="JPG"/>
+				</imageobject>
+			</mediaobject>
+	 </screenshot>
+	</figure>
+  </section>
+</section>
+
+<!--<section id="preferences">
+  <title>Preferences</title>
+
+  <para>
+    Describe preferences over here
+  </para>
+</section>-->
+
+<section id="faq">
+  <title>Preguntas más frecuentes</title>
+  <!--<para>
+    These are questions the mailing list gets asked frequently.
+  </para>-->
+
+  <section id="faq-sluggish">
+    <title>El vídeo se entrecorta o tiene una respuesta lenta. ¿Qué puedo hacer?</title>
+    <para>Puede que haya establecido «<literal>ximagesink</literal>» (<guilabel>X Window System (No Xv)</guilabel>) como la salida de vídeo. Esto significa que su CPU está realizando todo el trabajo. Cámbielo a «<literal>xvimagesink</literal>» (<guilabel>X Window System (X11/XShm/Xv)</guilabel>) para que la tarjeta gráfica haga el trabajo.</para>
+
+    <para>Para cambiar los ajustes ejecute el comando <command>gstreamer-properties</command>, pulse la solapa <guilabel>Vídeo</guilabel> y cambie los ajustes apropiados.</para>
+  </section>
+
+  <section id="faq-mac">
+    <title>Tengo un Mac con iSight y una tarjeta gráfica ATI y los colores se ven raros.</title>
+    <para>Este es un problema con las tarjetas gráficas ATI, aunque hay una solución. Cambie la salida de vídeo a personalizada e introduzca lo siguiente: "<literal>ffmpegcolorspace ! video/x-raw-yuv,format=(fourcc)YV12 ! ffmpegcolorspace ! xvimagesink</literal>".</para>
+
+    <para>Para cambiar los ajustes, ejecute <command>gstreamer-properties</command>, pulse la solapa <guilabel>Vídeo</guilabel> y seleccione Personalizado del menú desplegable.</para>
+  </section>
+
+  <section id="faq-work-gstreamer">
+    <title>Mi cámara web funciona bien con GStreamer pero no funciona con <application>Cheese</application>. ¿Cuál es el problema?</title>
+    <para>Use <command>gstreamer-properties</command> como se menciona en la cuestión anterior, pruebe cambiando de <guilabel>xvimagesink</guilabel> a <guilabel>ximagesink</guilabel> o viceversa. Si nada de esto funciona, ejecute <command>cheese --verbose</command> en la línea de comandos y pegue la salida en un informe de error en la <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">página de seguimiento de errores</ulink>.</para>
+  </section>
+
+  <section id="faq-work-other">
+    <title>Mi cámara web funciona con otros programas como Ekiga, Camorama pero no con <application>Cheese</application>. ¿Qué funciona mal?</title>
+    <para>Compruebe que su cámara funciona probándola en <command>gstreamer-properties</command>. Si funciona allí pero no en <application>Cheese</application>, por favor rellene un informe de error en nuestra <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">página de seguimiento de errores</ulink>.</para>
+  </section>
+
+  <section id="faq-store">
+    <title>¿Dónde almacena <application>Cheese</application> mis fotos y vídeos?</title>
+    <para>Cheese almacena sus imágenes en una carpeta llamada Webcam dentro de la carpeta XDG-Directory establecida para las imágenes (en la mayoría de las distribuciones es ~/Imágenes/Webcam o ~/Pictures/Webcam). Lo mismo se aplica para los vídeos: ~/Vídeos/Webcam. XDG es un estándar para declarar carpetas predeterminadas en su sistema, puede encontrar más información acerca de XDG <ulink url="http://standards.freedesktop.org/basedir-spec/basedir-spec-0.6.html" type="http">aquí</ulink>.</para>  
+
+    <para>Si la ruta XDG-Path no está establecida en su sistema, Cheese usa una solución de respaldo: almacenará tanto sus imágenes como sus vídeos en ~/.gnome2/cheese/media. Este es el directorio predeterminado para sus archivos multimedia si tiene una versión anterior de <application>Cheese</application>.</para>
+    
+    <para>Cómo establecer una ruta alternativa está descrito en <xref linkend="gconf"/>.</para>
+    
+    <warning>
+      <para>Atención: deje este ajuste vacío si quiere que <application>Cheese</application> use las carpetas predeterminadas.</para>
+    </warning>
+    
+    <note>
+		  <para>También puede guardar sus fotos en una ubicación alternativa desde Cheese. Para obtener más información acerca de esto consulte la <xref linkend="saving"/>.</para>
+		</note>
+  </section>
+
+  <section id="faq-quickcam">
+    <title>Mi QuickCam Express no funciona con <application>Cheese</application>...</title>
+    <para>o GStreamer, y veo errores como "No hay suficientes búferes. Se obtuvo 1, se necesitan al menos 2" en la salida de <application>Cheese</application>. Con el controlador "qc-usb".</para>
+
+    <para>Pruebe a ejecutar <command>qcset /dev/video0 compat=dblbuf</command> para activar el modo de compatibilidad de búfer doble, después reinicie <application>Cheese</application>.</para>
+  </section>
+
+  <section id="faq-no-camera-found">
+    <title>Mensaje de error «No Camera Found»</title>
+    <para>Al lanzar Cheese obtengo el error «No Camera Found» pero tengo mi cámara web conectada en mi equipo.</para>
+    <para>Existen muchas situaciones que pueden causar esto, y se debe aislar el problema exacto que lo está causando. Si es posible, intente cada una de las siguientes soluciones para intentar hacer que funcione su cámara:</para>
+    <orderedlist>
+        <listitem>
+          <para>Conecte su cámara en otro equipo. Si funciona allí, entonces es un problema con la conexión en su equipo, o el sistema operativo, si era diferente en cada uno de los equipos. Compruebe los puertos en su equipo (pruebe con otro) y consulte el soporte para su sistema operativo en particular.</para>
+        </listitem>
+        <listitem>
+          <para>Compruebe si su cámara se ha detectado en su otro equipo. En GNU/Linux, abra el terminal o la consola y escriba «dnesg» antes de conectar su cámara web. Note las entradas más recientes y después conecte su cámara. Escriba «dmesg» de nuevo y compruebe si las entradas más recientes difieren. Si el mensaje menciona la detección de un dispositivo USB y su cámara web es el único dispositivo USB que ha cambiado, entonces su equipo está detectando correctamente la cámara web. De lo contrario, entonces compruebe si la cámara web funciona en otro equipo. Esto puede sólo funcionar con cámaras web USB.</para>
+        </listitem>
+        <listitem>
+          <para>Como Cheese usa el «backend» de GStreamer, probablemente GStreamer no está detectando la cámara web (o GStreamer está corrupto). Contacte con el soporte del sistema operativo en particular que está ejecutando con todos los detalles posibles. Para Ubuntu consulte los <ulink url="http://ubuntuforums.org/" type="http">foros de Ubuntu</ulink>.</para>
+        </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="faq-supported-webcams">
+    <title>¿Qué cámaras están soportadas?</title>
+    <para>Cheese usa GStreamer para capturar vídeo. Así que en principio Cheese soporta cualquier cámara que funcione con GStreamer, así como cualquier cámara soportada por video4linux y video4linux2.</para>
+  </section>
+</section>
+
+<section id="about">
+  <title>Acerca de</title>
+  <para>Daniel G. Siegel <email>dgsiegel@gnome.org</email> escribió inicialmente Cheese como parte del proyecto Google Summer of Code. Más tarde Jaap A. Haitsma <email>jaap@haitsma.org</email> y otros ayudaron a Daniel a mejorarlo. Para obtener más información acerca de Cheese, visite la <ulink url="http://projects.gnome.org/cheese" type="http">página web de <application>Cheese</application></ulink>.</para>
+  <para>Para informar de un error o hacer una sugerencia acerca de esta aplicación, puede rellenar un informe de error en la <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">página de seguimiento de errores</ulink>.</para>
+  <para>Este programa se distribuye bajo los términos de la Licencia Pública General GNU tal como la publica la Free Software Foundation; en cualquiera de las versiones 2 de la Licencia o (a su elección) cualquier versión posterior. Puede encontrar una copia de esta licencia en este <ulink url="ghelp:gpl" type="help">enlace</ulink>, o en el archivo COPYING incluido con el código fuente de este programa.</para>
+</section>
+
+</article>

@@ -1,0 +1,8 @@
+debian/tmp/etc/gconf
+debian/tmp/usr/lib/cheese
+debian/tmp/usr/share/cheese
+debian/tmp/usr/share/gnome
+debian/tmp/usr/share/icons
+debian/tmp/usr/share/locale
+debian/tmp/usr/share/omf
+debian/source_cheese.py usr/share/apport/package-hooks

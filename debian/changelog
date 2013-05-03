@@ -1,0 +1,927 @@
+cheese (2.32.0-0ubuntu1) maverick; urgency=low
+
+  * New upstream release:
+    - Added/Updated Translations
+
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 28 Sep 2010 00:45:34 +0200
+
+cheese (2.31.92-0ubuntu1) maverick; urgency=low
+
+  * New upstream release:
+    - camera: emit video-saved signal by name in gst threads
+    Static camera_signals array is not initizialized in the gstreamer thread
+    so we get a critical assertion failed (signal_id > 0) if we emit by id.
+    This should workaround the issue. (LP: #587853)
+    - Added/Updated Translations
+
+ -- Didier Roche <didrocks@ubuntu.com>  Mon, 20 Sep 2010 15:21:15 +0200
+
+cheese (2.31.90-0ubuntu2) maverick; urgency=low
+
+  [ K Vishnoo Charan Reddy ]
+  * debian/control.in
+    - Improve cheese description (lp: #604636)
+
+  [ Mitch Towner ]
+  *  debian/source_cheese.py:
+    - Improve apport hook (lp: #573124)
+    
+  * debian/control:
+    - Add Vcs-Bzr link
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Fri, 27 Aug 2010 16:46:01 +1000
+
+cheese (2.31.90-0ubuntu1) maverick; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 17 Aug 2010 16:21:32 +0200
+
+cheese (2.30.1-1ubuntu1) maverick; urgency=low
+
+  * Merge from unstable, remaining changes:
+    + debian/control.in:
+      - cheese replaces cheese-common (<< 2-30.1-1ubuntu1) as debian put
+        /usr/share/dbus-1 in cheese binary package
+    + debian/rules:
+      - remove -Bsymbolic-functions from LDFLAGS to fix runtime core dump
+        because of multiple symbol redefinition in both cheese bin and
+        libcheese-gtk18 lib
+    + apport hook:
+      - debian/source_cheese.py
+      - cheese-common.install
+    + debian/watch:
+      - take unstable versions
+
+ -- Didier Roche <didrocks@ubuntu.com>  Fri, 21 May 2010 15:27:46 +0200
+
+cheese (2.30.1-1) unstable; urgency=low
+
+  * New upstream release.
+    - HAL dependency has been dropped. Use (g)udev for v4l capability probing
+      on Linux. Closes: #573774
+    - Split code into separate libraries.
+  * debian/control.in
+    - Drop Build-Depends on libhal-dev.
+    - Drop Build-Depends on libebook1.2-dev.
+    - Bump Build-Depends on libgtk2.0-dev to (>= 2.19.1).
+    - Bump Build-Depends on libgstreamer*-dev to (>= 0.10.23).
+    - Add Build-Depends on libcanberra-gtk-dev.
+    - Add Build-Depends on libxtst-dev.
+    - Add Build-Depends on libgudev-1.0-dev on Linux.
+    - Bump Standards-Version to 3.8.4. No further changes.
+  * Switch to source format 3.0 (quilt)
+    - Add debian/source/format.
+  * debian/rules
+    - Drop lpia specific configure flags, lpia is dead.
+  * Update package layout (based on work by Ubuntu)
+    - Move data files into new cheese-common package.
+    - Keep binary along with its desktop and dbus service file in the cheese
+      package.
+    - Add libcheese-gtk18 and libcheese-gtk-dev package for the new
+      libcheese-gtk library. Use a symbols file for improved shlibs
+      dependencies.
+    - Add Conflicts/Replaces to cheese-common to ensure proper upgrades from
+      previous versions.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 04 May 2010 17:37:18 +0200
+
+cheese (2.30.1-0ubuntu1) lucid-proposed; urgency=low
+
+  * New upstream release: (LP: #571265)
+    (taking from commits message as no updated NEWS file)
+    - menu: disable Take Photo when there is no camera
+    - effects: fix a text rendering problem
+    - effects: don't use uninitialized ints
+    - build: enable GSEAL
+    - Use accessor functions instead direct access
+    - Updated translations
+
+ -- Didier Roche <didrocks@ubuntu.com>  Wed, 28 Apr 2010 14:22:01 +0200
+
+cheese (2.30.0-0ubuntu2) lucid; urgency=low
+
+  * debian/source_cheese.py:
+    - Apport hook for cheese (lp: #542091)
+  * debian/cheese-common.install:
+    - Ship the new apport hook.
+
+ -- Nigel Babu <nigelbabu@ubuntu.com>  Mon, 12 Apr 2010 20:00:53 +0530
+
+cheese (2.30.0-0ubuntu1) lucid; urgency=low
+
+  * New upstream version:
+    - countdown: move rsvg_init and rsvg_term into main Initialize rsvg at 
+      startup and clean it up at exit. Fixes a long standing bug that made 
+      cheese crash when going fullscreen with button and window sounds enabled.
+      (lp: #546069)
+    - window: set the main button label to "Stop recording" while recording.
+      Little regression introduced in 2.29.90.
+    - widget: use dialog-error icon The "error" icon used before doesn't exist 
+      in gnome-icon-theme 2.29 and causes crashes. Use "dialog-error" instead.
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 30 Mar 2010 00:19:46 +0200
+
+cheese (2.29.92-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - widget: restore saved balance settings at startup
+      Restore balance (brightness, saturation, hue) settings, saved in gconf,
+      when the camera is initialized. (LP: #524854)
+    - camera: fix a shameful pointless g_return_if_fail that prevented
+      resolution changin from preferences. (LP: #364718)
+    - docs: complete api docs for CheeseCameraDeviceMonitor
+    - Added/Updated Translations
+
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 09 Mar 2010 09:38:29 +0100
+
+cheese (2.29.91-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+   + cheese:
+    - Restore the infobar temporarily disabled in the previous version
+    - Make the infobar display generic errors about camera
+      initialization instead of just the "no-device" one.
+   + libcheese-gtk:
+    - Remove "ready" and "error" signals in CheeseWidget and use a
+      "state" property to track current widget state (none, ready,
+      error).
+    - Add cheese_widget_get_error() api to retrieve a GError (propagated
+      from CheeseCamera) if something failed (widget in error state).
+    - Update CheeseAvatarChooser to reflect the new api.
+   + Fixed bugs:
+      #592663 — Update sensitivity of "move all to trash", Mathias Clasen
+   + Added/Updated Translations
+  * apply soname changes:
+    - update debian/control to libcheese-gtk18
+    - update .la removal in debian/rules
+    - rename to debian/libcheese-gtk18.install and update new symbols
+      to debian/libcheese-gtk18.symbols
+  * debian/control:
+    - update Standards-Version
+
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 23 Feb 2010 11:30:42 +0100
+
+cheese (2.29.90-0ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - Export libcheese-gtk library
+    - Rework Cheese itself to use libcheese-gtk
+    - Add cropping ability to the chooser widget
+    - Fix a possible crasher and a hang in CheeseCamera
+    - Require libgudev on Linux systems
+    - Limit framerate to 30 frames per second
+    - Updated German documentation
+  * create cheese-common, libcheese-gtk{17,-dev} packages:
+    - add debian/cheese-common.install, debian/cheese.install,
+      debian/libcheese-gtk-dev.install, debian/libcheese-gtk17.install
+      and debian/libcheese-gtk17.symbols
+    - add packages to debian/control with C/R
+    - modify debian/rules to remove .la and .a files from libcheese-gtk17
+  * debian/control:
+    - remove -Bsymbolic-functions from LDFLAGS to fix runtime core dump
+      because of multiple symbol redefinition in both cheese bin and
+      libcheese-gtk17 lib
+
+ -- Didier Roche <didrocks@ubuntu.com>  Sat, 13 Feb 2010 15:53:01 +0100
+
+cheese (2.29.5-0ubuntu2) lucid; urgency=low
+
+  * debian/control: build-depends on libcanberra-gtk-dev 
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 12 Jan 2010 02:07:03 +0100
+
+cheese (2.29.5-0ubuntu1) lucid; urgency=low
+
+  * New upstream version:
+    don't use libhal but libgudev instead (lp: #496025, #503409)
+  * debian/control:
+    - build-depends on libgudev-1.0-dev, libxtst-dev
+    - don't build-depends on libhal, libebook, x11proto-core-dev
+    - grammatical error fix in the description, thank Lesley Harrison
+      (lp: #501368)
+    - updated gstreamer and gtk requirements
+  * debian/rules:
+    - clean the .a and .la libraries
+    - don't use --enable-mmkeys configure option, it's deprecated
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 11 Jan 2010 23:21:59 +0100
+
+cheese (2.28.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Andrea Veri <andrea.veri89@gmail.com>  Thu, 22 Oct 2009 12:15:51 +0200
+
+cheese (2.28.1-0ubuntu3) lucid; urgency=low
+
+  * No change rebuild to use the new libgnome-desktop soname
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 06 Jan 2010 20:51:43 +0100
+
+cheese (2.28.1-0ubuntu2) lucid; urgency=low
+
+  * debian/gconf-defaults: Use wide mode by default for small screens.
+    LP: #487249
+
+ -- Michael Terry <michael.terry@canonical.com>  Mon, 23 Nov 2009 12:44:27 -0500
+
+cheese (2.28.1-0ubuntu1) karmic; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 19 Oct 2009 22:19:51 +0200
+
+cheese (2.28.0.1-1) unstable; urgency=low
+
+  [ Andrea Veri ]
+  * New upstream release.
+  * debian/control:
+    - Bumped Standards-version to 3.8.3. No changes needed.
+    - libgtk2.0-dev bumped to >= 2.17.4 as per configure.ac
+      requirements.
+    - libgnome-desktop-dev bumped to >= 2.26.0 as per configure.ac
+      requirements.
+    - added a B-D on x11proto-core-dev needed from multimedia keys
+      to work properly.
+  * debian/copyright:
+    - added missing copyright holders.
+  * debian/patches:
+    - removed as long as it has no patches in it.
+  * debian/rules:
+    - simple-patchsys include removed, there are no patches to be
+      applied.
+
+  [ Loïc Minier ]
+  * Bdep on rarian-compat instead of scrollkeeper.
+
+ -- Andrea Veri <andrea.veri89@gmail.com>  Wed, 23 Sep 2009 20:25:41 +0200
+
+cheese (2.28.0.1-0ubuntu1) karmic; urgency=low
+
+  * New upstream version (LP: #455179)
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Mon, 19 Oct 2009 16:57:02 +1100
+
+cheese (2.28.0-0ubuntu1) karmic; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 21 Sep 2009 11:26:33 +0200
+
+cheese (2.27.92-0ubuntu1) karmic; urgency=low
+
+  * New upstream version
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 07 Sep 2009 23:14:59 +0200
+
+cheese (2.27.91-0ubuntu1) karmic; urgency=low
+
+  * New upstream version: (LP: #418381)
+    - Restore default window size that was changed with the netbook-mode
+      merge.
+    - Prevent the thumbview to shrink down to nothing when there are no
+      items. Keep track of current items number and set a size request when
+      it reaches zero.
+    - Remove a bunch of hacks used in wide-mode switching to keep the video
+      area size constant. Do everything in a more proper, non hackish, way.
+      Fixes window "flickering" when switching to Wide Mode.
+    - Restore a <schema> keyword that got lost in the gconf schema, fixes
+      bug #591389, courtesy of Koop Mast
+    - New and Updated Translations
+  * debian/patches
+    - drop 90_git_change_fix_schemas_error.patch, merged upstream
+    - remove debian/patches as it's empty now
+
+ -- Andreas Moog <amoog@ubuntu.com>  Tue, 25 Aug 2009 02:44:22 +0200
+
+cheese (2.27.90-0ubuntu2) karmic; urgency=low
+
+  * debian/patches/90_git_change_fix_schemas_error.patch:
+    - git change to fix a schemas formating issue (lp: #411748)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 11 Aug 2009 09:58:26 +0200
+
+cheese (2.27.90-0ubuntu1) karmic; urgency=low
+
+  * New upstream version
+  * debian/control, 
+    debian/cheese-hildon.manpages, 
+    debian/rules:
+    - don't list cheese-hildon there is no such variant in the current version
+      but a netbook mode in the standard build
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 11 Aug 2009 01:21:52 +0200
+
+cheese (2.27.5-0ubuntu4) karmic; urgency=low
+
+  * debian/control:
+    - don't build-depends on libhildon since it's not used now
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 06 Aug 2009 16:26:10 +0100
+
+cheese (2.27.5-0ubuntu3) karmic; urgency=low
+
+  * debian/patches/30_fix-desktop-file.patch:
+    - the category change there was wrong so stop using it now
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 06 Aug 2009 15:40:46 +0100
+
+cheese (2.27.5-0ubuntu2) karmic; urgency=low
+
+  * debian/rules:
+    - run intltool-update since the cdbs code doesn't work when building 
+      out of the source directory which is the case there (lp: #188690)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 30 Jul 2009 17:24:52 +0200
+
+cheese (2.27.5-0ubuntu1) karmic; urgency=low
+
+  * New upstream release: (LP: #405684)
+    - add new photo and burst icons, courtesy of Ulisse Perusin
+    - remove the label of the photo and video modes
+    - support taking a series of photos, fixes bug #581997
+      this introduces the burst mode in cheese.
+      the burst mode allows to take a series of photos
+      with a configurable delay and number of photos
+    - Make webcam and resolution settings not sensitive if just 1 option
+      is available. If there are no options to choose, make the webcam and
+      resolution combo box insensitive, fixes bug #588353
+    - Added/Updated Translations
+    - Added/Updated Documentation
+
+ -- Didier Roche <didrocks@ubuntu.com>  Wed, 29 Jul 2009 20:42:57 +0200
+
+cheese (2.27.4-0ubuntu1) karmic; urgency=low
+
+  * New upstream release: (LP: #399056)
+    - ensure the drawing area has a native X11 window
+      With the new client-side-window gtk+ widgets do not always have a
+      native window anymore. We need an XID to give to GstXOverlay and embed
+      video into the application. This temporarily works around the issue
+      forcing a native window. Works around bug 588357
+    - use the camera-web icon instead of camera-video
+      we are using camera-web in the project logo/icon but camera-video for the
+      UI. it is more appropriate to use the camera-web icon as it's a) less
+      likely people will use camcorders with cheese b) there is bigger visual
+      distinction between camera-photo and camera-web than camera-photo and
+      camera-video.
+    - manually expose the window if not PLAYING
+      Draw a black background if the pipeline is starting up and the overlay
+      is still not ready to expose the drawing area.
+    - fix broken xoverlay management
+      For some reason this went unnoticed for a long time. We were calling
+      set_x_overlay right after setting PLAYING state (with no warranty that
+      the state change succeeded nor that an overlay was really there). The
+      only right way to do this is to wait for prepare-xwindow-id message. It
+      worked until now just because we've been extremely lucky.
+    - drop url and email handlers
+      Drop url and email handlers used in the about dialog since gtk+ 2.17.2
+      already provides that functionality built in.
+    - drop GEditMessageArea in favor of GtkInfoBar
+      Drop GEditMessageArea since it recently entered gtk+. Fixes bug #586545
+    - use AM_SILENT_RULES if available, fixes bug #587581
+    - Use accessor functions instead direct access, fixes bug #585210
+    - remove markup from translatable strings
+    - keybindings: add configure checks for needed X11 stuff
+      Check for XF86keysym.h availability and add a configure option to
+      disable Webcam Button listening. Copied from rhythmbox.
+    - add little program to emit fake webcam button events
+    - capture webcam buttons
+      Listen to XF86Webcam keypresses to capture webcam buttons. Should
+      work with every driver that correctly binds the input device to
+      KEY_CAMERA events. Fixes bug #521551
+    - remove padding from the take_picture button
+      Use alignment xscale property instead of padding in the take_picture
+      button. Doesn't fix but at least partly works around bug #573301 (the
+      button can now grow up and fill the whole free space with no padding
+      constraint).
+    - sanitize main toolbar structure
+      No real change, just some little restructuring of the glade toolbar
+      definition to make it easier to hack on.
+  * debian/control:
+    - Bump gtk+ requirement to 2.17.3
+    - Add build-dep on x11proto-core-dev for multimedia keys
+    - Add build-dep on docbook-utils
+  * debian/rules:
+    - Build with --enable-mmkeys
+    - Remove --enable-hildon when building for LPIA - there are cheese-hildon packages
+      for this (LP: #345772)
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 14 Jul 2009 09:25:41 +1000
+ 
+cheese (2.27.3-0ubuntu2) karmic; urgency=low
+
+  * Fix Build-Depends:
+    - scrollkeeper -> rarian-compat.
+    - libgconf2-4 -> libgconf2-dev
+  * Actually mention that src/gst-audio-play.{c,h} are under the LGPL in
+    debian/copyright.
+  * Install the manual page for both cheese and cheese-hildon using
+    debian/cheese{,-hildon}.manpages.
+
+ -- Steve Kowalik <stevenk@ubuntu.com>  Mon, 13 Jul 2009 15:37:52 +1000
+
+cheese (2.27.3-0ubuntu1) karmic; urgency=low
+
+  * New upstream release:
+    - Set default resolution to the highest one with a non jerky (higher than
+      15fps) framerate, fixes bug
+    - Lower max-delay and max-page-delay oggmux properties from 5 to 0.5
+      seconds. Should prevent out of sync audio in recorded videos and
+      hopefully fix bug (LP: #241422)
+    - Don't access effects string after free. This was causing the first effect
+      stored in gconf to not be restored at startup, fixes bug 584186
+    - Get rid of GtkAspectFrame, it doesn't really suit our needs, it hardcodes
+      an aspect ratio that obviously cannot be valid for every format webcams
+      support. Render the video directly to the drawing area with no external
+      aspect ratio restriction. Eventually fixes bug #559188 since the
+      aspectframe was adding some extra padding between the video and the window
+      border.
+    - Almost every available gstreamer videosink can display black bars around
+      the video keeping its aspect ratio. Enable it if available.
+      Black bars look a lot nicer than the grey color of the underlying
+      gtkwindow displayed with the aspectframe.
+    - Properly forward expose events to GstXOverlay.
+    - Avoid ugly flickering on window resize. Let gstxoverlay take full control
+      of the drawing area window. Prevent gtk from drawing the background and
+      remove the flickering caused by its internal double buffering.
+    - Remove initial black bars (at least for 4:3 webcams). Set a default window
+      size that fits nicely the video aspect ratio so that black bars are not
+      drawn until a manual resize.
+    - Added/Updated Translations
+    - Added/Updated Documentation
+
+  [Robert_Ancell]:
+  * debian/control: Fix enviornments typo in cheese-hildon description (LP: #386745)
+
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 16 Jun 2009 10:34:10 +0200
+
+cheese (2.27.2-0ubuntu1) karmic; urgency=low
+
+  * New upstream release (LP: #380527)
+    - Ignore new photo requests if we are still waiting for an "handoff" signal
+      for the previous one, fixes bug #582902
+    - Fix a couple of trivial memory leaks in the thumbnail generator code, fixes
+      bug #578289
+    - Don't return if "image-loading" icon is not found, we will have an empty
+      pixbuf while the thumbnail thread is running but it is surely better than
+      no thumbnail at all, fixes bug #582240
+    - Added/Updated Translations
+      - de, courtesy of Nathan-J. Hirschauer
+      - es, courtesy of Jorge González
+      - et, courtesy of Ivar Smolin
+      - or, courtesy of Manoj Kumar Giri
+      - pa, courtesy of A S Alam
+      - th, courtesy of Akom C.
+    - Added/Updated Documentation
+      - el, courtesy of Simos Xenitellis
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 26 May 2009 10:48:27 +0200
+
+cheese (2.27.1-0ubuntu1) karmic; urgency=low
+
+  * New upstream release (LP: #375279)
+    - Improve preferences dialog making it more consistent with other GNOME
+      applications.
+    - Add support for brightness, contrast, saturation and hue adjustments,
+      fixes bug #558970.
+    - Replace deprecated gtk_action_connect_proxy calls with
+      gtk_activatable_set_related_action, fixes bug #571383.
+    - Bump gtk+ dependency to 2.16 (needed for gtk_scale_add_mark and
+      gtk_activatable_set_related_action).
+    - Archive old ChangeLog and autogenerate it on distribution from git log.
+    - Added cheese.doap file
+    - Added Filippo Argiolas to MAINTAINERS
+    - updated translations
+  * debian/control: Bump GTK+ requirement to 2.16
+  * debian/control: Add BZR link
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 12 May 2009 15:39:19 +1000
+
+cheese (2.26.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Update build-dependencies.
+  * 01_de.po.patch: removed, fixed upstream.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 17 Jun 2009 01:24:48 +0200
+
+cheese (2.26.0-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #345143)
+    - Lock gdk mutex in photo-saved and video-saved callbacks Those signals are emitted
+      within a gstreamer callback so outside the mainloop, hence the need for locking.
+      This fixes the flash locking issue and also the one about the grey thumbview
+      right after the flash.
+    - updated translations
+
+ -- Andreas Moog <andreas.moog@warperbbs.de>  Thu, 19 Mar 2009 00:24:22 +0100
+
+cheese (2.25.92-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #337938)
+    - Remove g_error calls where the error is not supposed to abort
+      execution. Replace them with more suited g_warnings.  Fixes bug #562179
+    - Print cheese verbose messages even if log dir doesn't exist.
+      Fixes bug #573573
+    - Replace deprecated gtk symbols with hildon. Bug #571383
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 04 Mar 2009 16:12:47 -0500
+
+cheese (2.25.90-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release. (LP: #324964)
+  * Drop debian/patches/40_german.patch
+   - Fixed upstream
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Tue, 03 Feb 2009 13:06:53 -0500
+
+cheese (2.25.4-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release. (LP: #314194)
+  * debian/control:
+   - Bump Build-dep on libgtk2.0-dev to (>=2.14.0)
+   - Drop depricated Build-deps on libgnomevfs2-dev 
+     and libgnomeui-dev
+   - Add Build-Dep on libgnome-desktop-dev (>=2.25.1)
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Mon, 05 Jan 2009 17:39:18 -0500
+
+cheese (2.24.3-2) unstable; urgency=low
+
+  * Depend on gstreamer0.10-x. Closes: #493762.
+  * Standards version is 3.8.1.
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 09 Apr 2009 20:38:23 +0200
+
+cheese (2.24.3-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+  * Upload to unstable.
+
+ -- Sebastian Dröge <slomo@debian.org>  Fri, 06 Mar 2009 19:26:07 +0100
+
+cheese (2.24.2-1) experimental; urgency=low
+
+  [ Josselin Mouette ]
+  * 01_de.po.patch: new patch from Gabriel Ruiz. Fixes German 
+    translation of the menu entry. Closes: #507375.
+
+  [ Loic Minier ]
+  * Add watch file.
+  * New upstream release.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 31 Dec 2008 16:01:57 +0100
+
+cheese (2.24.2-0ubuntu2) jaunty; urgency=low
+
+  * In German po file I changed "Cheese-Website" line to the right
+    translation (LP: #303264)
+
+ -- Gabriel Ruiz Manzano <debianmaster@gmail.com>  Sun, 30 Nov 2008 00:35:25 -0300
+
+cheese (2.24.2-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release. (LP: #306382)
+
+ -- Andrew Starr-Bochicchio <a.starr.b@gmail.com>  Mon, 08 Dec 2008 20:14:43 -0500
+
+cheese (2.24.1-1) experimental; urgency=low
+
+  * New upstream release.
+  * Update build dependencies accordingly.
+  * 01_category.patch: removed, obsolete.
+  * 02_libgnome_url.patch: removed, now we use gio.
+  * Recommend gvfs.
+  * Add LDFLAGS including --as-needed.
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 13 Nov 2008 17:41:53 +0100
+
+cheese (2.24.1-0ubuntu2) jaunty; urgency=low
+
+  * Split out Hildon specific compontents into cheese-hildon
+  * Changed hildon build-dep to no longer be lpia specific
+
+ -- Michael Casadevall <sonicmctails@gmail.com>  Sat, 15 Nov 2008 15:51:47 -0500
+
+cheese (2.24.1-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release; bug fix and translation updates.
+
+ -- Loic Minier <lool@dooz.org>  Mon, 20 Oct 2008 20:47:59 +0200
+
+cheese (2.24.0-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release, bug fix only so no FFe needed (LP: #273389):
+    - update build-depends and depends in line with upstream requirements
+    - add suggests on nautilus-sendto (for better export mechanism)
+  * No change bump to Standards-Version 3.8.0
+
+ -- Cesare Tirabassi <norsetto@ubuntu.com>  Tue, 23 Sep 2008 23:48:59 +0200
+
+cheese (2.23.91-0ubuntu1) intrepid; urgency=low
+
+  * New upstream version (LP: #268250)
+    - debian/control: 
+      - Bump up GStreamer dependencies from (>=0.10.15) to (>=0.10.16).
+      - Dropped dependency on xxf86vm.
+    - debian/copyright: Update copyright information.
+    - 30_fix-desktop-file.patch:
+      - Updated to work with new upstream desktop file.
+  * Dropped 40_hildon.patch (implemented upstream).
+  * Dropped 45_take_picture_button_fix.patch (fixed upstream).
+  * Dropped 99_autotools.patch (implemented upstream).  
+
+ -- Chris Coulson <chrisccoulson@googlemail.com>  Wed, 10 Sep 2008 19:09:14 +0100
+
+cheese (2.22.3-3) unstable; urgency=low
+
+  * Don't run scrollkeeper-rebuilddb upon first installation.
+    Closes: #491641.
+
+ -- Josselin Mouette <joss@debian.org>  Mon, 21 Jul 2008 09:41:44 +0200
+
+cheese (2.22.3-2) unstable; urgency=low
+
+  * 02_libgnome_url.patch: use libgnome to open URLs rather than 
+    gappinfo. This patch should be removed once gvfs is part of the 
+    default installation, but is harmless as cheese already depends on 
+    libgnome. Closes: #489435.
+
+ -- Josselin Mouette <joss@debian.org>  Tue, 15 Jul 2008 14:40:03 +0200
+
+cheese (2.22.3-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 30 Jun 2008 09:55:35 +0200
+
+cheese (2.22.3-0ubuntu2) intrepid; urgency=low
+
+  * No-change rebuild for EDS, blah, blah, hand-wavy.
+
+ -- Steve Kowalik <stevenk@ubuntu.com>  Thu, 17 Jul 2008 05:14:55 +1000
+
+cheese (2.22.3-0ubuntu1) hardy-proposed; urgency=low
+
+  * New upstream release (LP: #244615).
+    - Update 40_hildon.patch with the following bug fixes:
+      - Fix extra blank window created in hildon mode (LP: #214867).
+      - Fix crash when using About/Quit menu items in hildon mode
+        (LP: #207437, courtesy of Mike Terry).
+    - Rename 70_autotools.patch to 99_autotools.patch and regenerate using
+      autoreconf; rm -rf autom4te.cache; true
+  * Add 45_take_picture_button_fix.patch to enable Take Picture button
+    inside the gtk thread lock (LP: #223172). 
+
+ -- Gary Lasker <gary.lasker@canonical.com>  Tue, 01 Jul 2008 18:09:01 -0400
+
+cheese (2.22.2-3) unstable; urgency=low
+
+  * Rebuild scrollkeeper DB in postinst on upgrades from older versions; see
+    #488399.
+
+ -- Loic Minier <lool@dooz.org>  Sat, 28 Jun 2008 22:16:00 +0200
+
+cheese (2.22.2-2) unstable; urgency=low
+
+  * Run with --disable-scrollkeeper. Closes: #488399.
+  * Standards version is 3.8.0, no changes.
+  * 01_category.patch: properly categorize in the Graphics menu.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 28 Jun 2008 18:49:30 +0200
+
+cheese (2.22.2-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 02 Jun 2008 11:01:14 +0200
+
+cheese (2.22.1-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/patches/00_fix_crash_on_init.patch
+    debian/patches/10_fallback_on_failure.patch
+    debian/patches/20_dont_start_pipeline_in_init.patch:
+    - Removed. All merged upstream
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 26 Apr 2008 10:09:53 +0200
+
+cheese (2.22.1-0ubuntu1) hardy; urgency=low
+
+  [ Gary Lasker ]
+  * New upstream release (LP: #215948)
+    - Remove 00_fix_crash_on_init.patch, 10_fallback_on_failure.patch and
+      20_dont_start_pipeline_in_init.patch, as these are incorporated in the
+      new upstream version.
+    - Replace 70_autotools.patch with new version to update autotools
+      generated files using:
+          1. aclocal
+          2. libtoolize --force --copy (to fix libtool version mismatch error)
+          3. autoreconf; rm -rf autom4te.cache; true
+
+  [ Loic Minier ]
+  * Add epoch to libgnomevfs2-dev bdep.
+
+ -- Gary Lasker <gary.lasker@canonical.com>  Tue, 15 Apr 2008 14:18:26 -0400
+
+cheese (2.22.0-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #435678)
+  * Based on the ubuntu packaging
+  * Remove hildon support. The patch doesn't apply anymore and it's irrelevant
+    for debian anyway
+  * Split control into a control.in, to generate control using the normal
+    pkg-gnome procedures
+  * debian/control: Update vcs urls
+  * debian/control: Update build-depends
+  * debian/patches/00_fix_crash_on_init.patch:
+    + Added. Fixed crash on intialisation because of running strcmp on NULL.
+      (From upstream svn)
+  * debian/patches/10_fallback_on_failure.patch:
+    + Added. Fallback to videotestsrc if getting information from the video
+      device fails
+  * debian/patches/20_dont_start_pipeline_in_init.patch:
+    + Added. Don't create the gstreamer pipeline in the Webcam object
+      initialisation as this is quite bad style. As a nice side-effect this
+      fixes cheese not using the webcam device set in gconf.
+  * debian/copyright: Updated
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Thu, 13 Mar 2008 10:58:03 +0100
+
+cheese (2.22.0-0ubuntu2) hardy; urgency=low
+
+  * Added the following patches from Debian (LP: #206700)
+  * debian/patches/00_fix_crash_on_init.patch:
+    + Added. Fixed crash on intialisation because of running strcmp on NULL.
+      (From upstream svn)
+  * debian/patches/10_fallback_on_failure.patch:
+    + Added. Fallback to videotestsrc if getting information from the video
+      device fails.
+  * debian/patches/20_dont_start_pipeline_in_init.patch:
+    + Added. Don't create the gstreamer pipeline in the Webcam object
+      initialisation as this is quite bad style. As a nice side-effect this
+      fixes cheese not using the webcam device set in gconf.
+
+ -- Gary Lasker <gary.lasker@canonical.com>  Tue, 25 Mar 2008 14:06:53 -0400
+
+cheese (2.22.0-0ubuntu1) hardy; urgency=low
+
+  * New upstream release (LP: #185669)
+    - Replace 40_hildon.patch with latest hildon patch from Matthew Garrett
+      (GNOME #519548).
+    - Replace 70_autotools.patch with new version to update autotools
+      generated files using:
+         1. libtoolize --force --copy (to fix libtool version mismatch error)
+         2. autoreconf; rm -rf autom4te.cache; true
+    - Bump dependency to libglib2.0-dev (>= 2.15.5); removed
+      libglade2-dev dependency; both per upstream configure.ac changes (note
+      contrary to autoconf.ac changes the gnome-vfs dependency must remain
+      as gnome-thumbnail still needs it - see GNOME #522189).
+
+ -- Gary Lasker <gary.lasker@canonical.com>  Sun, 23 Mar 2008 14:34:46 -0400
+
+cheese (2.21.5-0ubuntu1) hardy; urgency=low
+
+  [ Steve Stalcup ]
+  * New upstream release (LP: #180624)
+   - Added build-deps libxml-parser-perl, gnome-doc-utils, and scrollkeeper
+     for documentation build
+   - Added missing build-deps on libglib2.0-dev (>= 2.10.0), libgconf2-4 (>=
+     2.16.0), libcairo2-dev (>= 1.2.4), libdbus-1-dev (>= 1.0), libhal-dev (>=
+     0.5.9), libdbus-glib-1-dev (>= 0.7)
+   - Update homepage address
+
+  [ Mantas Kriaučiūnas]
+  * Bumped up Standards-Version to 3.7.3, no change needed
+  * New upstream release
+   - Added missing dependency on gstreamer0.10-x
+   - Added librsvg2-dev (>= 2.18) and libpango1.0-dev (>= 1.18.0) build-deps
+   - Disabled scroolkeeper help files generation by passing
+     --disable-scrollkeeper to configure
+   - Removed TODO from docs
+   - Version gstreamer0.10-plugins-good dependency to (>= 0.10.6)
+   - Updated fix_desktop patch for upstream changes and to fix
+     cheese.desktop.in.in
+
+  [ Loic Minier ]
+  * Fix DEB_CONFIGURE_EXTRA_FLAGS for all architectures.
+  * Cleanup control.
+  * Bump up deps to gstreamer0.10-plugins-base >= 0.10.15, gstreamer0.10-x
+    >= 0.10.12, following the upstream README recommendations.
+  * Update hildonization patch with a new glade file and new cheese-window.c
+    code by Matthew Garrett and port the build system changes to autoconf /
+    automake.
+  * Prepend number to patch names.
+  * Split hildon patch in 40_hildon.patch and 70_autotools.patch for
+    autoheader + autoconf + automake-1.10 changes.
+
+ -- Loic Minier <lool@dooz.org>  Wed, 23 Jan 2008 17:56:09 +0100
+
+cheese (0.2.4-0ubuntu3) hardy; urgency=low
+
+  * Watch file added (closes LP #180380)
+
+ -- Steve Stalcup <vorian@ubuntu.com>  Fri, 04 Jan 2008 11:16:13 -0500
+
+cheese (0.2.4-0ubuntu2) hardy; urgency=low
+
+  * Fix the hildon patch to add HILDON_CFLAGS to CFLAGS and HILDON_LIBS to
+    LDFLAGS; fixes build on lpia; thanks Steve Magoun.
+
+ -- Loic Minier <lool@dooz.org>  Wed, 28 Nov 2007 22:39:28 +0100
+
+cheese (0.2.4-0ubuntu1) hardy; urgency=low
+
+  * New upstream release:
+   - fix #472576: cheese takes longer to start as 
+       more pictures are stored
+   - fix #473560: v4l-recorded videos are zero
+       byte big, courtesy of Patryk Zawadzki
+   - Translation error in de
+  * debian/cheese.1: Created manpage
+  * debian/patches/fix_desktop.patch: Fixed desktop file
+  * debian/control:
+   - Fixed description-synopsis
+   - Added homepage field
+  * debian/copyright: Fixed listing of copyright
+
+ -- Cody A.W. Somerville <cody-somerville@ubuntu.com>  Tue, 06 Nov 2007 00:36:54 -0400
+
+cheese (0.2.3-0ubuntu1) gutsy; urgency=low
+
+  * New upstream release (LP: #135814):
+    - add keystrokes:
+      - t, T, Space for taking photos and videos
+      - Enter for opening an item
+      - Delete for deleting an item
+      - Left and Right for scrolling through the view
+    - add a flash, when taking photos, courtesy of Patryk Zawadzki
+    - use 25fps for video recording
+    - video recording did not work. fixed
+    - make ximagesink work with the photo pipeline
+    - added/updated translations: da, es, gl, it, ja
+  * debian/patches/05fix_video_rec.patch:
+    - dropped as got fixed upstream
+  * debian/control:
+    - added build-dependency libxxf86vm-dev
+
+ -- Aron Sisak <aron@ubuntu.hu>  Thu, 30 Aug 2007 21:15:55 +0200
+
+cheese (0.2.2-0ubuntu3) gutsy; urgency=low
+
+  * debian/patches/05fix_video_rec.patch:
+    - Video recording fix from the Darcs repository
+
+ -- Aron Sisak <aron@ubuntu.hu>  Sun, 26 Aug 2007 10:40:22 +0200
+
+cheese (0.2.2-0ubuntu2) gutsy; urgency=low
+
+  * Add Hildon support 
+
+ -- Matthew Garrett <mjg59@srcf.ucam.org>  Fri, 24 Aug 2007 19:22:40 +0100
+
+cheese (0.2.2-0ubuntu1) gutsy; urgency=low
+
+  * New upstream release (LP #133933):
+    - workaround on a gstreamer-bug, which made the colors look wrong with
+    - activate countdown by default
+    - the countdown is not available in video and segfaultet. fixed
+    - use g_timeout_add instead of g_timeout_add_seconds
+    - improvement the video pipline. 
+    - add a countdown, when taking a photo
+    - add a time counter to the video recording
+    - added the following export methods/capabilities: open the file with
+      gnome-open, save as dialog, delete, send by mail, export to flickr, export
+      to f-spot, set as account photo
+    - we found the bug! v4l works now
+    - added a popupmenu to the iconview
+    - added some parts of the lucas(R)-eye of gnome iconview
+    - if the same effects were chosen in photo and video, they wont apply. fixed
+    - the first item in the iconbar wasnt deleted. fixed
+    - updated translations: cs, de, fr, it, nl, pt
+  * debian/control
+    - Add libebook build dependency based on configure.cheese
+
+ -- Aron Sisak <aron@ubuntu.hu>  Thu, 23 Aug 2007 13:14:48 +0200
+
+cheese (0.2.0-0ubuntu1) gutsy; urgency=low
+
+  * New upstream release
+  * debian/control: Add libgnomeui as b-d
+
+ -- Mario Danic <mario.danic@gmail.com>  Thu, 16 Aug 2007 10:08:53 +0200
+
+cheese (0.1.4-0ubuntu1) gutsy; urgency=low
+
+  * New upstream release
+
+ -- Baptiste Mille-Mathias <baptiste.millemathias@gmail.com>  Thu, 02 Aug 2007 18:23:08 +0200
+
+cheese (0.1.3-0ubuntu1) gutsy; urgency=low
+
+  * Initial release 
+
+ -- Baptiste Mille-Mathias <baptiste.millemathias@gmail.com>  Tue, 10 Jul 2007 21:15:54 +0200
+

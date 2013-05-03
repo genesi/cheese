@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="cheese Reference Manual" link="index.html" author="" name="cheese">
+  <chapters>
+    <sub name="[Insert title here]" link="ch01.html">
+      <sub name="CheeseAvatarChooser" link="CheeseAvatarChooser.html"/>
+      <sub name="CheeseCameraDeviceMonitor" link="CheeseCameraDeviceMonitor.html"/>
+      <sub name="CheeseWidget" link="CheeseWidget.html"/>
+    </sub>
+    <sub name="Object Hierarchy" link="object-tree.html"/>
+    <sub name="API Index" link="api-index-full.html"/>
+  </chapters>
+  <functions>
+    <function name="CheeseAvatarChooserClass" link="CheeseAvatarChooser.html#CheeseAvatarChooserClass"/>
+    <function name="CheeseAvatarChooser" link="CheeseAvatarChooser.html#CheeseAvatarChooser-struct"/>
+    <function name="cheese_avatar_chooser_new ()" link="CheeseAvatarChooser.html#cheese-avatar-chooser-new"/>
+    <function name="cheese_avatar_chooser_get_picture ()" link="CheeseAvatarChooser.html#cheese-avatar-chooser-get-picture"/>
+    <function name="The &quot;pixbuf&quot; property" link="CheeseAvatarChooser.html#CheeseAvatarChooser--pixbuf"/>
+    <function name="CheeseCameraDeviceMonitorClass" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitorClass"/>
+    <function name="CheeseCameraDeviceMonitor" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitor-struct"/>
+    <function name="cheese_camera_device_monitor_new ()" link="CheeseCameraDeviceMonitor.html#cheese-camera-device-monitor-new"/>
+    <function name="cheese_camera_device_monitor_coldplug ()" link="CheeseCameraDeviceMonitor.html#cheese-camera-device-monitor-coldplug"/>
+    <function name="The &quot;added&quot; signal" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitor-added"/>
+    <function name="The &quot;removed&quot; signal" link="CheeseCameraDeviceMonitor.html#CheeseCameraDeviceMonitor-removed"/>
+    <function name="CheeseWidgetClass" link="CheeseWidget.html#CheeseWidgetClass"/>
+    <function name="CheeseWidget" link="CheeseWidget.html#CheeseWidget-struct"/>
+    <function name="cheese_widget_new ()" link="CheeseWidget.html#cheese-widget-new"/>
+    <function name="cheese_widget_get_error ()" link="CheeseWidget.html#cheese-widget-get-error"/>
+    <function name="enum CheeseWidgetState" link="CheeseWidget.html#CheeseWidgetState"/>
+    <function name="The &quot;state&quot; property" link="CheeseWidget.html#CheeseWidget--state"/>
+  </functions>
+</book>

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "Cheese">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.28">
+<!ENTITY manrevision "2.28">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="fr">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Manuel de <application>Cheese</application></title>
+    <abstract role="description">
+      <para><application>Cheese</application> utilise votre webcam pour prendre des photos et faire des vidéos, appliquer des effets spéciaux amusants et vous permettre de partager votre plaisir avec les autres.</para>
+    </abstract>
+    <copyright>
+      <year>2007-2009</year>
+      <holder>Daniel G. Siegel (dgsiegel@gnome.org)</holder>
+      <holder>Jaap A. Haitsma (jaap@haitsma.org)</holder>
+      <holder>Filippo Argiolas (fargiolas@gnome.org)</holder>
+    </copyright><copyright><year>2008-2009</year><holder>Bruno Brouard (annoa.b@gmail.com)</holder></copyright><copyright><year>2008-2010</year><holder>Claude Paroz (claude@2xlibre.net)</holder></copyright><copyright><year>2008</year><holder>Yannick Tailliez (ytdispatch-libre@yahoo.com)</holder></copyright><copyright><year>2009</year><holder>Laurent Coudeur (laurentc@iol.ie)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Felix Kaser (f.kaser@gmx.net)</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Permission vous est donnée de copier, distribuer et/ou modifier ce document selon les termes de la Licence GNU Free Documentation License, Version 1.1 ou ultérieure publiée par la Free Software Foundation sans section inaltérable, sans texte de première page de couverture ni texte de dernière page de couverture. Vous trouverez un exemplaire de cette licence en suivant ce <ulink type="help" url="ghelp:fdl">lien</ulink> ou dans le fichier COPYING-DOCS fourni avec le présent manuel.</para>
+         <para>Ce manuel fait partie de la collection de manuels GNOME distribués selon les termes de la licence de documentation libre GNU. Si vous souhaitez distribuer ce manuel indépendamment de la collection, vous devez joindre un exemplaire de la licence au document, comme indiqué dans la section 6 de celle-ci.</para>
+
+	<para>La plupart des noms utilisés par les entreprises pour distinguer leurs produits et services sont des marques déposées. Lorsque ces noms apparaissent dans la documentation GNOME et que les membres du projet de Documentation GNOME sont informés de l'existence de ces marques déposées, soit ces noms entiers, soit leur première lettre est en majuscule.</para>
+
+	<para>LE PRÉSENT DOCUMENT ET SES VERSIONS MODIFIÉES SONT FOURNIS SELON LES TERMES DE LA LICENCE DE DOCUMENTATION LIBRE GNU SACHANT QUE : <orderedlist>
+		<listitem>
+		  <para>LE PRÉSENT DOCUMENT EST FOURNI « TEL QUEL », SANS AUCUNE GARANTIE, EXPRESSE OU IMPLICITE, Y COMPRIS, ET SANS LIMITATION, LES GARANTIES DE MARCHANDABILITÉ, D'ADÉQUATION À UN OBJECTIF PARTICULIER OU DE NON INFRACTION DU DOCUMENT OU DE SA VERSION MODIFIÉE. L'UTILISATEUR ASSUME TOUT RISQUE RELATIF À LA QUALITÉ, À LA PERTINENCE ET À LA PERFORMANCE DU DOCUMENT OU DE SA VERSION DE MISE À JOUR. SI LE DOCUMENT OU SA VERSION MODIFIÉE S'AVÉRAIT DÉFECTUEUSE, L'UTILISATEUR (ET NON LE RÉDACTEUR INITIAL, L'AUTEUR, NI TOUT AUTRE PARTICIPANT) ENDOSSERA LES COÛTS DE TOUTE INTERVENTION, RÉPARATION OU CORRECTION NÉCESSAIRE. CETTE DÉNÉGATION DE RESPONSABILITÉ CONSTITUE UNE PARTIE ESSENTIELLE DE CETTE LICENCE. AUCUNE UTILISATION DE CE DOCUMENT OU DE SA VERSION MODIFIÉE N'EST AUTORISÉE AUX TERMES DU PRÉSENT ACCORD, EXCEPTÉ SOUS CETTE DÉNÉGATION DE RESPONSABILITÉ ; </para>
+		</listitem>
+		<listitem>
+		  <para>EN AUCUNE CIRCONSTANCE ET SOUS AUCUNE INTERPRÉTATION DE LA LOI, QU'IL S'AGISSE D'UN DÉLIT CIVIL (Y COMPRIS LA NÉGLIGENCE), CONTRACTUEL OU AUTRE, L'AUTEUR, LE RÉDACTEUR INITIAL, TOUT PARTICIPANT OU TOUT DISTRIBUTEUR DE CE DOCUMENT OU DE SA VERSION MODIFIÉE, OU TOUT FOURNISSEUR DE L'UNE DE CES PARTIES NE POURRA ÊTRE TENU RESPONSABLE À L'ÉGARD DE QUICONQUE POUR TOUT DOMMAGE DIRECT, INDIRECT, PARTICULIER, OU ACCIDENTEL DE TOUT TYPE Y COMPRIS, SANS LIMITATION, LES DOMMAGES LIÉS À LA PERTE DE CLIENTÈLE, À UN ARRÊT DE TRAVAIL, À UNE DÉFAILLANCE OU UN MAUVAIS FONCTIONNEMENT INFORMATIQUE, OU À TOUT AUTRE DOMMAGE OU PERTE LIÉE À L'UTILISATION DU DOCUMENT ET DE SES VERSIONS MODIFIÉES, MÊME SI LADITE PARTIE A ÉTÉ INFORMÉE DE L'ÉVENTUALITÉ DE TELS DOMMAGES.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author>
+        <firstname>Joshua</firstname>
+        <surname>Henderson</surname>
+	<email>joshhendo@gmail.com</email>
+      </author>
+      <author>
+        <firstname>Jaap</firstname>
+        <surname>Haitsma</surname>
+	<email>jaap@haitsma.org</email>
+      </author>
+      <author>
+        <firstname>Felix</firstname>
+        <surname>Kaser</surname>
+	<email>f.kaser@gmx.net</email>
+      </author>
+
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+
+      <revision>
+        <revnumber>0.1</revnumber>
+        <date>04/12/2007</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.2</revnumber>
+        <date>12/01/2008</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.3</revnumber>
+        <date>20/08/2008</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+      
+      <revision>
+        <revnumber>0.4</revnumber>
+        <date>15/07/2009</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+			
+			<revision>
+        <revnumber>0.5</revnumber>
+        <date>14/09/2009</date>
+        <revdescription>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Felix Kaser</para>
+        </revdescription>
+      </revision>
+
+    </revhistory>
+
+    <legalnotice>
+      <title>Votre avis</title>
+      <para>Pour rapporter une anomalie ou émettre une suggestion concernant l'application Cheese ou ce manuel, procédez selon les instructions de la <ulink url="http://projects.gnome.org/cheese/" type="http">page du projet <application>Cheese</application></ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Cheese</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>cheese</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Introduction</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Cheese</application></primary>
+    <secondary>Manuel</secondary>
+    <tertiary>cheese</tertiary>
+  </indexterm>
+
+  <para>Cheese utilise votre webcam pour prendre des photos et faire des vidéos, appliquer des effets spéciaux amusants et vous permettre de partager votre plaisir avec les autres.</para>
+
+</section>
+
+<section id="using">
+  <title>Utilisation</title>
+  <para>L'écran principal de Cheese prend en charge deux agencements différents pour le moment. L'agencement par défaut est celui présenté sur la figure ci-dessous : l'image prévisualisée est au centre et la bande des vignettes est en dessous.</para>
+
+  <figure>
+  <title>Capture d'écran de Cheese</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-main.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+	
+	<para>Plus particulièrement pour les utilisateurs de Cheese possédant de petits écrans comme ceux des mini-portables, nous avons conçu un autre agencement. Il s'étend plus horizontalement afin de mieux s'ajuster aux petits écrans larges. La vue en mode large est montrée sur la capture d'écran ci-dessous.</para>
+	
+	<figure>
+  <title>Capture d'écran en mode large de Cheese</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-wide.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  <para>Par défaut, Cheese est en mode photo, mais vous pouvez le configurer pour utiliser le mode vidéo ou le mode rafale si nécessaire.</para>
+
+  <section id="using-effects">
+    <title>Effets</title>
+    <para>Pour appliquer des effets à l'entrée de votre webcam, cliquez sur le bouton <guibutton>Effets</guibutton>. La fenêtre des effets apparaît telle que représentée sur l'image ci-dessous. <figure>
+        <title>Copie d'écran des effets de Cheese</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/cheese-effects.jpg" format="JPG"/>
+            </imageobject>
+          </mediaobject>
+       </screenshot>
+      </figure></para>
+
+    <para>Il est aussi possible d'appliquer des effets vraiment sympathiques à vos photos. Il suffit de choisir parmi les différents effets disponibles et de cliquer sur le bouton correspondant pour l'appliquer à votre photo. Si vous choisissez plusieurs effets, ils sont tous appliqués à votre image. Par exemple, si vous sélectionnez <guibutton>Hulk</guibutton> et <guibutton>Miroir vertical</guibutton>, l'entrée de votre webcam sera modifiée afin d'avoir une teinte verte et d'être renversée. Pour désactiver tous les effets, cliquez simplement sur le bouton <guibutton>Aucun effet</guibutton>.</para>
+		
+		<para>Pour retourner à la prévisualisation de votre webcam, cliquez de nouveau sur le bouton <guibutton>Effets</guibutton>. La fenêtre des effets disparaît et vous retournez à l'affichage normal.</para>
+  </section>
+
+  <section id="using-photomode">
+    <title>Mode photo</title>
+    <para>Le mode photo est le mode par défaut de Cheese. Si vous n'êtes pas en mode photo, cliquez sur le bouton qui affiche l'icône d'une seule photo ou choisissez le menu <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Photo</guimenuitem></menuchoice> pour passer en mode photo. Dans ce mode, une photo unique est prise et enregistrée sur le disque à chaque clic sur le bouton <guibutton>Prendre une photo</guibutton> ou à chaque appui sur la <keycap>barre d'espace</keycap>.</para>
+  </section>
+
+  <section id="using-videomode">
+    <title>Mode vidéo</title>
+    <para>Le mode vidéo vous permet de capturer de petites séquences à l'aide de votre webcam. Si vous n'êtes pas en mode vidéo, cliquez sur le bouton qui affiche l'icône d'une pellicule ou choisissez le menu <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Vidéo</guimenuitem></menuchoice> pour passer en mode vidéo. Dans ce mode, une vidéo démarre à chaque clic sur le bouton <guibutton>Démarrer l'enregistrement</guibutton> ou à chaque appui sur la <keycap>barre d'espace</keycap>. La vidéo s'arrête et est enregistrée sur le disque dès que vous cliquez sur le bouton <guibutton>Arrêter l'enregistrement</guibutton> ou que vous appuyez sur la <keycap>barre d'espace</keycap>.</para>
+
+    <para>En mode vidéo, l'apparence du logiciel n'est guère différente du mode photo, mis à part le bouton <guibutton>Prendre une photo</guibutton> qui devient <guibutton>Démarrer l'enregistrement</guibutton> ou <guibutton>Arrêter l'enregistrement</guibutton> et le bouton avec la pellicule est enfoncé alors que les autres boutons de mode (photo et rafale) ne le sont pas.</para>
+	</section>
+	
+	<section id="using-burstmode">
+    <title>Mode rafale</title>
+    <para>En mode rafale, vous pouvez prendre plusieurs photos en une seule fois. Cela fonctionne exactement comme le mode photo sauf que cela prend une série de photos. Si vous n'êtes pas en mode rafale, cliquez sur le bouton qui affiche l'icône de plusieurs photos ou choisissez le menu <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Rafale</guimenuitem></menuchoice> pour passer en mode rafale. Dans ce mode, une série de photos prises à un intervalle de quelques secondes commence lorsque vous cliquez sur le bouton <guibutton>Prendre plusieurs photos</guibutton> ou que vous appuyez sur la <keycap>barre d'espace</keycap>. Le délai et le nombre de photos à prendre peuvent être paramétrés dans la boîte de dialogue des préférences. Pour plus d'informations, consultez <xref linkend="preferences"/>.</para>
+
+    <note>
+      <para>Vous pouvez utiliser tous les modes en plein écran. Pour ce faire, choisissez le menu <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Plein écran</guimenuitem></menuchoice> ou appuyez sur la touche <keycap>F11</keycap>. Pour sortir du mode plein écran, appuyez sur les touches <keycap>Échap</keycap> ou <keycap>F11</keycap>.</para>
+    </note>
+		
+		<figure>
+    <title>Capture d'écran de Cheese en mode plein écran</title>
+    	<screenshot>
+      	<mediaobject>
+        	<imageobject>
+          	<imagedata fileref="figures/cheese-fullscreen.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+     	</screenshot>
+    </figure>
+	</section>
+  
+</section>
+
+<section id="working-with">
+  <title>Travail des photos et des vidéos</title>
+  <section id="takingaphoto">
+    <title>Prise d'une photo</title>
+    <para>Pour prendre une photo avec Cheese, assurez-vous de bien être en mode « Photo ».</para>
+
+    <para>Il est facile de prendre des photos avec effets spéciaux. Il suffit de cliquer sur le bouton <guibutton>Effets</guibutton> et de cliquer sur les effets désirés comme décrit à la section <xref linkend="using-effects"/>. Les effets que vous avez sélectionnés devraient maintenant être appliqués sur l'entrée de votre webcam. Cliquez à nouveau sur le bouton des effets pour retourner à la vue normale.</para>
+
+    <para>Pour prendre une photo, cliquez sur le bouton <guibutton>Prendre une photo</guibutton> ou appuyez sur la <keycap>barre d'espace</keycap>. Vous pouvez également utiliser le bouton de déclenchement de la webcam, s'il existe. <application>Cheese</application> lance un compte à rebours à partir de 3, ou prend une photo immédiatement, selon les préférences. Lorsque la photo est prise, votre écran émet un flash blanc et la photo prise apparaît dans le flux photo au bas de la fenêtre de l'application. Pour annuler le compte à rebours, utilisez la touche <keycap>Échap</keycap>.</para>
+  </section>
+
+  <section id="recordingavideo">
+    <title>Enregistrement d'une vidéo</title>
+    <para>Pour faire une vidéo avec Cheese, assurez-vous que le bouton <guibutton>Vidéo</guibutton> a été cliqué.</para>
+
+    <para>Pour démarrer l'enregistrement d'une vidéo, cliquez sur le bouton <guibutton>Démarrer l'enregistrement</guibutton> ou appuyez sur la <keycap>barre d'espace</keycap>. Vous pouvez également utiliser le bouton de déclenchement de la webcam, s'il existe. Pour arrêter l'enregistrement, cliquez à nouveau sur le bouton, qui s'appelle maintenant <guibutton>Arrêter l'enregistrement</guibutton>. L'enregistrement s'arrête et la vidéo est enregistrée.</para>
+
+    <note>
+      <para>Si votre vidéo apparaît saccadée ou que le nombre d'images par seconde est faible (mise à jour de l'image seulement toutes les quelques secondes), cela ne signifie pas que l'enregistrement original est de mauvaise qualité. Il est très probable que celui-ci possède en réalité un meilleur nombre d'images par seconde.</para>
+    </note>
+  </section>
+	
+	<section id="takingburst">
+    <title>Prise d'une série de photos en mode rafale</title>
+    <para>Pour prendre plus d'une photo en un certain temps, vous pouvez utiliser le mode rafale. Le mode rafale peut être configuré dans la boîte de dialogue des préférences dans laquelle vous pouvez choisir le nombre de photos à prendre et l'intervalle en secondes entre elles. Vous trouverez plus d'informations à ce propos dans la section <xref linkend="preferences"/>.</para>
+
+    <para>Pour lancer le mode rafale, cliquez sur le bouton <guibutton>Prendre plusieurs photos</guibutton> ou appuyer sur la <keycap>barre d'espace</keycap>. Vous pouvez également utiliser le bouton de déclenchement de la webcam, s'il existe. Pour arrêter le déclenchement de la rafale, utilisez la touche <keycap>Échap</keycap>.</para>
+  </section>
+</section>
+
+<section id="setting-up">
+  <title>Paramétrage de Cheese</title>
+	
+	<section id="preferences">
+    <title>Boîte de dialogue des préférences</title>
+    <para>La boîte de dialogue des préférences vous permet de régler des paramètres spécifiques à la webcam et au mode rafale. Si vous possédez plus d'une webcam ou dispositif vidéo connecté à votre système, la boîte de dialogue des préférences vous permet de choisir celle que vous souhaitez utiliser pour Cheese ainsi que sa résolution d'image. Jouez avec les curseurs de luminosité, contraste, saturation et teinte afin de trouver les réglages optimaux pour votre webcam.</para>
+		
+		<figure>
+			<title>Copie d'écran des préférences de Cheese</title>
+			<screenshot>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="figures/cheese-preferences.jpg" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+		 </screenshot>
+		</figure>
+
+    <para>Les paramètres du mode rafale peuvent également être réglés dans la boîte de dialogue des préférences. Vous devez seulement ajuster les valeurs pour le nombre de photos à prendre et l'intervalle en secondes entre chaque photo.</para>
+  </section>
+	
+	<section id="gconf">
+		<title>Paramètres GConf</title>
+		<para>Il est possible de configurer l'emplacement où Cheese stocke les médias (photos et vidéos). Ces paramètres sont enregistrés dans GConf. Pour changer ces paramètres, utilisez l'application <command>gconf-editor</command>. Dans celle-ci, vous devez sélectionner /apps/cheese dans l'arborescence sur la gauche. Vous pouvez alors configurer les clés <guilabel>video_path</guilabel> et <guilabel>photo_path</guilabel> vers l'emplacement de votre choix. Vous pouvez également configurer ici d'autres paramètres de Cheese, mais il est préférable d'utiliser la boîte de dialogue des préférences pour ne pas se tromper dans les réglages.</para>
+		
+		<warning>
+      <para>Attention : soyez prudent lorsque vous utilisez GConf pour modifier vos paramètres ! Si vous n'êtes pas complètement sûr de ce que vous faites, vous devriez demander à quelqu'un qui sait.</para>
+    </warning>
+	</section>
+</section>
+
+<section id="sharing">
+  <title>Partage de photos et de vidéos</title>
+
+  <section id="view">
+    <title>Affichage d'une photo ou d'une vidéo</title>
+    <para>Pour regarder une vidéo ou une photo prise avec Cheese, repérez-la dans le flux photo et double-cliquez dessus. Vous pouvez également cliquer dessus avec le bouton droit et choisir <guimenuitem>Ouvrir</guimenuitem>. Le fichier est alors ouvert par l'application par défaut associée au type de fichier.</para>
+  </section>
+
+  <section id="saving">
+    <title>Enregistrement des photos et vidéos vers un autre emplacement</title>
+    <para>Pour enregistrer une photo vers un autre emplacement de votre disque afin de pouvoir les retrouver facilement, cherchez parmi le flux photo, la photo ou vidéo que vous voulez enregistrer, cliquez dessus avec le bouton droit et choisissez <guimenuitem>Enregistrer sous</guimenuitem> dans le menu contextuel. Une boîte de dialogue <guilabel>enregistrement de fichier</guilabel> standard apparaît pour vous permettre de renommer la photo, si vous le voulez, et de l'enregistrer où bon vous semble.</para>
+  </section>
+
+  <section id="delete">
+    <title>Suppression d'une photo</title>
+    <para>Pour supprimer une photo du flux photo, cherchez la photo à supprimer, cliquez sur celle-ci et appuyez sur la touche <keycap>Suppr</keycap> de votre clavier. Vous pouvez également cliquer dessus avec le bouton droit et choisir <guimenuitem>Supprimer</guimenuitem> dans le menu contextuel.</para>
+
+    <para>On vous demande alors si vous souhaitez vraiment la supprimer du flux photo. Cliquez sur le bouton <guibutton>Mettre à la corbeille</guibutton> pour confirmer la suppression.</para>
+
+    <note>
+      <para>L'image est déplacée vers la corbeille et supprimée de votre flux photo. Elle n'est pas effacée de votre ordinateur. Pour la supprimer de la corbeille, vous devez vider votre corbeille.</para>
+    </note>
+  </section>
+
+  <section id="email">
+    <title>Envoi d'une photo par courriel</title>
+    <para>Les photos peuvent être envoyées par courriel directement à partir de Cheese. Il faut qu'un compte de messagerie soit paramétré dans le logiciel de messagerie par défaut. Pour envoyer une photo par courriel, cherchez la photo que vous désirez envoyer dans le flux photo, cliquez avec le bouton droit et choisissez <guimenuitem>Envoyer par courriel</guimenuitem>.</para>
+
+    <para>Le logiciel de messagerie par défaut (Evolution, par exemple) s'ouvre et un nouveau message est créé avec la photo sélectionnée en pièce jointe.</para>
+  </section>
+
+  <section id="account-photo">
+    <title>Définition comme photo du compte</title>
+    <para>Pour définir une photo comme photo du compte (qui peut être affichée grâce au menu <menuchoice><guimenu>Système</guimenu><guimenuitem>Préférences</guimenuitem><guimenuitem>À propos de moi</guimenuitem></menuchoice> et qui apparaîtra également si la fenêtre de connexion affiche une liste des noms d'utilisateur avec leur photo), cherchez dans Cheese la photo que vous voulez utiliser, cliquez dessus avec le bouton droit et choisissez <guimenuitem>Définir comme photo du compte</guimenuitem>.</para>
+  </section>
+
+  <section id="fspot">
+    <title>Exportation d'une photo vers F-Spot</title>
+    <para>Pour exporter une photo vers F-Spot, cherchez la photo que vous souhaitez exporter dans le flux photo, cliquez dessus avec le bouton droit et choisissez <guimenuitem>Exporter vers F-Spot</guimenuitem>. F-Spot vous demande alors si vous désirez importer les photos que vous lui avez envoyées.</para>
+
+    <note>
+      <para>En fonction de la version de Cheese que vous utilisez actuellement, il est possible que F-Spot vous propose d'importer le flux complet de photos.</para>
+    </note>
+	
+	<figure>
+		<title>Capture d'écran du partage dans Cheese</title>
+		<screenshot>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="figures/cheese-share.jpg" format="JPG"/>
+				</imageobject>
+			</mediaobject>
+	 </screenshot>
+	</figure>
+  </section>
+</section>
+
+<!--<section id="preferences">
+  <title>Preferences</title>
+
+  <para>
+    Describe preferences over here
+  </para>
+</section>-->
+
+<section id="faq">
+  <title>Foire Aux Questions</title>
+  <!--<para>
+    These are questions the mailing list gets asked frequently.
+  </para>-->
+
+  <section id="faq-sluggish">
+    <title>La video est lente ou réagit lentement. Que puis-je faire ?</title>
+    <para>Peut-être avez-vous défini « <literal>ximagesink</literal> » (« <guilabel>X Window System (sans Xv)</guilabel> ») comme sortie vidéo. Cela signifie que votre processeur fait tout le travail. Définissez ce paramètre à « <literal>xvimagesink</literal> » (« <guilabel>X Window System (X11/XShm/Xv)</guilabel> ») afin de déléguer le travail à la carte graphique.</para>
+
+    <para>Pour modifier ce paramètre, lancez la commande <command>gstreamer-properties</command>, cliquez sur l'onglet <guilabel>Vidéo</guilabel> et corrigez le réglage approprié.</para>
+  </section>
+
+  <section id="faq-mac">
+    <title>J'ai un Mac avec iSight et une carte graphique ATI et les couleurs sont bizarres.</title>
+    <para>Ceci est un problème avec la carte graphique ATI, mais il est possible de contourner le problème. Réglez la sortie vidéo sur « Personnalisé » et saisissez ceci : « <literal>ffmpegcolorspace ! video/x-raw-yuv,format=(fourcc)YV12 ! ffmpegcolorspace ! xvimagesink</literal> ».</para>
+
+    <para>Pour modifier ce paramètre, lancez la commande <command>gstreamer-properties</command>, cliquez sur l'onglet <guilabel>Vidéo</guilabel> et choisissez Personnalisé dans le menu déroulant.</para>
+  </section>
+
+  <section id="faq-work-gstreamer">
+    <title>Ma webcam fonctionne avec gstreamer mais pas avec <application>Cheese</application>. Quel est le problème ?</title>
+    <para>En utilisant <command>gstreamer-properties</command> mentionné à la question précédente, essayez de basculer de <guilabel>X Window System (sans Xv)</guilabel> vers <guilabel>X Window System (X11/XShm/Xv)</guilabel> ou vice-versa. Si cela ne fonctionne toujours pas, saisissez la commande <command>cheese --verbose</command> dans un terminal et copiez le résultat dans un rapport d'anomalie de notre <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">Outil de suivi d'anomalies</ulink>.</para>
+  </section>
+
+  <section id="faq-work-other">
+    <title>Ma webcam fonctionne avec d'autres programmes comme Ekiga, Camorama, mais pas avec <application>Cheese</application>. Quel est le problème ?</title>
+    <para>Testez si votre webcam fonctionne dans <command>gstreamer-properties</command>. Si elle fonctionne dans ce contexte, mais pas dans <application>Cheese</application>, envoyez un rapport d'anomalie à notre <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">outil de suivi d'anomalies</ulink>.</para>
+  </section>
+
+  <section id="faq-store">
+    <title>Où <application>Cheese</application> stocke-t-il mes photos et vidéos ?</title>
+    <para>Cheese stocke vos photos dans un dossier appelé Webcam dans le répertoire XDG défini pour les images (pour la plupart des distributions, il s'agit de ~/Images/Webcam). De même pour les vidéos : ~/Vidéos/Webcam. XDG est un standard pour les déclarations des dossiers par défaut. Vous pouvez obtenir plus d'informations au sujet de XDG <ulink url="http://standards.freedesktop.org/basedir-spec/basedir-spec-0.6.html" type="http">ici</ulink>.</para>  
+
+    <para>Si le chemin XDG n'est pas configuré sur votre ordinateur, Cheese dispose d'une solution de secours : il stocke vos photos et vos vidéos dans ~/.gnome2/cheese/media. C'est le répertoire par défaut pour vos médias si vous avez une ancienne version de <application>Cheese</application>.</para>
+    
+    <para>La façon de paramétrer un autre chemin est décrite dans la section <xref linkend="gconf"/>.</para>
+    
+    <warning>
+      <para>Attention : laissez ces paramètres vides si vous voulez que <application>Cheese</application> utilise les répertoires par défaut.</para>
+    </warning>
+    
+    <note>
+		  <para>Vous pouvez aussi enregistrer vos photos dans un autre emplacement à partir de Cheese. Consultez <xref linkend="saving"/> pour plus d'informations à ce sujet.</para>
+		</note>
+  </section>
+
+  <section id="faq-quickcam">
+    <title>Ma Quickcam Express ne fonctionne pas avec <application>Cheese</application>...</title>
+    <para>...ou avec gstreamer, et des messages d'erreurs comme « Not enough buffers. We got 1, we want at least 2 » en sortie de <application>Cheese</application>. Avec le pilote « qc-usb ».</para>
+
+    <para>Essayez d'exécuter <command>qcset /dev/video0 compat=dblbuf</command> pour activer le mode de compatibilité à double tampon, puis relancez <application>Cheese</application>.</para>
+  </section>
+
+  <section id="faq-no-camera-found">
+    <title>Message d'erreur « Aucune caméra trouvée »</title>
+    <para>« Lorsque je lance Cheese, j'obtiens le message 'Aucune caméra trouvée' alors que ma webcam est bien branchée à mon ordinateur ».</para>
+    <para>Plusieurs situations peuvent être la cause de ce problème, il s'agit donc d'en isoler la cause précise. Si possible, essayez chacune des opérations ci-après pour tester ce qui ne fonctionne pas :</para>
+    <orderedlist>
+        <listitem>
+          <para>Branchez la webcam sur un autre ordinateur. Si elle fonctionne, c'est qu'il y a un problème de connexion avec votre ordinateur ou avec le système d'exploitation si ce dernier est différent sur l'autre ordinateur. Vérifiez la connectique de votre ordinateur (essayez un autre port, si possible) et cherchez du soutien en relation avec votre système d'exploitation.</para>
+        </listitem>
+        <listitem>
+          <para>Vérifiez si la caméra est détectée par l'ordinateur. Avec Linux, ouvrez un terminal et saisissez « dmesg » avant de connecter la webcam. Prenez note des dernières lignes, puis branchez la webcam. Saisissez à nouveau « dmesg » dans le terminal et regardez si de nouvelles lignes sont apparues. Si un message indique qu'un périphérique USB a été détecté et que la webcam est le seul périphérique USB branché dans l'intervalle, cela signifie qu'elle a bien été détectée par l'ordinateur. Sinon, faites ce test sur un autre ordinateur. Cela n'est valable que pour les webcams USB.</para>
+        </listitem>
+        <listitem>
+          <para>Dans la mesure où Cheese utilise le moteur GStreamer, il est fort probable que le problème se situe au niveau de la détection de la webcam par GStreamer (ou que GStreamer lui-même a des problèmes). Cherchez de l'aide en lien avec votre système d'exploitation précis en indiquant le plus de détails possible. Pour Ubuntu, consultez les <ulink url="http://forum.ubuntu-fr.org/" type="http">forums Ubuntu</ulink>.</para>
+        </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="faq-supported-webcams">
+    <title>Quels sont les appareils vidéos pris en charge ?</title>
+    <para>Cheese utilise gstreamer pour l'extraction des vidéos. En principe, Cheese prend en charge tous les appareils qui fonctionnent avec GStreamer. Cela devrait être tous les appareils qui prennent en charge video4linux ou video4linux2.</para>
+  </section>
+</section>
+
+<section id="about">
+  <title>À propos</title>
+  <para>Cheese a été écrit initialement par Daniel G. Siegel <email>dgsiegel@gnome.org</email>, à l'occasion d'un projet Google Summer of Code. Plus tard, Jaap A. Haitsma <email>jaap@haitsma.org</email> mais également d'autres ont rejoint Daniel pour améliorer Cheese. Pour trouver plus d'informations sur Cheese, consultez la <ulink url="http://projects.gnome.org/cheese" type="http">page Web de <application>Cheese</application></ulink>.</para>
+  <para>Pour rapporter une anomalie ou émettre une suggestion concernant cette application, vous pouvez saisir un rapport d'anomalie dans notre <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">outil de suivi d'anomalies</ulink>.</para>
+  <para>Ce programme est distribué sous les termes de la Licence Publique Générale GNU publiée par la Free Software Foundation ; version 2 ou toute autre version ultérieure choisie par vous. Une copie de cette licence est disponible sur le <ulink url="http://www.gnu.org/licenses/gpl.html" type="http">site GNU</ulink>, ou dans le fichier COPYING inclus dans le code source de ce programme.</para>
+</section>
+
+</article>

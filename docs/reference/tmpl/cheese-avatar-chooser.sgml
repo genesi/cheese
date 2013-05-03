@@ -1,0 +1,60 @@
+<!-- ##### SECTION Title ##### -->
+CheeseAvatarChooser
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT CheeseAvatarChooserClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+
+<!-- ##### STRUCT CheeseAvatarChooser ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG CheeseAvatarChooser:pixbuf ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION cheese_avatar_chooser_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cheese_avatar_chooser_get_picture ##### -->
+<para>
+
+</para>
+
+@chooser: 
+@Returns: 
+
+

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "Cheese">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.28">
+<!ENTITY manrevision "2.28">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="cs">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title>Příručka aplikace <application>Cheese</application></title>
+    <abstract role="description">
+      <para><application>Cheese</application> využívá webkameru k zaznamenávání fotek a videí, aplikuje na ně zvláštní efekty a umožňuje sdílení s ostatními.</para>
+    </abstract>
+    <copyright>
+      <year>2007-2009</year>
+      <holder>daniel g. siegel (dgsiegel@gnome.org)</holder>
+      <holder>Jaap A. Haitsma (jaap@haitsma.org)</holder>
+      <holder>Filippo Argiolas (fargiolas@gnome.org)</holder>
+    </copyright><copyright><year>2010</year><holder>Lucas Lommer (llommer@svn.gnome.org)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Felix Kaser (f.kaser@gmx.net)</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Máte právo kopírovat, distribuovat a/nebo upravovat tento dokument v souladu s licencí GNU Free Documentation License (GFDL), verze 1.1 nebo jakékoliv pozdější vydané Free Software Foundation bez neměnných sekcí, textů přebalu vpředu nebo vzadu. Kopii licence GFDL naleznete pod <ulink type="help" url="ghelp:fdl">tímto odkazem</ulink> nebo v souboru COPYING-DOCS dodávaném s touto příručkou.</para>
+         <para>Tato příručka je součástí kolekce příruček GNOME, distribuovaných pod licencí GNU FDL. Pokud chcete tento dokument šířit odděleně od kolekce, musíte přiložit kopii licence dle popisu v sekci 6 dané licence.</para>
+
+	<para>Mnoho užívaných jmen určených k zviditelnění produktů nebo služeb jsou ochranné známky. Na místech, kde jsou tato jména v dokumentaci užita a členové Dokumentačního projektu GNOME jsou si vědomi skutečnosti, že se jedná o ochrannou známku, je takové jméno psáno velkými písmeny celé nebo s velkým písmenem na začátku.</para>
+
+	<para>DOKUMENT A JEHO UPRAVENÉ VERZE JSOU ŠÍŘENY V SOULADU SE ZNĚNÍM LICENCE GNU FREE DOCUMENTATION LICENSE S NÁSLEDUJÍCÍM USTANOVENÍM: <orderedlist>
+		<listitem>
+		  <para>DOKUMENT JE POSKYTOVÁN V PODOBĚ "JAK JE" BEZ ZÁRUKY V  JAKÉKOLIV PODOBĚ, NEPOSKYTUJÍ SE ANI ODVOZENÉ ZÁRUKY, ZÁRUKY, ŽE DOKUMENT, NEBO JEHO UPRAVENÁ VERZE, JE BEZCHYBNÝ NEBO ZÁRUKY PRODEJNOSTI, VHODNOSTI PRO URČITÝ ÚČEL NEBO NEPORUŠENOSTI. RIZIKO NEKVALITY, NEPŘESNOSTI A ŠPATNÉHO PROVEDENÍ DOKUMENTU, NEBO JEHO UPRAVENÉ VERZE, LEŽÍ NA VÁS. POKUD KVŮLI TOMUTO DOKUMENTU, NEBO JEHO UPRAVENÉ VERZI, NASTANE PROBLÉM, VY (NIKOLIV PŮVODNÍ AUTOR NEBO JAKÝKOLIV PŘISPĚVATEL) PŘEBÍRÁTE JAKÉKOLIV NÁKLADY ZA NUTNÉ ÚPRAVY, OPRAVY ČI SLUŽBY. TOTO PROHLÁŠENÍ  O ZÁRUCE PŘEDSTAVUJE ZÁKLADNÍ SOUČÁST TÉTO LICENCE. BEZ TOHOTO PROHLÁŠENÍ NENÍ, PODLE TÉTO DOHODY, POVOLENO UŽÍVÁNÍ ANI ÚPRAVY TOHOTO DOKUMENTU; DÁLE</para>
+		</listitem>
+		<listitem>
+		  <para>ZA ŽÁDNÝCH OKOLNOSTÍ A ŽÁDNÝCH PRÁVNÍCH PŘEDPOKLADŮ, AŤ SE JEDNÁ O PŘEČIN (VČETNĚ NEDBALOSTNÍCH), SMLOUVU NEBO JINÉ, NENÍ AUTOR, PŮVODNÍ PISATEL, KTERÝKOLIV PŘISPĚVATEL NEBO KTERÝKOLIV DISTRIBUTOR TOHOTO DOKUMENTU NEBO UPRAVENÉ VERZE DOKUMENTU NEBO KTERÝKOLIV DODAVATEL NĚKTERÉ Z TĚCHTO STRAN ODPOVĚDNÝ NĚJAKÉ OSOBĚ ZA PŘÍMÉ, NEPŘÍMÉ, SPECIÁLNÍ, NAHODILÉ NEBO NÁSLEDNÉ ŠKODY JAKÉHOKOLIV CHARAKTERU, VČETNĚ, ALE NEJEN, ZA POŠKOZENÍ ZE ZTRÁTY DOBRÉHO JMÉNA, PŘERUŠENÍ PRÁCE, PORUCHY NEBO NESPRÁVNÉ FUNKCE POČÍTAČE NEBO JINÉHO A VŠECH DALŠÍCH ŠKOD NEBO ZTRÁT VYVSTÁVAJÍCÍCH Z NEBO VZTAHUJÍCÍCH SE K POUŽÍVÁNÍ TOHOTO DOKUMENTU NEBO UPRAVENÝCH VERZÍ DOKUMENTU, I KDYŽ BY TAKOVÁTO STRANA BYLA INFORMOVANÁ O MOŽNOSTI TAKOVÉHOTO POŠKOZENÍ.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author>
+        <firstname>Joshua</firstname>
+        <surname>Henderson</surname>
+	<email>joshhendo@gmail.com</email>
+      </author>
+      <author>
+        <firstname>Jaap</firstname>
+        <surname>Haitsma</surname>
+	<email>jaap@haitsma.org</email>
+      </author>
+      <author>
+        <firstname>Felix</firstname>
+        <surname>Kaser</surname>
+	<email>f.kaser@gmx.net</email>
+      </author>
+
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+
+      <revision>
+        <revnumber>0.1</revnumber>
+        <date>4. 12. 2007</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.2</revnumber>
+        <date>12. 1. 2008</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.3</revnumber>
+        <date>20. 8. 2008</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+      
+      <revision>
+        <revnumber>0.4</revnumber>
+        <date>15. 7. 2009</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+			
+			<revision>
+        <revnumber>0.5</revnumber>
+        <date>14. 9. 2009</date>
+        <revdescription>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Felix Kaser</para>
+        </revdescription>
+      </revision>
+
+    </revhistory>
+
+    <legalnotice>
+      <title>Zpětná vazba</title>
+      <para>Pokud chcete oznámit chybu nebo navrhnout vylepšení vztahující se k aplikaci Cheese nebo této příručce, postupujte dle instrukcí na <ulink url="http://projects.gnome.org/cheese/" type="http">stránce projektu <application>Cheese</application> project page</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Cheese</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>cheese</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Úvod</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Cheese</application></primary>
+    <secondary>Příručka</secondary>
+    <tertiary>cheese</tertiary>
+  </indexterm>
+
+  <para>Cheese využívá webkameru k zaznamenávání fotek a videí, aplikuje na ně zvláštní efekty a umožňuje sdílení s ostatními.</para>
+
+</section>
+
+<section id="using">
+  <title>Použití</title>
+  <para>Hlavní okno aplikace Chees v současné době podporuje dvě rozložení elementů. Výchozí vzhled vypadá jako snímek níže, náhled obrázku je uprostřed a pruh s náhledy pod ním.</para>
+
+  <figure>
+  <title>Snímek obrazovky aplikace Cheese</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-main.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+	
+	<para>Pro uživatele aplikace Chees s malými obrazovkami, jako mají netbooky, jsme navrhli jiné rozložení. Je zarovnáno vodorovně tak, aby se lépe hodilo pro malé širokoúhlé obrazovky. Snímek rozložení na širokoúhlé obrazovce je zobrazen níže.</para>
+	
+	<figure>
+  <title>Širokoúhlý snímek aplikace Cheese</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-wide.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  <para>Ve výchozím nastavení používá Cheese režim snímků ale lze jej změnit na režim videa nebo snímání v sérii.</para>
+
+  <section id="using-effects">
+    <title>Efekty</title>
+    <para>Pokud chcete na vstup webkamery aplikovat efekty, klepněte na tlačítko s popiskem <guibutton>Efekty</guibutton>. Když přejdete do okna efektů, zobrazí se něco podobného jako na snímku níže. <figure>
+        <title>Snímek efektů aplikace Cheese</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/cheese-effects.jpg" format="JPG"/>
+            </imageobject>
+          </mediaobject>
+       </screenshot>
+      </figure></para>
+
+    <para>Na fotky také mlžete použít některé úžasné efekty! Prostě vyberte několik různých dostupných efektů a klepněte na odpovídající tlačítka k jejich aplikaci. Pokud jich vyberete více, budou na snímek použity všechny. Například, pokud vyberete efekt <guibutton>Hulk</guibutton> a <guibutton>Svislé překlopení</guibutton>, bude vstup webkamery stínován do zelena a svisle překlopen. Pokud chcete použití efektů vypnout, klepněte na talčítko <guibutton>Bez efektů</guibutton>.</para>
+		
+		<para>Na náhled vstupu webkamery se vrátíte prostě tak, že znovu klepnete na tlačítko <guibutton>Efekty</guibutton>. To vypne nabídku efektů a navrátí vás do normálního zobrazení.</para>
+  </section>
+
+  <section id="using-photomode">
+    <title>Režim snímků</title>
+    <para>Režim snímků je výchozím režimem aplikace Cheese. Pokud nejste v režimu snímků, klepněte na tlačítko s ikonou jedné fotky nebo zvolte z nabídky <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Snímek</guimenuitem></menuchoice> a aplikace bude do tohoto režimu přepnuta. Režim snímků pořídí a uloží vždy jeden snímek, kdykoliv klepnete na tlačítko <guibutton>Pořídit snímek</guibutton> nebo stisknete <keycap>Mezerník</keycap>.</para>
+  </section>
+
+  <section id="using-videomode">
+    <title>Režim videa</title>
+    <para>Režim videa umožňuje pořizovat pomocí webkamery krátká videa. Pokud nejste v režimu videa, klepněte na tlačítko s ikonou filmového pásu nebo zvolte z nabídky <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Video</guimenuitem></menuchoice> a aplikace bude do tohoto režimu přepnuta. V režimu videa započne záznam vždy, když klepnete na tlačítko <guibutton>Spustit nahrávání</guibutton> nebo stisknete <keycap>Mezerník</keycap>. Zastavení záznamu videa a jeho uložení provedete klepnutím na tlačítko <guibutton>Zastavit nahrávání</guibutton> nebo stisknete <keycap>Mezerník</keycap>.</para>
+
+    <para>Režim videa se moc neliší od režimu snímků až na to, že namísto tlačítka <guibutton>Pořídit snímek</guibutton> je tlačítko <guibutton>Spustit nahrávání</guibutton> či <guibutton>Zastavit nahrávání</guibutton> a je stisknuto tlačítko s ikonou filmového pásu, na rozdíl od tlačítek ostatních režimů (snímky a snímání v sérii).</para>
+	</section>
+	
+	<section id="using-burstmode">
+    <title>Režim snímání v sérii</title>
+    <para>V režimu snímání v sérii lze zaznamenat několik snímků za sebou. Režim pracuje stejně jako režim snímků až na to, že bude zaznamenáno snímků více. Pokud nejste v režimu snímání v sérii, klepněte na tlačítko s ikonou s řadou fotek nebo zvolte z nabídky <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Série</guimenuitem></menuchoice> a aplikace bude do tohoto režimu přepnuta. Režim snímání v sérii pořídí několik snímků vždy, když klepnete na tlačítko <guibutton>Pořídit vícenásobné snímky</guibutton> nebo stisknete <keycap>Mezerník</keycap>. Prodlevu mezi jednotlivými snímky lze nastavit v okně předvoleb. Více informací popisuje <xref linkend="preferences"/>.</para>
+
+    <note>
+      <para>Všechny režimy mohou být použity v režimu na celou obrazovku. Pokud chcete na celou obrazovku přepnout, zvolte z nabídky <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Celá obrazovka</guimenuitem></menuchoice> nebo stiskněte klávesu <keycap>F11</keycap>. Režim na celou obrazovku ukončíte pomocí klávesy <keycap>Esc</keycap>nebo opět klávesou <keycap>F11</keycap>.</para>
+    </note>
+		
+		<figure>
+    <title>Snímek aplikace Cheese v režimu na celou obrazovku</title>
+    	<screenshot>
+      	<mediaobject>
+        	<imageobject>
+          	<imagedata fileref="figures/cheese-fullscreen.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+     	</screenshot>
+    </figure>
+	</section>
+  
+</section>
+
+<section id="working-with">
+  <title>Práce s fotkami a videi</title>
+  <section id="takingaphoto">
+    <title>Pořízení snímku</title>
+    <para>Pokud chcete pořídit pomocí aplikace Cheese snímek, ujistěte se, že jste v režimu snímků.</para>
+
+    <para>Pořizovat snímky spolu se zvláštními efekty je snadné. Stačí klepnout na tlačítko <guibutton>Efekty</guibutton> a následně na požadované efekty tak, jak popisuje <xref linkend="using-effects"/>. V tomto okamžiku by měly být efekty aplikovány na vstup webkamery. Opětovným klepnutím na tlačítko <guibutton>Efekty</guibutton> se vrátíte do normálního zobrazení.</para>
+
+    <para>Pokud chcete pořídit snímek, klepněte na tlačítko <guibutton>Pořídit snímek</guibutton> nebo stiskněte <keycap>Mezerník</keycap>. Také můžete použít tlačítko na webkameře, pokud nějaké má. <application>Cheese</application> bude následně odpočítávat od tří nebo okamžitě pořídí snímek, v závislosti na vašem nastavení. Po pořízení snímku okno aplikace bíle problikne a právě pořízený snímek bude zobrazen v pruhu náhledů v dolní části okna. Odpočet můžete zrušit stisknutím klávesy <keycap>Esc</keycap>.</para>
+  </section>
+
+  <section id="recordingavideo">
+    <title>Záznam videa</title>
+    <para>Pokud chcete pořídit pomocí aplikace Cheese video, ujistěte se, že jste v je stisknuto tlačítko <guibutton>Video</guibutton>.</para>
+
+    <para>Pokud chcete začít záznam videa, klepněte na tlačítko <guibutton>Spustit nahrávání</guibutton> nebo stiskněte <keycap>Mezerník</keycap>. Také můžete použít tlačítko na webkameře, pokud nějaké má. Záznam videa zastavíte opětovným klepnutím na stejné tlačítko, nyní nadepsané <guibutton>Zastavit nahrávání, a video bude ulo</guibutton></para>
+
+    <note>
+      <para>Pokud se video bude zdát ošklivé nebo s nízkou frekvencí snímků (obraz se obnovuje jednou za pár sekund), neznamená to, že záznam je skutečně takový. V mnoha případech má uložený soubor lepší hodnoty frekvence snímků.</para>
+    </note>
+  </section>
+	
+	<section id="takingburst">
+    <title>Pořízení více snímků v režimu snímání v sérii</title>
+    <para>Pokud chcete pořídit více snímků během určitého času, použijte režim snímání v sérii. Vlastnosti tohoto režimu lze upravit v okně předvoleb, kde lze nastavit počet snímků v sérii a prodleva mezi nimi. Více informací popisuje <xref linkend="preferences"/>.</para>
+
+    <para>Režim snímání v sérii spustíte klepnutím na tlačítko <guibutton>Pořídit vícenásobné snímky</guibutton> nebo stisknutím <keycap>Mezerníku</keycap>. Také můžete použít tlačítko na webkameře, pokud nějaké má. Záznam snímků zastavíte stisknutím klávesy <keycap>Esc</keycap>.</para>
+  </section>
+</section>
+
+<section id="setting-up">
+  <title>Nastavení aplikace Cheese</title>
+	
+	<section id="preferences">
+    <title>Okno předvoleb</title>
+    <para>Okno předvoleb vám umožňuje nastavit některé specifické volby webkamery a volby režimu snímků. Pokud je k vašemu systému připojeno více webkamer nebo snímacích zařízení, v předvolbách máte možnost vybrat to, které chcete s palikací Cheese použít a s jakým rozlišením snímků. Táhla použijte k nastavení svitu, kontrastu, nasycení a hodnot barev, aby bylo dosaženo co nejlepší kvality.</para>
+		
+		<figure>
+			<title>Snímek okna předvoleb aplikace Cheese</title>
+			<screenshot>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="figures/cheese-preferences.jpg" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+		 </screenshot>
+		</figure>
+
+    <para>Parametry režimu snímání v sérii lze nastavit v okně předvoleb. Můžete zde nastavit, kolik snímků bude v sérii pořízeno a jaká bude mezi nimi prodleva, v sekundách.</para>
+  </section>
+	
+	<section id="gconf">
+		<title>Nastavení GConf</title>
+		<para>Lze nastavit, kam bude aplikace Cheese ukládat zaznamenané snímky a videa. Toto nastavení je uloženo v systému GConf a lze jej změnit pomocí aplikace <command>gconf-editor</command>. v ní vyberte ve stromu vlevo /apps/cheese, kde můžete upravit hodnoty klíčů <guilabel>video_path</guilabel> a <guilabel>photo_path</guilabel> na cesty, které chcete použít. Také zde můžete upravit jiná nastavení aplikace Cheese, ale pro ty byste měli raději použít okno předvoleb.</para>
+		
+		<warning>
+      <para>Upozornění: Buďte opatrní při práci s nastaveními v systémemu GConf! Pokud si nejste jisti co děláte, zeptejte se raději někoho, kdo to ví!</para>
+    </warning>
+	</section>
+</section>
+
+<section id="sharing">
+  <title>Sdílení snímků a videí</title>
+
+  <section id="view">
+    <title>Prohlížení snímků a videí</title>
+    <para>Pořízené video nebo snímek zobrazíte tak, že v pruhu náhledů na vybranou položku poklepáte. Také na ni můžete klepnout pravým tlačítkem a zvolit <guimenuitem>Otevřít</guimenuitem>. To spustí výchozí aplikaci pro tento typ média zobrazí ho.</para>
+  </section>
+
+  <section id="saving">
+    <title>Ukládání snímků a videí do jiného umístění</title>
+    <para>Pokud chcete uložit snímek do jiného umístění v systému, kde jej snadno najdete, vyberte požadovaný z náhledů, klepněte na něj pravým tlačítkem a zvolte z kontextové nabídky položku <guimenuitem>Uložit jako</guimenuitem>. Objeví se okno <guilabel>Uložit soubor</guilabel> s možností uložení a v něm můžete vybrat nové umístění a, pokud chcete, změnit název souboru.</para>
+  </section>
+
+  <section id="delete">
+    <title>Odstranění snímku</title>
+    <para>Pokud chcete z pruhu náhledů nějaký snímek odstranit, vyberte jedním klepnutím požadovaný a stiskněte klávesu <keycap>delete</keycap>. Také na něj můžete klepnout pravým tlačítkem a vybrat z kontextové nabídky <guimenuitem>Odstranit</guimenuitem>.</para>
+
+    <para>Budete dotázání, zda si opravdu přejete snímek z náhledů odstranit. Akci potvrdíte klepnutím na tlačítko <guibutton>Přesunout do koše</guibutton>.</para>
+
+    <note>
+      <para>To přesune snímek do „Koše“ a zároveň jej odstraní z pruhu náhledů. Samotný snímek to z počítače neodstraní, to provedete tak, že vysypete koš.</para>
+    </note>
+  </section>
+
+  <section id="email">
+    <title>Odeslání snímku e-mailem</title>
+    <para>Snímky lze odesílat e-mailem přímo z aplikace Cheese. Musíte mít však nastaven výchozí poštovní program a v něm účet elektronické pošty. Snímek odešlete tak, že jej vzberete y náhledů, klepnete na něj pravým tlačítkem a zvolíte položku <guimenuitem>Poslat poštou</guimenuitem>.</para>
+
+    <para>Tato akce otevře výchozího klienta elektronické pošty (například Evolution) a v něm novou zprávu se snímkem jako přílohou.</para>
+  </section>
+
+  <section id="account-photo">
+    <title>Nastavit jako fotografii účtu</title>
+    <para>Pokud chcete nastavit snímek jako obrázku vašeho účtu (který vidíte v okně <menuchoice><guimenu>Systém</guimenu><guimenuitem>Volby</guimenuitem><guimenuitem>O mně</guimenuitem></menuchoice> a v seznamu uživatelů přihlašovacího okna), vyberte z náhledů, klepněte na něj pravým tlačítkem a zvolte <guimenuitem>Nastavit jako fotografii účtu</guimenuitem>.</para>
+  </section>
+
+  <section id="fspot">
+    <title>Export snímků do aplikace F-Spot</title>
+    <para>Pokud chcete exportovat snímek do aplikace F-Spot, vyberte jej z pruhu náhledů, klepněte na něj pravým tlačítkem a zvolte <guimenuitem>Export do aplikace F-Spot</guimenuitem>. Následně budete aplikací F-Spot dotázáni, zda si přejete odeslaný snímek importovat.</para>
+
+    <note>
+      <para>V závislosti na verzi aplikace Cheese, kterou používáte, se vás může F-Spot dotázat na import celého pruhu náhledů.</para>
+    </note>
+	
+	<figure>
+		<title>Snímek sdílení v plikaci Cheese</title>
+		<screenshot>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="figures/cheese-share.jpg" format="JPG"/>
+				</imageobject>
+			</mediaobject>
+	 </screenshot>
+	</figure>
+  </section>
+</section>
+
+<!--<section id="preferences">
+  <title>Preferences</title>
+
+  <para>
+    Describe preferences over here
+  </para>
+</section>-->
+
+<section id="faq">
+  <title>Často kladené otázky</title>
+  <!--<para>
+    These are questions the mailing list gets asked frequently.
+  </para>-->
+
+  <section id="faq-sluggish">
+    <title>Video je lenivé nebo má pomalé odezvy. Co dělat?</title>
+    <para>Možná máte nastaven „<literal>ximagesink</literal>“ (<guilabel>X Window System (bez Xv)</guilabel>) na video-output. to znamená, že procesor dělá veškerou práci. Změňte „<literal>ximagesink</literal>“ (<guilabel>X Window System (X11/XShm/Xv)</guilabel>) tak, aby tuto práci dělala grafická karta.</para>
+
+    <para>Toto nastavení lze změnit, když spustíte příkaz <command>gstreamer-properties</command>, klepnete na kartu <guilabel>Video</guilabel> a upravíte příslušné nastavení.</para>
+  </section>
+
+  <section id="faq-mac">
+    <title>Mám Mac s kartami iSight a ATI a barvy jsou podivné.</title>
+    <para>Tohle je problém týkající se grafických karet ATI, ale existuje řešení. Změňte video-output na vlastní a zadejte následující: „<literal>ffmpegcolorspace ! video/x-raw-yuv,format=(fourcc)YV12 ! ffmpegcolorspace ! xvimagesink</literal>“.</para>
+
+    <para>Toto nastavení lze změnit, když spustíte příkaz <command>gstreamer-properties</command>, klepnete na kartu <guilabel>Video</guilabel> a zvolíte Vlastní z rozbalovacího seznamu.</para>
+  </section>
+
+  <section id="faq-work-gstreamer">
+    <title>Moje kamera funguje s gstreamerem, ale ne s aplikací <application>Cheese</application>. Co je špatně?</title>
+    <para>Pomocí nástroje <command>gstreamer-properties</command>, o kterém je psáno v otázce výše, zaměňte <guilabel>xvimagesink</guilabel> za <guilabel>ximagesink</guilabel> nebo naopak. Pokud to nepomůže, spusťte z příkazové řádky příkaz <command>cheese --verbose</command> a výstup vložte do hlášení o chybě v <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">nástroji pro sledování chyb</ulink>.</para>
+  </section>
+
+  <section id="faq-work-other">
+    <title>Moje kamera funguje s ostatními aplikacemi jako Ekiga nebo Camorama, ale ne s aplikací <application>Cheese</application>. Co je špatně?</title>
+    <para>Presvědčte se se, zda vaše kamera funguje při testování v nástroji <command>gstreamer-properties</command>. Pokud ano, ale v aplikaci <application>Cheese</application> nikoliv, oznamte prosím chybu v <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">nástroji pro sledování chyb</ulink>.</para>
+  </section>
+
+  <section id="faq-store">
+    <title>Kde uchovává aplikace <application>Cheese</application> mé snímky a videa?</title>
+    <para>Cheese uchovává vaše snímky ve složce nazvané Webcam uvnitř adresáře XDG nastaveném na Pictures (ve většině distribucí to je ~/Pictures/Webcam). To samé platí pro videa: ~/Videos/Webcam. XDG je standard určený k definování výchozích složek v systému. Více informací o XDG naleznete <ulink url="http://standards.freedesktop.org/basedir-spec/basedir-spec-0.6.html" type="http">zde</ulink>.</para>  
+
+    <para>Pokud nejsou cesty XDG v systému nastaveny, Cheese to řeší následovně: ukládá snímky i videa do adresáře ~/.gnome2/cheese/media. To je také výchozí umístení, pokud používáte starší verzi aplikace <application>Cheese</application>.</para>
+    
+    <para>Jak nastavit jiná umístění popisuje <xref linkend="gconf"/>.</para>
+    
+    <warning>
+      <para>Upozornění: ponechte toto nastavení prázdné, pokud si přejete použít výchozí adresáře.</para>
+    </warning>
+    
+    <note>
+		  <para>Snímky lze ukládat z aplikace Cheese i do jiného umístění. Informace o této možnosti popisuje <xref linkend="saving"/>.</para>
+		</note>
+  </section>
+
+  <section id="faq-quickcam">
+    <title>Má Quickcam Express nepracuje s aplikací <application>Cheese</application>…</title>
+    <para>nebo s gstreamerem a ve výstupu aplikace <application>Cheese</application> vidím chyby jako „Not enough buffers. We got 1, we want at least 2“. S ovladačem „qc-usb“.</para>
+
+    <para>Zkuste spustit příkaz <command>qcset /dev/video0 compat=dblbuf</command> pro nastavení režimu kompatibility dvojnásobné vyrovnávací paměti a pak restartujte aplikaci <application>Cheese</application>.</para>
+  </section>
+
+  <section id="faq-no-camera-found">
+    <title>Chybové hlášení „Nenalezena žádná kamera!“</title>
+    <para>„Když spustím Cheese, zobrazí se zpráva 'Nenalezena žádná kamera!', ale má kamera je připojena k počítači“.</para>
+    <para>Existuje mnoho situací, které toto mohou způsobit, a je potřeba určit problém. Pokud můžete, vyzkoušejte následující ke zprovoznění kamery:</para>
+    <orderedlist>
+        <listitem>
+          <para>Připojte kameru k jinému počítači. Pokud tam funguje, problém je s připojením kamery k počítači nebo v operačním systému, pokud ten druhý je jiný než tento. Zkontrolujte porty počítače (zkuste jiný port) a konzultujte problém s podporou svého operačního systému.</para>
+        </listitem>
+        <listitem>
+          <para>Zjistěte, zda váš počítač dokáže kameru detekovat. V operačním systému Linux otevřete terminál nebo konzolu a spusťte příkaz „dmesg“ před zapojením kamery. Prohlédněte si výstup, zapojte kameru a spusťte „dmesg“ znovu. Zkontrolujte, zda se výstup změnil. Pokud ve výstupu naleznete informaci o detekci zařízení USB a pokud je vaše kamera jediným zařízením USB, které se změnilo, váš systém kameru detekuje. V opačném případě zkontorlujte, zda kamera pracuje s jiným počítačem. Toto funguje pouze s kamerami připojenými přes rozhraní USB.</para>
+        </listitem>
+        <listitem>
+          <para>Protože Cheese využívá gstreamer jako podpůrnou vrstvu, pravděpodobně je problém v tom, že gstreamer nedokáže kameru detekovat (nebo je poškozen). Kontaktujte prosím podporu svého operačního systému a dodejte co možná nejvíce podrobností. Uživatelé distribuce Ubuntu by měli použít <ulink url="http://ubuntuforums.org/" type="http">Ubuntu Forums</ulink>.</para>
+        </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="faq-supported-webcams">
+    <title>Jaké kamery jsou podporovány?</title>
+    <para>Cheese využívá pro záznam videa gstreamer, takže, v zásadě, libovolná kamera pracující s gstreamerem je podporována i aplikací Cheese. To jsou všechny kamery podporující video4linux nebo video4linux2.</para>
+  </section>
+</section>
+
+<section id="about">
+  <title>O aplikaci</title>
+  <para>Aplikaci Cheese původně vytvořil Daniel G. Siegel <email>dgsiegel@gnome.org</email> jako projekt Google Summer of Code. Později se k němu připojil Jaap A. Haitsma <email>jaap@haitsma.org</email> a další, aby aplikaci vylepšili. Více informací o aplikaci Cheese naleznete na <ulink url="http://projects.gnome.org/cheese" type="http">stránce projektu <application>Cheese</application></ulink>.</para>
+  <para>Pokud chcete oznámit chybu nebo navrhnout vylepšení této aplikace, můžete přidat hlášení o chybě do příslušné sekce <ulink url="http://bugzilla.gnome.org/browse.cgi?product=vinagre" type="http"> nástroje pro sledování chyb</ulink>.</para>
+  <para>Tento program je šířen podle ustanovení GNU General Public License, vydávané Free Software Foundation; a to buď verze 2 této licence anebo (podle vlastního uvážení) kterékoliv pozdější verze. Kopii této licence naleznete na <ulink url="http://www.gnu.org/licenses/gpl.html" type="http">stránce projektu GNU</ulink> nebo v souboru COPYING přiloženém ke zdrojovým kódům tohoto programu.</para>
+</section>
+
+</article>

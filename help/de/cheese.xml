@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+<!ENTITY app "Cheese">
+<!ENTITY application "<application>&app;</application>">
+<!ENTITY appversion "2.28">
+<!ENTITY manrevision "2.28">
+]>
+<!--
+      (Do not remove this comment block.)
+  Template Maintained by the GNOME Documentation Project:
+  http://developer.gnome.org/projects/gdp
+  Template version: 2.0 beta
+  Template last modified Feb 12, 2002
+-->
+<!-- =============Document Header ============================= -->
+<article id="index" lang="de">
+<!-- please do not change the id; for translations, change lang to -->
+<!-- appropriate code -->
+
+  <articleinfo>
+    <title><application>Cheese</application>-Handbuch</title>
+    <abstract role="description">
+      <para><application>Cheese</application> verwendet Ihre Webcam zum Aufnehmen von Fotos und Videos, wendet spezielle Effekte darauf an und ermöglicht Ihnen, den Spaß mit anderen zu teilen.</para>
+    </abstract>
+    <copyright>
+      <year>2007-2009</year>
+      <holder>Daniel G. Siegel (dgsiegel@gnome.org)</holder>
+      <holder>Jaap A. Haitsma (jaap@haitsma.org)</holder>
+      <holder>Filippo Argiolas (fargiolas@gnome.org)</holder>
+    </copyright><copyright><year>2009</year><holder>Stefan Horning (stefan@hornings.de)</holder></copyright><copyright><year>2009, 2010</year><holder>Mario Blättermann (mariobl@gnome.org)</holder></copyright><copyright><year>2009</year><holder>Wolfgang Stöggl (c72578@yahoo.de)</holder></copyright>
+
+  <!-- translators: uncomment this:
+
+  <copyright>
+   <year>2006</year>
+   <holder>ME-THE-TRANSLATOR (Latin translation)</holder>
+  </copyright>
+
+  -->
+
+<!-- An address can be added to the publisher information.  If a role is
+     not specified, the publisher/author is the same for all versions of the
+     document.  -->
+    <publisher role="maintainer">
+      <publishername>Felix Kaser (f.kaser@gmx.net)</publishername>
+    </publisher>
+
+     <legalnotice id="legalnotice">
+	<para>Das vorliegende Dokument kann gemäß den Bedingungen der GNU Free Documentation License (GFDL), Version 1.1 oder jeder späteren, von der Free Software Foundation veröffentlichten Version ohne unveränderbare Abschnitte sowie ohne Texte auf dem vorderen und hinteren Buchdeckel kopiert, verteilt und/oder modifiziert werden. Eine Kopie der GFDL finden Sie unter diesem <ulink type="help" url="ghelp:fdl">Link</ulink> oder in der mit diesem Handbuch gelieferten Datei COPYING-DOCS.</para>
+         <para>Das vorliegende Handbuch ist Teil einer Reihe von GNOME-Handbüchern, die unter der GFDL verteilt werden. Wenn Sie dieses Handbuch separat verteilen möchten, können Sie dies tun, indem Sie dem Handbuch eine Kopie der Lizenz, wie in Abschnitt 6 der Lizenz beschrieben, hinzufügen.</para>
+
+	<para>Bei vielen der von Firmen zur Unterscheidung ihrer Produkte und Dienstleistungen verwendeten Namen handelt es sich um Marken. An den Stellen, an denen derartige Namen in einer GNOME-Dokumentation vorkommen und wenn die Mitglieder des GNOME-Dokumentationsprojekts über diese Marken informiert wurden, sind die Namen in Großbuchstaben oder mit großen Anfangsbuchstaben geschrieben.</para>
+
+	<para>DAS DOKUMENT UND MODIFIZIERTE VERSIONEN DES DOKUMENTS WERDEN GEMÄSS DEN BEDINGUNGEN DER GNU FREE DOCUMENTATION LICENSE MIT DER FOLGENDEN VEREINBARUNG BEREITGESTELLT: <orderedlist>
+		<listitem>
+		  <para>DAS DOKUMENT WIRD »WIE VORLIEGEND« GELIEFERT, OHNE JEGLICHE GEWÄHRLEISTUNG, WEDER AUSDRÜCKLICH NOCH STILLSCHWEIGEND, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, GEWÄHRLEISTUNGEN, DASS DAS DOKUMENT ODER EINE MODIFIZIERTE VERSION DES DOKUMENTS FREI VON HANDELSÜBLICHEN FEHLERN UND FÜR EINEN BESTIMMTEN ZWECK GEEIGNET IST UND KEINE RECHTE DRITTER VERLETZT. JEGLICHES RISIKO IN BEZUG AUF DIE QUALITÄT, GENAUIGKEIT UND LEISTUNG DES DOKUMENTS ODER EINER MODIFIZIERTEN VERSION DES DOKUMENTS TRAGEN SIE. SOLLTE SICH EIN DOKUMENT ODER EINE MODIFIZIERTE VERSION DAVON IN IRGENDEINER WEISE ALS FEHLERHAFT ERWEISEN, TRAGEN SIE (NICHT DER URSPRÜNGLICHE VERFASSER, AUTOR ODER EIN MITWIRKENDER) DIE KOSTEN FÜR JEGLICHE ERFORDERLICHE SERVICE-, REPARATUR- UND KORREKTURMASSNAHMEN: DIESE BESCHRÄNKUNG DER GEWÄHRLEISTUNG IST WESENTLICHER BESTANDTEIL DIESER LIZENZ. JEDE VERWENDUNG EINES DOKUMENTS ODER EINER MODIFIZIERTEN VERSION DES DOKUMENTS UNTERLIEGT DIESER BESCHRÄNKUNG; UND</para>
+		</listitem>
+		<listitem>
+		  <para>UNTER KEINEN UMSTÄNDEN UND GEMÄSS KEINER RECHTSLEHRE, WEDER AUFGRUND VON UNERLAUBTEN HANDLUNGEN (EINSCHLIESSLICH FAHRLÄSSIGKEIT), VERTRÄGEN ODER SONSTIGEM, KANN DER AUTOR, DER URSPRÜNGLICHE VERFASSER, EIN MITWIRKENDER ODER EIN VERTEILER DES DOKUMENTS ODER EINER MODIFIZIERTEN VERSION DES DOKUMENTS ODER EIN LIEFERANT EINER DIESER PARTEIEN VON EINER PERSON FÜR DIREKTE, INDIREKTE, BESONDERE, ZUFÄLLIGE ODER ALS FOLGE AUFGETRETENE SCHÄDEN IRGENDEINER ART, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, SCHÄDEN DURCH GESCHÄFTSWERTVERLUSTE, ARBEITSAUSFÄLLE, COMPUTERAUSFÄLLE ODER FUNKTIONSSTÖRUNGEN ODER JEGLICHE ANDERE SCHÄDEN ODER VERLUSTE, DIE DURCH ODER IM ZUSAMMENHANG MIT DER VERWENDUNG DES DOKUMENTS ODER EINER MODIFIZIERTEN VERSION DES DOKUMENTS ENTSTANDEN SIND, SELBST WENN DIESE PARTEI ÜBER MÖGLICHE SCHÄDEN INFORMIERT WORDEN SEIN SOLLTE, HAFTBAR GEMACHT WERDEN.</para>
+		</listitem>
+	  </orderedlist></para>
+  </legalnotice>
+
+
+   <!-- This file  contains link to license for the documentation (GNU FDL), and
+        other legal stuff such as "NO WARRANTY" statement. Please do not change
+        any of this. -->
+
+    <authorgroup>
+      <author>
+        <firstname>Joshua</firstname>
+        <surname>Henderson</surname>
+	<email>joshhendo@gmail.com</email>
+      </author>
+      <author>
+        <firstname>Jaap</firstname>
+        <surname>Haitsma</surname>
+	<email>jaap@haitsma.org</email>
+      </author>
+      <author>
+        <firstname>Felix</firstname>
+        <surname>Kaser</surname>
+	<email>f.kaser@gmx.net</email>
+      </author>
+
+<!-- This is appropriate place for other contributors: translators,
+      maintainers,  etc. Commented out by default.
+       <othercredit role="translator">
+        <firstname>Latin</firstname>
+        <surname>Translator 1</surname>
+        <affiliation>
+          <orgname>Latin Translation Team</orgname>
+          <address> <email>translator@gnome.org</email> </address>
+        </affiliation>
+        <contrib>Latin translation</contrib>
+      </othercredit>
+-->
+    </authorgroup>
+
+    <revhistory>
+
+      <revision>
+        <revnumber>0.1</revnumber>
+        <date>04. Dezember 2007</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.2</revnumber>
+        <date>12. Januar 2008</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>0.3</revnumber>
+        <date>20. August 2008</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+      
+      <revision>
+        <revnumber>0.4</revnumber>
+        <date>15. Juli 2009</date>
+        <revdescription>
+          <para role="author">Jaap A. Haitsma <email>jaap@haitsma.org</email></para>
+          <para role="author">Joshua Henderson <email>joshhendo@gmail.com</email></para>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Jaap A. Haitsma</para>
+        </revdescription>
+      </revision>
+			
+			<revision>
+        <revnumber>0.5</revnumber>
+        <date>14. September 2009</date>
+        <revdescription>
+          <para role="author">Felix Kaser <email>f.kaser@gmx.net</email></para>
+          <para role="publisher">Felix Kaser</para>
+        </revdescription>
+      </revision>
+
+    </revhistory>
+
+    <legalnotice>
+      <title>Rückmeldungen</title>
+      <para>Um einen Fehler zu melden oder einen Vorschlag zur Anwendung <application>Cheese</application> oder zu diesem Handbuch zu machen, folgen Sie den Anweisungen auf der <ulink url="http://projects.gnome.org/cheese/" type="http"><application>Cheese</application>-Projektseite</ulink>.</para>
+<!-- Translators may also add here feedback address for translations -->
+    </legalnotice>
+  </articleinfo>
+
+  <indexterm zone="index">
+    <primary><application>Cheese</application></primary>
+  </indexterm>
+  <indexterm zone="index">
+    <primary>cheese</primary>
+  </indexterm>
+
+<!-- ============= Document Body ============================= -->
+<!-- ============= Introduction ============================== -->
+<section id="intro">
+  <title>Einführung</title>
+  <!-- manrevision 2.0 compatibility -->
+  <anchor id="aboutex"/>
+  <anchor id="notice"/>
+  <indexterm>
+    <primary><application>Cheese</application></primary>
+    <secondary>Handbuch</secondary>
+    <tertiary>cheese</tertiary>
+  </indexterm>
+
+  <para>Cheese verwendet Ihre Webcam zum Aufnehmen von Fotos und Videos, wendet spezielle Effekte darauf an und ermöglicht Ihnen, den Spaß mit anderen zu teilen.</para>
+
+</section>
+
+<section id="using">
+  <title>Benutzung</title>
+  <para>Die Darstellung des Hauptfensters von <application>Cheese</application> ist in zwei Ansichten möglich. Die Standardansicht ist nachfolgend dargestellt. Das Vorschaubild befindet sich in der Mitte und die verkleinerten Ansichten darunter.</para>
+
+  <figure>
+  <title>Cheese-Bildschirmfoto</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-main.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+	
+	<para>Speziell für <application>Cheese</application>-Benutzer mit kleinen Bildschirmen, beispielsweise in Netbooks, haben wir eine weitere Darstellung entworfen. Die Anordnung ist mehr waagerecht, um die Möglichkeiten kleiner Breitbildschirme besser zu nutzen. Der breite Modus wird im nachfolgenden Bildschirmfoto dargestellt.</para>
+	
+	<figure>
+  <title>Cheese-Bildschirmfoto im breiten Modus</title>
+    <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="figures/cheese-wide.jpg" format="JPG"/>
+        </imageobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  <para><application>Cheese</application> startet per Vorgabe im Foto-Modus. Wenn gewünscht, können Sie in den Video-Modus oder Serienaufnahmemodus wechseln.</para>
+
+  <section id="using-effects">
+    <title>Effekte</title>
+    <para>Um Effekte auf die Eingabe Ihrer Webcam anzuwenden, klicken Sie auf den Knopf <guibutton>Effekte</guibutton>. Beim Wechsel in das Effekte-Fenster sehen Sie ein Fenster wie nachfolgend dargestellt <figure>
+        <title>Bildschirmfoto der Cheese-Effekte</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="figures/cheese-effects.jpg" format="JPG"/>
+            </imageobject>
+          </mediaobject>
+       </screenshot>
+      </figure></para>
+
+    <para>Sie können einige wirklich beeindruckende Effekte auswählen, die Sie auf Ihr Foto anwenden können. Um einen Effekt anzuwenden, klicken Sie einfach den entsprechenden Knopf an. Der Knopf wird hervorgehoben dargestellt. Die mehrfache Auswahl von Effekten wendet diese alle gleichzeitig auf Ihr Foto an. Wenn Sie beispielsweise <guibutton>Hulk</guibutton> und <guibutton>Vertikale Spiegelung</guibutton> anwenden, erhält das Bild eine grüne Schattierung und wird auf den Kopf gestellt. Um alle Effekte zu deaktivieren, klicken Sie auf den Knopf <guibutton>Kein Effekt</guibutton>.</para>
+		
+		<para>Um zur Vorschau Ihrer Webcam zurückzukehren, klicken Sie erneut auf den Knopf <guibutton>Effekte</guibutton>. Dadurch wird das Effekte-Menü deaktiviert und Sie kehren zur normalen Ansicht zurück.</para>
+  </section>
+
+  <section id="using-photomode">
+    <title>Foto-Modus</title>
+    <para>Der Foto-Modus ist der vorgegebene Modus für <application>Cheese</application>. Wenn sich <application>Cheese</application> nicht im Foto-Modus befindet, klicken Sie auf den Knopf mit dem Symbol eines Fotos oder wählen im Menü: <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Foto</guimenuitem></menuchoice>, um in den Foto-Modus zu wechseln. Im Foto-Modus wird ein einzelnes Foto jedes mal aufgenommen, wenn Sie auf den Knopf <guibutton>Foto aufnehmen</guibutton> klicken oder die <keycap>Leertaste</keycap> drücken. Das Foto wird auf der Festplatte gespeichert.</para>
+  </section>
+
+  <section id="using-videomode">
+    <title>Video-Modus</title>
+    <para>Im Video-Modus können Sie kurze Videos mit Ihrer Webcam aufnehmen. Wenn sich <application>Cheese</application> nicht im Video-Modus befindet, klicken Sie auf den Knopf mit dem Symbol einer Filmrolle oder wählen im Menü: <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Video</guimenuitem></menuchoice>, um in den Video-Modus zu wechseln. Im Video-Modus wird mit der Aufnahme eines Videos jedes mal begonnen, wenn Sie auf den Knopf <guibutton>Aufnahme starten</guibutton> klicken oder die <keycap>Leertaste</keycap> drücken. Die Aufnahme wird beendet und das Video auf der Festplatte gespeichert, wenn Sie auf den Knopf <guibutton>Aufnahme stoppen</guibutton> klicken oder die <keycap>Leertaste</keycap> drücken. </para>
+
+    <para>Der Video-Modus sieht nur wenig anders aus als der Foto-Modus. Der Knopf <guibutton>Foto aufnehmen</guibutton> wird entweder als <guibutton>Aufnahme starten</guibutton> oder <guibutton>Aufnahme stoppen</guibutton> dargestellt, und der Knopf <guibutton>Video</guibutton> erscheint eingedrückt, die Knöpfe für Foto- und Serienaufnahmemodus dagegen nicht.</para>
+	</section>
+	
+	<section id="using-burstmode">
+    <title>Serienaufnahmemodus</title>
+    <para>Im Serienaufnahmemodus können Sie mehrere Bilder nacheinander aufnehmen. Bis auf die Aufnahme einer Bilderserie gleicht dieser Modus exakt dem Foto-Modus. Um aus einem der anderen Modi in den Serienaufnahmemodus umzuschalten, klicken Sie auf den Knopf mit dem Symbol für mehrere Bilder hintereinander oder wählen aus dem Menü: <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Serienaufnahme</guimenuitem></menuchoice>, um in den Serienaufnahmemodus zu wechseln. Im Serienaufnahmemodus werden Bilder in Abständen einiger Sekunden aufgenommen, wenn der Knopf <guibutton>Mehrere Fotos aufnehmen</guibutton> angeklickt oder die <keycap>Leertaste</keycap> gedrückt wird. Die Verzögerung und die Aufnahmenanzahl können Sie im Einstellungsdialog festlegen. Weitere Informationen hierzu finden Sie in <xref linkend="preferences"/>.</para>
+
+    <note>
+      <para>Sie können in allen Aufnahmemodi den Vollbildmodus einschalten. Klicken Sie auf <menuchoice><guimenu>Cheese</guimenu><guimenuitem>Vollbild</guimenuitem></menuchoice>, um in den Vollbildmodus zu gelangen, oder drücken Sie <keycap>F11</keycap>. Um den Vollbildmodus zu beenden, drücken Sie <keycap>Esc</keycap> oder <keycap>F11</keycap>.</para>
+    </note>
+		
+		<figure>
+    <title>Cheese-Bildschirmfoto im Vollbildmodus</title>
+    	<screenshot>
+      	<mediaobject>
+        	<imageobject>
+          	<imagedata fileref="figures/cheese-fullscreen.jpg" format="JPG"/>
+          </imageobject>
+        </mediaobject>
+     	</screenshot>
+    </figure>
+	</section>
+  
+</section>
+
+<section id="working-with">
+  <title>Mit Fotos und Videos arbeiten</title>
+  <section id="takingaphoto">
+    <title>Ein Foto aufnehmen</title>
+    <para>Um ein Foto in Cheese aufzunehmen, stellen Sie sicher, dass Sie sich im »Foto-Modus« befinden.</para>
+
+    <para>Klicken Sie zunächst auf den Knopf <guibutton>Effekte</guibutton> und danach auf die gewünschten in <xref linkend="using-effects"/> beschriebenen Effekte. Nun sollten die angeklickten Effekte auf die Eingabe der Webcam angewendet werden. Klicken Sie den Knopf erneut, um zur normalen Ansicht zurückzukehren.</para>
+
+    <para>Um ein Foto aufzunehmen, klicken Sie auf den Knopf <guibutton>Foto aufnehmen</guibutton> oder drücken Sie die <keycap>Leertaste</keycap>. Alternativ können Sie den Aufnahmeknopf Ihrer Webcam verwenden, falls diese über einen solchen Knopf verfügt. Nun löst <application>Cheese</application> einen dreistufigen Zähler aus oder nimmt das Foto direkt auf, abhängig von Ihren Einstellungen. Wenn ein Foto aufgenommen wird, blitzt der gesamte Bildschirm in weiß und das Foto wird in der Fotoleiste am unteren Rand des Anwendungsfensters angezeigt. Um den Zähler abzubrechen, verwenden Sie die <keycap>Esc</keycap>-Taste.</para>
+  </section>
+
+  <section id="recordingavideo">
+    <title>Ein Video aufnehmen</title>
+    <para>Um ein Video in <application>Cheese</application> aufzunehmen, stellen Sie bitte sicher, dass der Knopf <guibutton>Video</guibutton> angeklickt wurde.</para>
+
+    <para>Um eine Videoaufnahme zu starten, klicken Sie auf den Knopf <guibutton>Aufnahme starten</guibutton> oder drücken Sie die <keycap>Leertaste</keycap>. Alternativ können Sie den Aufnahmeknopf Ihrer Webcam verwenden, falls diese über einen solchen Knopf verfügt. Zum Beenden der Aufnahme klicken Sie auf den gleichen Knopf, der nun mit <guibutton>Aufnahme stoppen</guibutton> beschriftet ist, woraufhin die Aufnahme beendet und das Video gespeichert wird.</para>
+
+    <note>
+      <para>Falls Ihr Video stockt oder in einer niedrigen Bildrate wiedergegeben wird (das Bild wird nur in Abständen von mehreren Sekunden aktualisiert), bedeutet dies nicht, dass die Bildrate der Aufnahme auch so niedrig ist. In vielen Fällen ist die tatsächliche Bildrate der aufgenommenen Datei weitaus besser.</para>
+    </note>
+  </section>
+	
+	<section id="takingburst">
+    <title>Aufnahme einer Bilderserie im Sereinaufnahmemodus</title>
+    <para>Um mehrere Bilder nacheinander aufzunehmen, können Sie den Serienaufnahmemodus verwenden. Den Serienaufnahmemodus können Sie im Einstellungsdialog auswählen, wo Sie auch die Anzahl der aufzunehmenden Bilder sowie die Verzögerung zwischen den Aufnahmen angeben können. Weitere Informationen hierzu finden Sie in <xref linkend="preferences"/>.</para>
+
+    <para>Um eine Aufnahme im Serienaufnahmemodus zu starten, klicken Sie auf den Knopf <guibutton>Mehrere Fotos aufnehmen</guibutton> oder drücken Sie die <keycap>Leertaste</keycap>. Alternativ können Sie den Aufnahmeknopf Ihrer Webcam verwenden, falls diese über einen solchen Knopf verfügt. Zum Beenden der Serienaufnahme verwenden Sie die <keycap>Esc</keycap>-Taste.</para>
+  </section>
+</section>
+
+<section id="setting-up">
+  <title>Cheese einrichten</title>
+	
+	<section id="preferences">
+    <title>Der Einstellungsdialog</title>
+    <para>Der Einstellungsdialog ermöglicht Ihnen das Festlegen spezifischer Parameter zur Webcam und zum Serienaufnahmemodus. Falls Sie über mehrere an Ihrem System angeschlossene Webcams oder Videogeräte verfügen, können Sie angeben, welche sie für <application>Cheese</application> verwenden wollen und in welcher Auflösung die Aufnahmen erstellt werden sollen. Stellen Sie mit Hilfe der Schieberegler die Werte für Helligkeit, Kontrast, Sättigung und Farbton ein, welche sich am besten für Ihre Webcam eignen. </para>
+		
+		<figure>
+			<title>Bildschirmfoto der Cheese-Einstellungen</title>
+			<screenshot>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="figures/cheese-preferences.jpg" format="JPG"/>
+					</imageobject>
+				</mediaobject>
+		 </screenshot>
+		</figure>
+
+    <para>Die Parameter für den Serienaufnahmemodus können auch im Einstellungsdialog angegeben werden. Dazu brauchen Sie nur die Werte für die Anzahl der aufzunehmenden Fotos und die Verzögerung zwischen den einzelnen Aufnahmen zu ändern.</para>
+  </section>
+	
+	<section id="gconf">
+		<title>GConf-Einstellungen</title>
+		<para>Es ist auch möglich, mit Hilfe der GConf-Einstellungen die Speicherorte der aufgenommenen Medien festzulegen (Fotos und Videos). Öffnen Sie hierzu mit dem Befehl <command>gconf-editor</command> den Konfigurationseditor und wählen Sie /apps/cheese in der Baumansicht in der linken Leiste. Nun können Sie die Werte der Schlüssel <guilabel>video_path</guilabel> und <guilabel>photo_path</guilabel> an Ihre Wünsche anpassen. Sie können hier auch weitere Parameter für <application>Cheese</application> festlegen, aber für einen nachvollziehbaren Zugriff sollten Sie hierfür den Einstellungsdialog bevorzugen.</para>
+		
+		<warning>
+      <para>Achtung: Seien Sie vorsichtig beim Ändern Ihrer GConf-Einstellungen! Falls Sie nicht absolut sicher sind, was Sie tun, sollten Sie jemanden um Rat fragen, der damit Erfahrung hat.</para>
+    </warning>
+	</section>
+</section>
+
+<section id="sharing">
+  <title>Freigeben von Fotos und Videos</title>
+
+  <section id="view">
+    <title>Ein Foto oder ein Video betrachten</title>
+    <para>Um ein aufgenommenes Foto oder Video zu betrachten, wählen Sie es in der Fotoleiste aus und klicken Sie zweimal darauf. Alternativ können Sie mit der rechten Maustaste darauf klicken und <guimenuitem>Öffnen</guimenuitem> wählen. Dadurch wird die Datei mit der Standardanwendung für diesen Dateityp geöffnet.</para>
+  </section>
+
+  <section id="saving">
+    <title>Fotos und Videos an einem anderen Ort speichern</title>
+    <para>Um ein Foto an einem alternativen Ort auf Ihrer Festplatte zu speichern, wo Sie es leichter wiederfinden können, klicken Sie mit der rechten Maustaste auf das gewünschte Foto in der Fotoleiste und wählen <guimenuitem>Speichern unter</guimenuitem> aus dem Kontextmenü. Ein <guilabel>Datei speichern</guilabel>-Dialog erscheint, in welchem Sie falls nötig das Foto umbenennen und an jedem beliebigen Ort speichern können.</para>
+  </section>
+
+  <section id="delete">
+    <title>Ein Foto löschen</title>
+    <para>Um ein Foto aus der Fotoleiste zu löschen, wählen Sie das Foto aus, klicken Sie darauf und drücken Sie die <keycap>Entf</keycap>-Taste auf Ihrer Tastatur. Alternativ können Sie mit der rechten Maustaste darauf klicken und <guimenuitem>Löschen</guimenuitem> aus dem Kontextmenü wählen.</para>
+
+    <para>Sie werden um Bestätigung gebeten, dass das Foto aus der Fotoleiste entfernt werden soll. Wenn Sie zustimmen, klicken Sie auf den Knopf <guibutton>In den Mülleimer verschieben</guibutton>.</para>
+
+    <note>
+      <para>Dadurch wird das Bild lediglich in den Müll verschoben und aus Ihrer Fotoleiste entfernt. Um das Foto völlig auf dem Rechner zu löschen, müssen Sie den Mülleimer leeren.</para>
+    </note>
+  </section>
+
+  <section id="email">
+    <title>Ein Foto per E-Mail verschicken</title>
+    <para>Fotos können aus <application>Cheese</application> heraus direkt als E-Mail versendet werden. Sie müssen dafür ein E-Mail-Programm mit einem funktionierenden E-Mail-Konto als Standard eingestellt haben. Um ein Foto als E-Mail zu versenden, wählen Sie in der Fotoleiste ein als E-Mail zu versendendes Bild aus, klicken Sie mit der rechten Maustaste darauf und wählen Sie <guimenuitem>Per E-Mail senden</guimenuitem>.</para>
+
+    <para>Daraufhin wird das vorgegebene E-Mail-Programm geöffnet, z.B. Evolution. Eine neue Nachricht mit dem von Ihnen ausgewählten Foto als Anhang erscheint.</para>
+  </section>
+
+  <section id="account-photo">
+    <title>Als Profilbild setzen</title>
+    <para>Sie können ein Foto als Anmeldefoto verwenden. Das Anmeldefoto wird in <menuchoice><guimenu>System</guimenu><guimenuitem>Einstellungen</guimenuitem><guimenuitem>Persönliche Angaben</guimenuitem></menuchoice> angezeigt und auch im Anmeldefenster, sofern dort eine Liste der Benutzernamen mit Fotos erscheint. Wählen Sie das Foto in <application>Cheese</application> aus, welches Sie als Anmeldefoto verwenden wollen, klicken Sie mit der rechten Maustaste darauf und wählen Sie <guimenuitem>Als Anmeldefoto setzen</guimenuitem>.</para>
+  </section>
+
+  <section id="fspot">
+    <title>Ein Bild in F-Spot exportieren</title>
+    <para>Um ein Foto nach <application>F-Spot</application> zu exportieren, wählen Sie das gewünschte Foto in der Fotoleiste aus, klicken Sie mit der rechten Maustaste darauf und wählen <guimenuitem>Zu F-Spot exportieren</guimenuitem>. Anschließend werden Sie von <application>F-Spot</application> danach gefragt, ob Sie die gesendeten Fotos importieren wollen.</para>
+
+    <note>
+      <para>Abhängig von der gegenwärtig von Ihnen verwendeten Cheese-Version könnte F-Spot fragen, ob der gesamte Inhalt der Fotoleiste importiert werden soll.</para>
+    </note>
+	
+	<figure>
+		<title>Bildschirmfoto einer Freigabe durch Cheese</title>
+		<screenshot>
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="figures/cheese-share.jpg" format="JPG"/>
+				</imageobject>
+			</mediaobject>
+	 </screenshot>
+	</figure>
+  </section>
+</section>
+
+<!--<section id="preferences">
+  <title>Preferences</title>
+
+  <para>
+    Describe preferences over here
+  </para>
+</section>-->
+
+<section id="faq">
+  <title>Häufigste Fragen</title>
+  <!--<para>
+    These are questions the mailing list gets asked frequently.
+  </para>-->
+
+  <section id="faq-sluggish">
+    <title>Das Video stockt oder reagiert träge. Was ist zu tun?</title>
+    <para>Sie haben möglicherweise »<literal>ximagesink</literal>« (<guilabel>X Window System (No Xv)</guilabel>) als Videoausgabe festgelegt. Das bedeutet, dass Ihr Prozessor sämtliche Arbeit übernimmt. Ändern Sie dies in »<literal>xvimagesink</literal>« (<guilabel>X Window System (X11/XShm/Xv)</guilabel>), damit Ihre Grafikkarte diese Aufgabe ausführt.</para>
+
+    <para>Um diese Einstellung zu ändern, führen Sie den Befehl <command>gstreamer-properties</command> aus, klicken auf den Reiter <guilabel>Video</guilabel> und ändern die Einstellung wie gewünscht.</para>
+  </section>
+
+  <section id="faq-mac">
+    <title>Ich habe einen Mac mit iSight und einer ATI-Grafikkarte, und die Farben sind sonderbar.</title>
+    <para>Es handelt sich um ein Problem mit der ATI-Grafikkarte, aber es gibt einen Lösungsweg. Ändern Sie die Videoausgabe in »Benutzerdefiniert« und geben Sie Folgendes ein: »<literal>ffmpegcolorspace ! video/x-raw-yuv,format=(fourcc)YV12 ! ffmpegcolorspace ! xvimagesink</literal>«.</para>
+
+    <para>Um die Einstellungen zu ändern, führen Sie den Befehl <command>gstreamer-properties</command> aus, klicken auf den Reiter <guilabel>Video</guilabel> und wählen <guilabel>Benutzerdefiniert</guilabel> in der Auswahlliste.</para>
+  </section>
+
+  <section id="faq-work-gstreamer">
+    <title>Meine Webcam funktioniert mit gstreamer, aber nicht mit <application>Cheese</application>. Was ist los?</title>
+    <para>Versuchen Sie mit Hilfe der in der obigen Frage erwähnten <command>gstreamer-properties</command> die Ausgabe von <guilabel>xvimagesink</guilabel> in <guilabel>ximagesink</guilabel> oder umgekehrt zu ändern. Falls es noch immer nicht funktioniert, führen Sie den Befehl <command>cheese --verbose</command> in einer Befehlszeile aus. Kopieren Sie das Fehlerprotokoll in einen Fehlerbericht in unserem <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">Fehlererfassungssystem</ulink>.</para>
+  </section>
+
+  <section id="faq-work-other">
+    <title>Meine Webcam funktioniert mit anderen Programmen wie <application>Ekiga</application> oder <application>Camorama</application>, aber nicht mit <application>Cheese</application>. Was ist los?</title>
+    <para>Schauen Sie, ob Ihre Webcam beim Test in <command>gstreamer-properties</command> funktioniert. Wenn es dort funktioniert, aber nicht in <application>Cheese</application>, dann hinterlassen Sie bitte einen Fehlerbericht in unserem <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">Fehlererfassungssystem</ulink>.</para>
+  </section>
+
+  <section id="faq-store">
+    <title>Wo speichert <application>Cheese</application> meine Fotos und Videos?</title>
+    <para><application>Cheese</application> speichert Ihre Bilder in einem Ordner namens »Webcam« innerhalb der XDG-Ordnerstruktur. Auf den meisten Distributionen dürfte dies ~/Bilder/Webcam sein. Mit Videos wird gleichermaßen verfahren, diese werden in ~/Videos/Webcam gespeichert. Anhand des XDG-Standards werden die Standardordner Ihres Systems festgelegt. Weitere Informationen über XDG finden Sie <ulink url="http://standards.freedesktop.org/basedir-spec/basedir-spec-0.6.html" type="http">hier</ulink>.</para>  
+
+    <para>Falls der XDG-Pfad auf Ihrem System nicht gesetzt ist, benutzt <application>Cheese</application> folgende Lösung: Ihre Bilder und Videos werden in ~/.gnome2/cheese/media gespeichert. In älteren Versionen von <application>Cheese</application> ist dies der Vorgabeordner für Ihre Medien.</para>
+    
+    <para>Das Angeben eines alternativen Pfades wird in <xref linkend="gconf"/> beschrieben.</para>
+    
+    <warning>
+      <para>Achtung: Lassen Sie diese Einstellungen leer, falls <application>Cheese</application> die Standardordner verwenden soll.</para>
+    </warning>
+    
+    <note>
+		  <para>Sie können Ihre Bilder auch aus Cheese heraus an einem anderen Ort speichern. Weitere Informationen hierzu finden Sie in <xref linkend="saving"/>.</para>
+		</note>
+  </section>
+
+  <section id="faq-quickcam">
+    <title>Meine »Quickcam Express« funktioniert nicht in <application>Cheese</application> …</title>
+    <para>oder gstreamer, und ich bekomme Fehlermeldungen wie »Not enough buffers. We got 1, we want at least 2« in der Ausgabe von <application>Cheese</application> (mit dem Treiber »qc-usb«).</para>
+
+    <para>Versuchen Sie den Befehl <command>qcset /dev/video0 compat=dblbuf</command>, um den Doppelpuffer-Kompatibilitätsmodus zu aktivieren, und starten Sie <application>Cheese</application> neu.</para>
+  </section>
+
+  <section id="faq-no-camera-found">
+    <title>Fehlermeldung »Keine Kamera gefunden!«</title>
+    <para>»Wenn ich Cheese starte, erhalte ich die Meldung 'Keine Kamera gefunden', aber ich habe meine Kamera an den Rechner angeschlossen.«</para>
+    <para>Dies kann durch vielerlei Umstände verursacht werden. Das genaue Problem muss zunächst isoliert werden. Falls möglich, versuchen Sie Folgendes, um Ihre Webcam zum Laufen zu bringen:</para>
+    <orderedlist>
+        <listitem>
+          <para>Schließen Sie Ihre Kamera an einen anderen Rechner an. Falls sie dort funktioniert, handelt es sich um ein Verbindungsproblem an Ihrem Rechner oder ein Problem mit dem Betriebssystem, falls auf dem anderen Rechner ein anderes Betriebssystem installiert ist. Überprüfen Sie die Ports Ihres Rechners (versuchen Sie einen anderen Port zu benutzen) und ziehen Sie den Support Ihres Betriebssystems zu Rate.</para>
+        </listitem>
+        <listitem>
+          <para>Schauen Sie, ob Ihre Kamera von Ihrem Rechner erkannt wird. Auf Linux-Systemen öffnen Sie ein Terminal und geben Sie »dmesg« ein, bevor Sie die Webcam anschließen. Achten Sie auf die letzten Zeilen der Ausgabe und schließen Sie dann Ihre Webcam an. Geben Sie erneut »dmesg« ein und schauen Sie, ob es Änderungen in den letzten Zeilen gegeben hat. Falls die Meldungen darauf hinweisen, dass ein USB-Gerät erkannt wurde und Ihre Webcam das einzige geänderte USB-Gerät ist, dann hat Ihr Rechner die Webcam richtig erkannt. Falls nicht, dann überprüfen Sie die Erkennung auf einem anderen Rechner. Dies funktioniert nur mit USB-Webcams.</para>
+        </listitem>
+        <listitem>
+          <para>Da <application>Cheese</application> das GStreamer-Backend verwendet, könnte es sein, dass GStreamer die Kamera nicht erkannt hat, oder GStreamer nicht korrekt funktioniert. Bitte kontaktieren Sie den Support für Ihr Betriebssystem und fügen Sie so viele Einzelheiten wie möglich zu Ihrem Bericht hinzu. Für Ubuntu benutzen Sie bitte die <ulink url="http://ubuntuforums.org/" type="http">Ubuntu-Foren</ulink>.</para>
+        </listitem>
+    </orderedlist>
+  </section>
+
+  <section id="faq-supported-webcams">
+    <title>Welche Kameras werden unterstützt?</title>
+    <para><application>Cheese</application> benutzt GStreamer für die Videoverarbeitung. Somit unterstützt <application>Cheese</application> prinzipiell jede unter GStreamer funktionierende Kamera. Generell sind das alle Kameras, die video4linux oder video4linux2 unterstützen.</para>
+  </section>
+</section>
+
+<section id="about">
+  <title>Info</title>
+  <para><application>Cheese</application> wurde ursprünglich von Daniel G. Siegel <email>dgsiegel@gnome.org</email> geschrieben, als ein Projekt des »Google Summer of Code«. Später halfen Jaap A. Haitsma <email>jaap@haitsma.org</email> und andere Daniel bei der Verbesserung von <application>Cheese</application>. Weitere Informationen über <application>Cheese</application> finden Sie auf der <ulink url="http://projects.gnome.org/cheese" type="http"><application>Cheese</application>-Webseite</ulink>.</para>
+  <para>Um einen Fehler zu melden oder einen Vorschlag zu dieser Anwendung oder zu diesem Handbuch zu machen, können Sie einen Fehlerbericht in unserem <ulink url="http://bugzilla.gnome.org/browse.cgi?product=cheese" type="http">Fehlererfassungssystem</ulink> hinterlassen.</para>
+  <para>Dieses Programm ist freie Software, Sie können sie weitergeben und/oder verändern solange Sie sich an die Regeln der GNU General Public License halten, so wie sie von der Free Software Foundation festgelegt wurden; entweder in Version 2 der Lizenz oder (nach Ihrem Ermessen) in jeder folgenden Lizenz. Eine Kopie dieser Lizenz finden Sie auf der <ulink url="http://www.gnu.org/licenses/gpl.html" type="http">GNU-Webseite</ulink> oder in der Datei COPYING im Quellcode dieses Programms.</para>
+</section>
+
+</article>

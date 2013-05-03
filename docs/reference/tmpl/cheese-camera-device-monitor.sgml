@@ -1,0 +1,75 @@
+<!-- ##### SECTION Title ##### -->
+CheeseCameraDeviceMonitor
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT CheeseCameraDeviceMonitorClass ##### -->
+<para>
+
+</para>
+
+@parent_class: 
+@added: 
+@removed: 
+
+<!-- ##### STRUCT CheeseCameraDeviceMonitor ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### SIGNAL CheeseCameraDeviceMonitor::added ##### -->
+<para>
+
+</para>
+
+@cheesecameradevicemonitor: the object which received the signal.
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+
+<!-- ##### SIGNAL CheeseCameraDeviceMonitor::removed ##### -->
+<para>
+
+</para>
+
+@cheesecameradevicemonitor: the object which received the signal.
+@arg1: 
+
+<!-- ##### FUNCTION cheese_camera_device_monitor_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+
+<!-- ##### FUNCTION cheese_camera_device_monitor_coldplug ##### -->
+<para>
+
+</para>
+
+@monitor: 
+
+
