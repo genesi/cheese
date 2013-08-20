@@ -23,7 +23,7 @@
 #define __CHEESE_FILEUTIL_H__
 
 #define PHOTO_NAME_SUFFIX ".jpg"
-#define VIDEO_NAME_SUFFIX ".avi"
+#define VIDEO_NAME_SUFFIX ".mkv"
 
 G_BEGIN_DECLS
 

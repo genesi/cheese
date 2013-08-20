@@ -1,3 +1,9 @@
+cheese (2.32.0-1genesi2) maverick; urgency=low
+
+  * Modified to work with mfw_v4lsrc and fix audio encoding
+
+ -- Ahmed Ammar <aammar@genesi-usa.com>  Fri, 12 Jul 2013 22:45:34 +0200
+
 cheese (2.32.0-1genesi1) maverick; urgency=low
 
   * Modified to work with mfw_vpuencoder

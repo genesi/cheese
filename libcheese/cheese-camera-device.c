@@ -211,7 +211,13 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
   int num_structures;
 
   free_format_list (device);
+  CheeseVideoFormat *format = g_new0 (CheeseVideoFormat, 1);
+  format->width = 640;
+  format->height = 480;
+  cheese_camera_device_add_format (device, format);
 
+
+#if 0
   num_structures = gst_caps_get_size (priv->caps);
   for (i = 0; i < num_structures; i++)
   {
@@ -278,6 +284,7 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
       g_critical ("GValue type %s, cannot be handled for resolution width", G_VALUE_TYPE_NAME (width));
     }
   }
+#endif
 }
 
 static void
@@ -370,7 +377,7 @@ cheese_camera_device_constructed (GObject *object)
   CheeseCameraDevicePrivate *priv   =
     CHEESE_CAMERA_DEVICE_GET_PRIVATE (device);
 
-  priv->src = (priv->api == 2) ? "v4l2src" : "v4lsrc";
+  priv->src = "mfw_v4lsrc"; //(priv->api == 2) ? "v4l2src" : "v4lsrc";
 
   cheese_camera_device_get_caps (device);
 

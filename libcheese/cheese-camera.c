@@ -453,12 +453,10 @@ cheese_camera_create_video_display_bin (CheeseCamera *camera, GError **error)
     cheese_camera_set_error_element_not_found (error, "ffmpegcolorspace");
     return FALSE;
   }
-
   if ((tee = gst_element_factory_make ("tee", "tee")) == NULL)
   {
     cheese_camera_set_error_element_not_found (error, "tee");
   }
-
   if ((save_queue = gst_element_factory_make ("queue", "save_queue")) == NULL)
   {
     cheese_camera_set_error_element_not_found (error, "queue");
@@ -468,7 +466,7 @@ cheese_camera_create_video_display_bin (CheeseCamera *camera, GError **error)
   {
     cheese_camera_set_error_element_not_found (error, "queue");
   }
-
+#if 0
   if ((video_scale = gst_element_factory_make ("videoscale", "video_scale")) == NULL)
   {
     cheese_camera_set_error_element_not_found (error, "videoscale");
@@ -478,7 +476,7 @@ cheese_camera_create_video_display_bin (CheeseCamera *camera, GError **error)
     /* Use bilinear scaling */
     g_object_set (video_scale, "method", 1, NULL);
   }
-
+#endif
   if ((video_sink = gst_element_factory_make ("gconfvideosink", "video_sink")) == NULL)
   {
     cheese_camera_set_error_element_not_found (error, "gconfvideosink");
@@ -488,18 +486,18 @@ cheese_camera_create_video_display_bin (CheeseCamera *camera, GError **error)
     return FALSE;
 
   gst_bin_add_many (GST_BIN (priv->video_display_bin), priv->camera_source_bin,
-                    priv->effect_filter, priv->csp_post_effect,
-                    priv->video_balance, priv->csp_post_balance,
+                    /*priv->effect_filter,*/ priv->csp_post_effect,
+                    /*priv->video_balance,*/ priv->csp_post_balance,
                     tee, save_queue,
-                    video_display_queue, video_scale, video_sink, NULL);
+                    video_display_queue, /*video_scale,*/ video_sink, NULL);
 
-  ok = gst_element_link_many (priv->camera_source_bin, priv->effect_filter,
-                              priv->csp_post_effect,
-                              priv->video_balance, priv->csp_post_balance,
+  ok = gst_element_link_many (priv->camera_source_bin, /*priv->effect_filter,*/
+                              /*priv->csp_post_effect,*/
+                              /*priv->video_balance, priv->csp_post_balance,*/
                               tee, NULL);
 
+  ok &= gst_element_link_many (tee, video_display_queue, /*video_scale,*/ video_sink, NULL);
   ok &= gst_element_link_many (tee, save_queue, NULL);
-  ok &= gst_element_link_many (tee, video_display_queue, video_scale, video_sink, NULL);
 
   /* add ghostpad */
   pad = gst_element_get_pad (save_queue, "src");
@@ -567,7 +565,7 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
   CheeseCameraPrivate *priv = CHEESE_CAMERA_GET_PRIVATE (camera);
 
   GstElement *audio_queue, *audio_convert, *audio_enc;
-  GstElement *video_save_csp, *video_save_rate, *video_save_scale, *video_enc;
+  GstElement *video_save_csp, *video_save_rate, *video_save_scale, *video_enc, *video_caps;
   GstElement *mux;
   GstPad     *pad;
   gboolean    ok;
@@ -586,10 +584,14 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
   {
     cheese_camera_set_error_element_not_found (error, "audioconvert");
   }
-  /*if ((audio_enc = gst_element_factory_make ("vorbisenc", "audio_enc")) == NULL)
+  if ((audio_enc = gst_element_factory_make ("ffenc_ac3", "audio_enc")) == NULL)
   {
-    cheese_camera_set_error_element_not_found (error, "vorbisenc");
-  }*/
+    cheese_camera_set_error_element_not_found (error, "ffenc_ac3");
+  }
+  if ((video_caps = gst_element_factory_make ("capsfilter", "video_caps")) == NULL)
+  {
+    cheese_camera_set_error_element_not_found (error, "capsfilter");
+  }
 
   if ((video_save_csp = gst_element_factory_make ("ffmpegcolorspace", "video_save_csp")) == NULL)
   {
@@ -614,9 +616,9 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
     g_object_set (video_save_scale, "method", 1, NULL);
   }
 
-  if ((mux = gst_element_factory_make ("avimux", "mux")) == NULL)
+  if ((mux = gst_element_factory_make ("matroskamux", "mux")) == NULL)
   {
-    cheese_camera_set_error_element_not_found (error, "avimux");
+    cheese_camera_set_error_element_not_found (error, "matroskamux");
   }
 
   if ((priv->video_file_sink = gst_element_factory_make ("filesink", "video_file_sink")) == NULL)
@@ -628,21 +630,28 @@ cheese_camera_create_video_save_bin (CheeseCamera *camera, GError **error)
     return FALSE;
 
   gst_bin_add_many (GST_BIN (priv->video_save_bin), priv->audio_source, audio_queue,
-                    audio_convert, video_save_csp, video_save_rate, video_enc,
+                    audio_convert, audio_enc, /*video_save_csp, video_save_rate,*/ video_caps, video_enc,
                     mux, priv->video_file_sink, NULL);
 
   /* add ghostpad */
-  pad = gst_element_get_pad (video_save_csp, "sink");
+  pad = gst_element_get_pad (video_caps, "sink");
   gst_element_add_pad (priv->video_save_bin, gst_ghost_pad_new ("sink", pad));
   gst_object_unref (GST_OBJECT (pad));
 
-
   ok = gst_element_link_many (priv->audio_source, audio_queue, audio_convert,
-                              mux, priv->video_file_sink, NULL);
+                              audio_enc, mux, priv->video_file_sink, NULL);
 
-  ok &= gst_element_link_many (video_save_csp, video_save_rate, video_enc,
+  GstCaps *caps = gst_caps_new_simple ("video/x-raw-yuv",
+                              "format", GST_TYPE_FOURCC, GST_MAKE_FOURCC ('N', 'V', '1', '2'),
+                              "framerate", GST_TYPE_FRACTION, 30, 1,
+                              NULL);
+  //ok = gst_element_link_filtered (video_caps, video_enc, caps);
+  g_object_set (G_OBJECT (video_caps), "caps", caps, NULL);
+  gst_caps_unref (caps);
+
+  ok &= gst_element_link_many (/*video_save_csp, video_save_rate,*/ video_caps, video_enc, mux,
                                NULL);
-  ok &= gst_element_link (video_enc, mux);
+  //ok &= gst_element_link (video_enc, mux);
 
   if (!ok)
     g_error ("Unable to create video save pipeline");
@@ -771,6 +780,7 @@ cheese_camera_stop (CheeseCamera *camera)
 static void
 cheese_camera_change_effect_filter (CheeseCamera *camera, GstElement *new_filter)
 {
+#if 0
   CheeseCameraPrivate *priv = CHEESE_CAMERA_GET_PRIVATE (camera);
 
   gboolean is_playing = priv->pipeline_is_playing;
@@ -792,11 +802,13 @@ cheese_camera_change_effect_filter (CheeseCamera *camera, GstElement *new_filter
     cheese_camera_play (camera);
 
   priv->effect_filter = new_filter;
+#endif
 }
 
 void
 cheese_camera_set_effect (CheeseCamera *camera, CheeseCameraEffect effect)
 {
+#if 0
   GString    *rgb_effects_str = g_string_new ("");
   GString    *yuv_effects_str = g_string_new ("");
   char       *effects_pipeline_desc;
@@ -837,6 +849,7 @@ cheese_camera_set_effect (CheeseCamera *camera, CheeseCameraEffect effect)
   g_free (effects_pipeline_desc);
   g_string_free (rgb_effects_str, TRUE);
   g_string_free (yuv_effects_str, TRUE);
+#endif
 }
 
 void
