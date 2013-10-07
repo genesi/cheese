@@ -63,6 +63,7 @@ static gchar *supported_formats[] = {
 
 /* FIXME: make this configurable */
 #define CHEESE_MAXIMUM_RATE 30 /* fps */
+#define CHEESE_MULTI_FORMAT_ENABLE 1
 
 enum
 {
@@ -201,6 +202,18 @@ free_format_list (CheeseCameraDevice *device)
   priv->formats = NULL;
 }
 
+static inline gboolean
+dim_within_max(int dim, int max)
+{
+	return (dim <= max) && (dim > 0);
+}
+
+static inline gboolean
+dim_within_min(int dim, int min)
+{
+	return (dim > min) && (dim > 0);
+}
+
 static void
 cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
 {
@@ -217,7 +230,7 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
   cheese_camera_device_add_format (device, format);
 
 
-#if 0
+#if CHEESE_MULTI_FORMAT_ENABLE
   num_structures = gst_caps_get_size (priv->caps);
   for (i = 0; i < num_structures; i++)
   {
@@ -251,7 +264,8 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
 
       /* Gstreamer will sometimes give us a range with min_xxx == max_xxx,
        * we use <= here (and not below) to make this work */
-      while (cur_width <= max_width && cur_height <= max_height)
+      while (dim_within_max(cur_width, max_width) && 
+	     dim_within_max(cur_height,max_height) )
       {
         CheeseVideoFormat *format = g_new0 (CheeseVideoFormat, 1);
 
@@ -266,7 +280,8 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
 
       cur_width  = max_width;
       cur_height = max_height;
-      while (cur_width > min_width && cur_height > min_height)
+      while (dim_within_min(cur_width, min_width) && 
+             dim_within_min(cur_height,min_height) )
       {
         CheeseVideoFormat *format = g_new0 (CheeseVideoFormat, 1);
 
@@ -284,7 +299,7 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
       g_critical ("GValue type %s, cannot be handled for resolution width", G_VALUE_TYPE_NAME (width));
     }
   }
-#endif
+#endif /*CHEESE_MULTI_FORMAT_ENABLE*/
 }
 
 static void
