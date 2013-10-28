@@ -737,12 +737,23 @@ cheese_camera_switch_camera_device (CheeseCamera *camera)
   return TRUE;
 }
 
-void
-cheese_camera_play (CheeseCamera *camera)
+/**
+ * cheese_camera_play:
+ * @camera: a #CheeseCamera
+ *
+ * Set the state of the GStreamer pipeline associated with the #CheeseCamera to
+ * playing.
+ */
+
+static void
+cheese_camera_set_new_caps (CheeseCamera *camera)
 {
-  CheeseCameraPrivate *priv   = CHEESE_CAMERA_GET_PRIVATE (camera);
-  CheeseCameraDevice  *device = g_ptr_array_index (priv->camera_devices, priv->selected_device);
+  CheeseCameraPrivate *priv    = CHEESE_CAMERA_GET_PRIVATE (camera);
+  CheeseCameraDevice  *device  = g_ptr_array_index (priv->camera_devices, priv->selected_device);
   GstCaps             *caps;
+
+  GST_DEBUG ("settng caps for format %dx%d", 
+    priv->current_format->width, priv->current_format->height);
 
   caps = cheese_camera_device_get_caps_for_format (device, priv->current_format);
 
@@ -753,6 +764,7 @@ cheese_camera_play (CheeseCamera *camera)
     priv->current_format = cheese_camera_device_get_best_format (device);
     g_object_notify (G_OBJECT (camera), "format");
     caps = cheese_camera_device_get_caps_for_format (device, priv->current_format);
+
     if (G_UNLIKELY (gst_caps_is_empty (caps)))
     {
       gst_caps_unref (caps);
@@ -760,12 +772,28 @@ cheese_camera_play (CheeseCamera *camera)
     }
   }
 
+  GST_INFO_OBJECT (camera, "setting caps%" GST_PTR_FORMAT, caps);
   g_object_set (priv->capsfilter, "caps", caps, NULL);
-  gst_caps_unref (caps);
 
+  gst_caps_unref (caps);
+}
+
+void
+cheese_camera_play (CheeseCamera *camera)
+{
+  CheeseCameraPrivate *priv   = CHEESE_CAMERA_GET_PRIVATE (camera);
+  cheese_camera_set_new_caps (camera);
   gst_element_set_state (priv->pipeline, GST_STATE_PLAYING);
   priv->pipeline_is_playing = TRUE;
 }
+
+/**
+ * cheese_camera_stop:
+ * @camera: a #CheeseCamera
+ *
+ * Set the state of the GStreamer pipeline associated with the #CheeseCamera to
+ * stopped.
+ */
 
 void
 cheese_camera_stop (CheeseCamera *camera)

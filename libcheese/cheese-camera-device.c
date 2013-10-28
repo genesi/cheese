@@ -224,10 +224,6 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
   int num_structures;
 
   free_format_list (device);
-  CheeseVideoFormat *format = g_new0 (CheeseVideoFormat, 1);
-  format->width = 640;
-  format->height = 480;
-  cheese_camera_device_add_format (device, format);
 
 
 #if CHEESE_MULTI_FORMAT_ENABLE
@@ -299,6 +295,11 @@ cheese_webcam_device_update_format_table (CheeseCameraDevice *device)
       g_critical ("GValue type %s, cannot be handled for resolution width", G_VALUE_TYPE_NAME (width));
     }
   }
+#else
+  CheeseVideoFormat *format = g_new0 (CheeseVideoFormat, 1);
+  format->width = 640;
+  format->height = 480;
+  cheese_camera_device_add_format (device, format);
 #endif /*CHEESE_MULTI_FORMAT_ENABLE*/
 }
 
@@ -315,6 +316,8 @@ cheese_camera_device_get_caps (CheeseCameraDevice *device)
   GstBus              *bus;
   GError              *err = NULL;
 
+  GST_DEBUG("Creating pipeline: priv->src: %s, priv->device: %s",
+            priv->src, priv->device);
   pipeline_desc = g_strdup_printf ("%s name=source device=%s ! fakesink",
                                    priv->src, priv->device);
   pipeline = gst_parse_launch (pipeline_desc, &err);
